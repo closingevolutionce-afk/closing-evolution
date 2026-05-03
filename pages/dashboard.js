@@ -163,6 +163,24 @@ function FicheModal({ sub, onClose }) {
               <Field label="Prochaine action" value={sub.prochaine_action} />
             </div>
           </div>
+
+          {(sub.date_followup || sub.note_followup) && (
+            <>
+              <div className="border-t border-[#F5E8D8] my-4" />
+              <div className="bg-[#1C1410] rounded-xl p-4 flex items-center gap-4">
+                <span className="text-2xl">📅</span>
+                <div>
+                  <p className="text-xs font-bold text-white/50 uppercase tracking-widest mb-0.5">Follow-up</p>
+                  {sub.date_followup && (
+                    <p className="text-white font-bold">
+                      {new Date(sub.date_followup).toLocaleDateString('fr-FR', { weekday: 'long', day: 'numeric', month: 'long' })}
+                    </p>
+                  )}
+                  {sub.note_followup && <p className="text-white/70 text-sm mt-0.5">{sub.note_followup}</p>}
+                </div>
+              </div>
+            </>
+          )}
         </div>
       </div>
     </div>
@@ -371,10 +389,16 @@ export default function Dashboard() {
                   color="text-[#E8613A]"
                 />
                 <StatCard
-                  label="Frein financier"
-                  value={submissions.filter((s) => s.frein_principal === 'financier').length}
-                  sub={total ? `${Math.round((submissions.filter(s => s.frein_principal === 'financier').length / total) * 100)}% du total` : '-'}
-                  color="text-amber-600"
+                  label="FUP cette semaine"
+                  value={submissions.filter((s) => {
+                    if (!s.date_followup) return false
+                    const d = new Date(s.date_followup)
+                    const now = new Date()
+                    const in7 = new Date(); in7.setDate(now.getDate() + 7)
+                    return d >= now && d <= in7
+                  }).length}
+                  sub="Relances à faire"
+                  color="text-[#1C1410]"
                 />
               </div>
 
@@ -503,6 +527,7 @@ export default function Dashboard() {
                           <th className="px-4 py-3 text-left font-semibold">Souffrance</th>
                           <th className="px-4 py-3 text-left font-semibold">Frein</th>
                           <th className="px-4 py-3 text-left font-semibold">Maturité</th>
+                          <th className="px-4 py-3 text-left font-semibold">FUP</th>
                           <th className="px-4 py-3" />
                         </tr>
                       </thead>
@@ -542,6 +567,25 @@ export default function Dashboard() {
                                   {MATURITE_LABELS[s.niveau_maturite] || s.niveau_maturite}
                                 </span>
                               ) : '—'}
+                            </td>
+                            <td className="px-4 py-4 text-xs whitespace-nowrap">
+                              {s.date_followup ? (() => {
+                                const d = new Date(s.date_followup)
+                                const now = new Date()
+                                const diff = Math.ceil((d - now) / (1000 * 60 * 60 * 24))
+                                const label = d.toLocaleDateString('fr-FR', { day: 'numeric', month: 'short' })
+                                const urgent = diff <= 2 && diff >= 0
+                                const late = diff < 0
+                                return (
+                                  <span className={`font-semibold px-2 py-1 rounded-md ${
+                                    late ? 'bg-red-100 text-red-700' :
+                                    urgent ? 'bg-amber-100 text-amber-700' :
+                                    'bg-green-50 text-green-700'
+                                  }`}>
+                                    {late ? '⚠️ ' : urgent ? '🔔 ' : '📅 '}{label}
+                                  </span>
+                                )
+                              })() : '—'}
                             </td>
                             <td className="px-4 py-4">
                               <button

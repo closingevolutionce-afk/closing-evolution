@@ -19,6 +19,7 @@ export default async function handler(req, res) {
     'date_importante', 'succes_reconversion', 'accroche_methode', 'hesitation_methode',
     'comparaison_offres', 'prix_en_tete', 'reaction_prix', 'vrai_frein',
     'niveau_maturite', 'urgence_naturelle', 'manque_signature', 'prochaine_action',
+    'date_followup', 'note_followup',
   ]
 
   const headers = [
@@ -30,6 +31,7 @@ export default async function handler(req, res) {
     'Date importante', 'Succès reconversion', 'Accroche méthode', 'Hésitation méthode',
     'Comparaison offres', 'Prix en tête', 'Réaction prix', 'Vrai frein',
     'Niveau maturité', 'Urgence naturelle', 'Manque signature', 'Prochaine action',
+    'Date FUP', 'Note FUP',
   ]
 
   const escape = (val) => {

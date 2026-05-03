@@ -48,7 +48,9 @@ CREATE TABLE IF NOT EXISTS submissions (
   urgence_naturelle TEXT,
   manque_signature TEXT,
   prenom_closer TEXT,
-  prochaine_action TEXT
+  prochaine_action TEXT,
+  date_followup DATE,
+  note_followup TEXT
 );
 
 -- Active Row Level Security

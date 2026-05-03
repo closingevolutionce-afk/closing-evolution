@@ -50,6 +50,8 @@ export default async function handler(req, res) {
         manque_signature: body.manque_signature,
         prenom_closer: body.prenom_closer,
         prochaine_action: body.prochaine_action,
+        date_followup: body.date_followup || null,
+        note_followup: body.note_followup,
       }])
       .select()
 

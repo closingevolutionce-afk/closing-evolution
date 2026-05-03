@@ -42,6 +42,8 @@ const INITIAL_FORM = {
   manque_signature: '',
   prenom_closer: '',
   prochaine_action: '',
+  date_followup: '',
+  note_followup: '',
 }
 
 function ToggleGroup({ options, value, onChange }) {
@@ -593,7 +595,7 @@ export default function FormPage() {
               />
             </div>
 
-            <div className="question-block mb-0">
+            <div className="question-block">
               <label className="question-label">Prochaine action convenue</label>
               <input
                 className="input-field"
@@ -602,6 +604,31 @@ export default function FormPage() {
                 value={form.prochaine_action}
                 onChange={set('prochaine_action')}
               />
+            </div>
+
+            <div className="bg-[#1C1410]/5 rounded-xl p-4 border border-[#1C1410]/10">
+              <p className="text-xs font-bold text-[#1C1410] uppercase tracking-widest mb-3">📅 Follow-up (FUP)</p>
+              <div className="grid grid-cols-2 gap-3">
+                <div>
+                  <label className="question-label">Date de recontact</label>
+                  <input
+                    className="input-field"
+                    type="date"
+                    value={form.date_followup}
+                    onChange={set('date_followup')}
+                  />
+                </div>
+                <div>
+                  <label className="question-label">Note FUP</label>
+                  <input
+                    className="input-field"
+                    type="text"
+                    placeholder="ex: rappeler le soir, attendre son mari..."
+                    value={form.note_followup}
+                    onChange={set('note_followup')}
+                  />
+                </div>
+              </div>
             </div>
           </div>
 

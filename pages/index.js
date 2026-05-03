@@ -574,28 +574,34 @@ export default function FormPage() {
               />
             </div>
 
-            <div className="grid grid-cols-2 gap-4">
-              <div className="question-block mb-0">
-                <label className="question-label">Ton prénom (closer)</label>
-                <input
-                  className="input-field"
-                  type="text"
-                  placeholder="ex: Lucas"
-                  value={form.prenom_closer}
-                  onChange={set('prenom_closer')}
-                  required
-                />
-              </div>
-              <div className="question-block mb-0">
-                <label className="question-label">Prochaine action convenue</label>
-                <input
-                  className="input-field"
-                  type="text"
-                  placeholder="ex: Rappel jeudi 14h, envoi devis..."
-                  value={form.prochaine_action}
-                  onChange={set('prochaine_action')}
-                />
-              </div>
+            <div className="question-block">
+              <label className="question-label">Qui es-tu ? (closer)</label>
+              <ToggleGroup
+                value={form.prenom_closer}
+                onChange={(v) => setDirect('prenom_closer', v)}
+                options={[
+                  { value: 'Marie', label: 'Marie' },
+                  { value: 'Sophie', label: 'Sophie' },
+                  { value: 'Laetitia', label: 'Laetitia' },
+                  { value: 'Evelyne', label: 'Evelyne' },
+                  { value: 'Isabelle G', label: 'Isabelle G' },
+                  { value: 'Isa', label: 'Isa' },
+                  { value: 'Chirine', label: 'Chirine' },
+                  { value: 'Mohammed', label: 'Mohammed' },
+                  { value: 'Oumaya', label: 'Oumaya' },
+                ]}
+              />
+            </div>
+
+            <div className="question-block mb-0">
+              <label className="question-label">Prochaine action convenue</label>
+              <input
+                className="input-field"
+                type="text"
+                placeholder="ex: Rappel jeudi 14h, envoi devis..."
+                value={form.prochaine_action}
+                onChange={set('prochaine_action')}
+              />
             </div>
           </div>
 

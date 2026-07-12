@@ -1,0 +1,961 @@
+{
+  "meta": {
+    "nom": "Closing Evolution",
+    "description": "Formation closing francophone de Chirine et Emilien Besnardeau",
+    "prix": "2500€",
+    "hebergement": "Systeme.io",
+    "objectif": "Amener les closers de 0 à 70%+ de taux de closing",
+    "standard_marche": "40% de taux de closing en France",
+    "cible": "70% et plus"
+  },
+  "architecture": {
+    "niveaux": [
+      {
+        "id": "fondations",
+        "nom": "Niveau 1 — Fondations",
+        "modules": ["M0", "M1", "M2", "M3"]
+      },
+      {
+        "id": "pratique",
+        "nom": "Niveau 2 — Pratique Avancée",
+        "modules": ["M4", "M5", "M6", "M6BIS", "M7", "M8", "M9", "M10", "MS"]
+      },
+      {
+        "id": "elite",
+        "nom": "Niveau 3 — Élite",
+        "modules": ["MAMB", "M11", "M12", "M13", "M14", "M15", "MELI"]
+      }
+    ]
+  },
+  "modules": {
+    "M0": {
+      "titre": "Mindset du closer d'élite",
+      "niveau": "fondations",
+      "duree": "45 min",
+      "objectif": "Installer les 6 croyances omnipotentes avant toute technique",
+      "concepts_cles": [
+        "La vente est un transfert de conviction — si tu doutes, c'est game over",
+        "6 croyances omnipotentes : je suis légitime / j'aide vraiment / le prix est juste / le prospect mérite ce changement / je contrôle l'appel / la décision maintenant est la meilleure",
+        "Identité du closer : entrepreneur, pas employé",
+        "Le closing n'est pas de la manipulation — c'est servir le prospect malgré lui",
+        "L'état d'esprit précède la technique — sans mindset, les scripts ne servent à rien"
+      ],
+      "bangers": [
+        "La vente c'est un transfert de conviction. Si toi tu doutes — c'est game over.",
+        "On ne vend pas des programmes. On change des trajectoires de vie.",
+        "Je te vends pas du rêve. Je t'apprends à le bâtir."
+      ],
+      "quiz": [
+        {
+          "question": "Combien y a-t-il de croyances omnipotentes dans CE ?",
+          "reponse": "6",
+          "options": ["3", "6", "8", "10"]
+        },
+        {
+          "question": "La vente est un transfert de...",
+          "reponse": "conviction",
+          "options": ["produit", "conviction", "technique", "script"]
+        },
+        {
+          "question": "Quel est le premier pilier du mindset closer ?",
+          "reponse": "Je suis légitime",
+          "options": ["Je connais mon script", "Je suis légitime", "Je veux vendre", "J'ai de l'expérience"]
+        }
+      ]
+    },
+    "M1": {
+      "titre": "Identité, Posture & DISC x Closing",
+      "niveau": "fondations",
+      "duree": "50 min",
+      "objectif": "Construire l'identité du closer et lire les profils DISC en appel",
+      "concepts_cles": [
+        "4 profils DISC : D (dominant/direct), I (influent/émotionnel), S (stable/lent), C (consciencieux/analytique)",
+        "Adapter son approche selon le profil DISC du prospect",
+        "Posture haute : jamais en position de demandeur",
+        "Identité closer = entrepreneur indépendant, pas commercial salarié",
+        "La posture se ressent dans les 30 premières secondes"
+      ],
+      "disc": {
+        "D": {
+          "nom": "Dominant",
+          "traits": ["direct", "décideur", "impatient", "résultats"],
+          "approche": "Aller direct, pas de blabla, parler ROI et résultats"
+        },
+        "I": {
+          "nom": "Influent",
+          "traits": ["émotionnel", "sociable", "enthousiaste", "relationnel"],
+          "approche": "Créer la connexion, parler vision et transformation"
+        },
+        "S": {
+          "nom": "Stable",
+          "traits": ["lent à décider", "loyal", "besoin de sécurité"],
+          "approche": "Rassurer, prendre le temps, ne pas forcer"
+        },
+        "C": {
+          "nom": "Consciencieux",
+          "traits": ["analytique", "logique", "besoin de données", "skeptique"],
+          "approche": "Faits, chiffres, logique — pas d'émotionnel forcé"
+        }
+      },
+      "quiz": [
+        {
+          "question": "Quel profil DISC est le plus analytique et a besoin de données ?",
+          "reponse": "C",
+          "options": ["D", "I", "S", "C"]
+        },
+        {
+          "question": "Avec un profil D, quelle est la meilleure approche ?",
+          "reponse": "Aller direct, parler ROI",
+          "options": ["Créer la connexion", "Aller direct, parler ROI", "Prendre le temps", "Donner des garanties"]
+        }
+      ]
+    },
+    "M2": {
+      "titre": "Psychologie acheteur & neurosciences",
+      "niveau": "fondations",
+      "duree": "55 min",
+      "objectif": "Comprendre pourquoi les gens achètent vraiment",
+      "concepts_cles": [
+        "6 biais cognitifs utilisés en closing : réciprocité, preuve sociale, autorité, rareté, engagement, sympathie",
+        "3 forces qui poussent à l'action : douleur actuelle > peur du changement + peur du risque",
+        "Le cerveau achète avec les émotions et justifie avec la logique",
+        "Le prospect passe à l'action quand son statu quo est plus douloureux que le changement",
+        "Les gens n'achètent pas ce dont ils ont besoin — ils achètent ce qu'ils veulent ressentir"
+      ],
+      "quiz": [
+        {
+          "question": "Combien y a-t-il de biais cognitifs principaux enseignés dans CE ?",
+          "reponse": "6",
+          "options": ["3", "6", "9", "12"]
+        },
+        {
+          "question": "Le prospect achète avec...",
+          "reponse": "les émotions et justifie avec la logique",
+          "options": ["la logique uniquement", "les émotions et justifie avec la logique", "le prix", "les recommandations"]
+        }
+      ]
+    },
+    "M3": {
+      "titre": "Offres haute valeur, recrutement, écosystème",
+      "niveau": "fondations",
+      "duree": "40 min",
+      "objectif": "Choisir les bonnes offres et comprendre l'écosystème infopreneur",
+      "concepts_cles": [
+        "5 critères d'une bonne offre : qualité de la promesse / qualité des leads / structure de commission / écosystème et support / alignement de valeurs",
+        "Ticket minimum recommandé pour le closing high ticket : 1500€+",
+        "Comment se faire recruter : skills d'abord, réseau ensuite",
+        "L'écosystème infopreneur : infopreneur > HOS > closers > setters",
+        "Ne jamais travailler pour une offre dont tu ne crois pas — ça se ressent"
+      ],
+      "quiz": [
+        {
+          "question": "Combien y a-t-il de critères pour évaluer une bonne offre dans CE ?",
+          "reponse": "5",
+          "options": ["3", "5", "7", "10"]
+        },
+        {
+          "question": "Quel est le ticket minimum recommandé pour le closing high ticket ?",
+          "reponse": "1500€+",
+          "options": ["500€+", "1000€+", "1500€+", "3000€+"]
+        }
+      ]
+    },
+    "M4": {
+      "titre": "Cadrage, ouverture et connexion authentique",
+      "niveau": "pratique",
+      "duree": "50 min",
+      "objectif": "Maîtriser les 3 premiers temps d'un appel",
+      "concepts_cles": [
+        "Cadrage 3 temps : accueil / cadrage de l'appel / question d'ouverture",
+        "Question d'ouverture : 'Qu'est-ce qui t'a amené à booker cet appel aujourd'hui ?'",
+        "Connexion authentique : montrer de la vulnérabilité sur son propre parcours",
+        "Verbal cueing : signaux verbaux qui indiquent l'état émotionnel du prospect",
+        "Ne jamais commencer par pitcher — toujours commencer par écouter",
+        "Le cadrage pose les règles du jeu : toi tu poses les questions, lui il répond"
+      ],
+      "scripts": {
+        "ouverture": "Super de te retrouver. Donc pour qu'on tire le maximum de cet appel, j'ai quelques questions à te poser pour vraiment comprendre ta situation. C'est OK pour toi ?",
+        "question_ouverture": "Qu'est-ce qui t'a amené à booker cet appel aujourd'hui, concrètement ?"
+      },
+      "quiz": [
+        {
+          "question": "Combien de temps compte le cadrage d'ouverture dans CE ?",
+          "reponse": "3",
+          "options": ["2", "3", "4", "5"]
+        },
+        {
+          "question": "Quelle est la question d'ouverture recommandée dans CE ?",
+          "reponse": "Qu'est-ce qui t'a amené à booker cet appel aujourd'hui ?",
+          "options": [
+            "Tu fais quoi dans la vie ?",
+            "Qu'est-ce qui t'a amené à booker cet appel aujourd'hui ?",
+            "Quel est ton objectif ?",
+            "Tu connais notre offre ?"
+          ]
+        }
+      ]
+    },
+    "M5": {
+      "titre": "Discovery avancée — les 3 niveaux et l'ancrage émotionnel",
+      "niveau": "pratique",
+      "duree": "70 min",
+      "objectif": "Maîtriser la découverte profonde et l'ancrage émotionnel",
+      "concepts_cles": [
+        "Discovery = 70% de la vente. Le pitch = 30%.",
+        "3 niveaux de discovery : surface (problème) / intermédiaire (causes) / profond (impact personnel)",
+        "Coût de l'inaction : 3 questions dans l'ordre pour créer l'urgence",
+        "Chaîne des maillons : remonter chaque problème jusqu'au maillon le plus faible",
+        "Élever le niveau de conscience : faire réaliser au prospect ce qu'il ne voyait pas",
+        "7 familles d'ancrage émotionnel (méthode Petit Poucet) : famille / liberté / santé / argent / reconnaissance / sécurité / accomplissement",
+        "Trifecta : passé / présent / futur pour créer la tension émotionnelle",
+        "Miroir : répéter les 3 derniers mots du prospect pour qu'il continue",
+        "Bascule 4 questions avant le pitch",
+        "Checklist 10 cases à valider avant de pitcher",
+        "10 éléments obligatoires à obtenir : contexte / process actuels / outils / résultats / problèmes / causes racines / impacts / actions tentées / pourquoi ça n'a pas marché / perception du problème"
+      ],
+      "chaine_maillons": {
+        "definition": "Technique de discovery où chaque réponse du prospect est un maillon. On remonte la chaîne jusqu'au maillon le plus faible — c'est lui le vrai levier.",
+        "exemple": [
+          {
+            "maillon": 1,
+            "prospect": "J'arrive pas à perdre du poids",
+            "closer": "Qu'est-ce qui fait que tu n'y arrives pas ?"
+          },
+          {
+            "maillon": 2,
+            "prospect": "Je tiens pas mes bonnes résolutions",
+            "closer": "Et pourquoi tu tiens pas tes résolutions selon toi ?"
+          },
+          {
+            "maillon": 3,
+            "prospect": "Je me retrouve seul et je lâche à chaque fois",
+            "closer": "Et ça t'impacte comment dans ta vie au-delà du poids ?"
+          },
+          {
+            "maillon": 4,
+            "prospect": "Je me sens nul, j'ai l'impression de jamais finir ce que je commence — ça déborde sur tout",
+            "closer": "STOP — maillon le plus faible trouvé"
+          }
+        ],
+        "regle": "Une chaîne ne tient que par son maillon le plus faible."
+      },
+      "niveaux_douleur": [
+        {
+          "niveau": 1,
+          "nom": "Douleur tangible",
+          "description": "Le problème concret et quantifiable",
+          "exemple": "Mon CRM ne tracke pas bien mes leads"
+        },
+        {
+          "niveau": 2,
+          "nom": "Douleur business",
+          "description": "Les conséquences chiffrables sur le business",
+          "exemple": "Je perds 30% de leads, soit 40% de CA potentiel"
+        },
+        {
+          "niveau": 3,
+          "nom": "Douleur personnelle",
+          "description": "L'impact émotionnel profond sur la vie",
+          "exemple": "Je rentre à minuit, ça se passe mal avec ma femme"
+        }
+      ],
+      "couts_invisibles": "Empiler les conséquences en cascade jusqu'à ce que rester dans la situation soit inacceptable",
+      "bangers": [
+        "La découverte c'est 70% de la vente. Le pitch c'est 30%.",
+        "Une chaîne ne tient que par son maillon le plus faible.",
+        "Un client mal closé c'est un impayé qui arrive."
+      ],
+      "quiz": [
+        {
+          "question": "Quel pourcentage de la vente représente la discovery selon CE ?",
+          "reponse": "70%",
+          "options": ["30%", "50%", "70%", "90%"]
+        },
+        {
+          "question": "Combien y a-t-il de familles d'ancrage émotionnel dans CE ?",
+          "reponse": "7",
+          "options": ["3", "5", "7", "9"]
+        },
+        {
+          "question": "Dans la chaîne des maillons, qu'est-ce qu'on cherche ?",
+          "reponse": "Le maillon le plus faible",
+          "options": ["Le premier problème", "Le problème financier", "Le maillon le plus faible", "La solution idéale"]
+        }
+      ]
+    },
+    "M6": {
+      "titre": "Les objections — traitement et posture",
+      "niveau": "pratique",
+      "duree": "60 min",
+      "objectif": "Traiter toutes les objections avec le bon framework",
+      "concepts_cles": [
+        "3 causes des objections : mauvaise discovery / prospect non qualifié / vraie objection",
+        "Il n'y a que 2 vraies objections : ARGENT (logistique) et PEUR (incertitude)",
+        "Tout le reste est du bullshit — y revenir toujours",
+        "Coup de boule bienveillant : confronter avec bienveillance quand le prospect bullshitte",
+        "Posture stoïque : phrases courtes, une question à la fois, silence",
+        "Prospect non qualifié : savoir dire non et archiver",
+        "Règles d'or des objections"
+      ],
+      "objections_principales": {
+        "je vais reflechir": {
+          "vraie_objection": "Incertitude / peur",
+          "traitement": "Rediriger vers l'incertitude. 'Qu'est-ce qui fait que tu as besoin de réfléchir ?' puis identifier argent ou peur"
+        },
+        "trop cher": {
+          "vraie_objection": "Argent OU peur (identifier d'abord)",
+          "traitement": "Question de split : 'Est-ce que c'est uniquement une question de finances ou il y a autre chose ?'"
+        },
+        "mon conjoint": {
+          "vraie_objection": "Peur / validation externe",
+          "traitement": "Identifier si c'est une vraie contrainte ou une excuse. 'Si ton conjoint était ok, tu te lancerais ?'"
+        },
+        "je veux comparer": {
+          "vraie_objection": "Peur / manque de valeur perçue",
+          "traitement": "Tie-down avant preuves. 'Si je te montre X, tu decides quoi ?' puis montrer"
+        }
+      },
+      "posture_stoique": {
+        "definition": "Rester calme, parler peu, poser une question courte et attendre",
+        "regles": [
+          "Maximum 10 mots par phrase en objection",
+          "Une seule question à la fois",
+          "Silence après chaque question",
+          "Ne jamais argumenter — toujours questionner"
+        ]
+      },
+      "quiz": [
+        {
+          "question": "Combien y a-t-il de vraies objections selon CE ?",
+          "reponse": "2",
+          "options": ["1", "2", "3", "5"]
+        },
+        {
+          "question": "Quelles sont les 2 vraies objections ?",
+          "reponse": "Argent et Peur",
+          "options": ["Prix et Timing", "Argent et Peur", "Conjoint et Réflexion", "Confiance et Budget"]
+        },
+        {
+          "question": "Qu'est-ce que la posture stoïque implique ?",
+          "reponse": "Phrases courtes, une question, silence",
+          "options": [
+            "Parler beaucoup pour convaincre",
+            "Phrases courtes, une question, silence",
+            "Montrer les témoignages",
+            "Proposer une réduction"
+          ]
+        }
+      ]
+    },
+    "M6BIS": {
+      "titre": "Framework Split — Traiter n'importe quelle objection",
+      "niveau": "pratique",
+      "duree": "45 min",
+      "objectif": "Maîtriser le seul framework universel de traitement d'objections",
+      "framework_split": {
+        "definition": "Identifier si l'objection est LOGISTIQUE (argent) ou PEUR avant de la traiter",
+        "question_split": "Est-ce que c'est uniquement une question de finances ou il y a autre chose ?",
+        "cas_1_logistique": {
+          "signal": "Il dit vraiment qu'il n'a pas les fonds",
+          "traitement": "Plan de paiement : combien tu as / on fait X fois Y / dans 30 jours tu trouves le reste ?",
+          "attention": "Si nouvelle objection après plan de paiement → c'est la peur qui reprend"
+        },
+        "cas_2_peur": {
+          "signal": "Il accepte le plan mais sort une autre excuse / dit 'c'est pas que l'argent'",
+          "second_split": "Peur de toi (pas confiance en toi pour aller au bout) ou peur de nous (pas assez de preuves) ?",
+          "peur_de_soi": {
+            "signal": "Peur de ne pas aller au bout, manque de confiance en lui",
+            "traitement": "C'est exactement pour ça que tu es là. Si c'était garanti, tu le ferais ? Alors allons-y ensemble.",
+            "script": "Ta peur de pas aller au bout, c'est exactement le schéma qu'on va travailler ensemble. Est-ce que tu vas laisser cette peur te voler cette opportunité ?"
+          },
+          "peur_de_entreprise": {
+            "signal": "Pas assez de preuves, veut comparer, manque de confiance dans l'offre",
+            "traitement": "Tie-down AVANT les preuves",
+            "script": "Si je te montre des résultats de personnes avec exactement ton profil, qu'est-ce que tu décides à ce moment-là ?"
+          }
+        },
+        "regle_or": "Une question courte. Silence. Une question à la fois. Au plus tu parles, moins tu as d'autorité."
+      },
+      "followup_non": {
+        "regle": "Une seule phrase impactante — jamais un pavé",
+        "exemples": [
+          "Pendant encore combien de temps tu veux m'envoyer des messages pour expliquer pourquoi tu peux pas agir ?",
+          "Est-ce que tu as envie de laisser cette peur te voler cette opportunité ?",
+          "Qu'est-ce qui te coûte le plus cher : rester comme ça ou changer ça ?"
+        ]
+      },
+      "quiz": [
+        {
+          "question": "Quelle est la question de Split ?",
+          "reponse": "Est-ce uniquement une question de finances ou il y a autre chose ?",
+          "options": [
+            "Tu as l'argent ?",
+            "Quel est ton budget ?",
+            "Est-ce uniquement une question de finances ou il y a autre chose ?",
+            "Tu veux réfléchir ?"
+          ]
+        },
+        {
+          "question": "Quelle est la règle d'or du Framework Split ?",
+          "reponse": "Une question courte, silence, une à la fois",
+          "options": [
+            "Argumenter beaucoup",
+            "Montrer les témoignages",
+            "Une question courte, silence, une à la fois",
+            "Proposer une réduction"
+          ]
+        }
+      ]
+    },
+    "M7": {
+      "titre": "Communication vocale et présence",
+      "niveau": "pratique",
+      "duree": "40 min",
+      "objectif": "Maîtriser l'intonation, le débit et la présence en appel",
+      "concepts_cles": [
+        "3 intonations clés : curieuse (discovery) / sceptique (objections) / autorité (pitch et conclusion)",
+        "Intonation curieuse : voix qui monte légèrement — désarme les gardes",
+        "Intonation sceptique : voix plate et basse — le prospect revient vers toi",
+        "Intonation autorité : stable, lent, volume constant — crée la confiance",
+        "3 types de silences : silence de réflexion / silence de pression / silence de validation",
+        "Protocole vocal : débit lent sur les moments clés, pause avant les questions importantes",
+        "Sans la bonne intonation, les mots n'ont aucun impact"
+      ],
+      "quiz": [
+        {
+          "question": "Quelle intonation utilise-t-on en phase de discovery ?",
+          "reponse": "Curieuse",
+          "options": ["Sceptique", "Curieuse", "Autorité", "Neutre"]
+        },
+        {
+          "question": "Combien y a-t-il de types de silences dans CE ?",
+          "reponse": "3",
+          "options": ["1", "2", "3", "4"]
+        }
+      ]
+    },
+    "M8": {
+      "titre": "Débrief et auto-analyse",
+      "niveau": "pratique",
+      "duree": "45 min",
+      "objectif": "Analyser ses appels pour progresser exponentiellement",
+      "concepts_cles": [
+        "5 passes de débrief : contexte / discovery / pitch / objections / conclusion",
+        "6 erreurs du closer moyen : trop parler / pitcher trop tôt / pas de silence / traiter la mauvaise objection / manque de curiosité / pas de contrôle",
+        "Analyser 1 appel par semaine minimum = levier de progression numéro 1",
+        "Le closer qui n'analyse pas ses appels ne peut pas progresser",
+        "Intentionnalité : chaque appel a un objectif précis défini avant"
+      ],
+      "six_erreurs": [
+        "Trop parler — le prospect doit parler 70% du temps",
+        "Pitcher trop tôt — avant d'avoir les 10 éléments",
+        "Pas assez de silence — le silence est une arme",
+        "Traiter la mauvaise objection — traiter le bullshit au lieu de la vraie objection",
+        "Manque de curiosité active — écouter les mots sans comprendre le sens",
+        "Perdre le contrôle de la conversation"
+      ],
+      "quiz": [
+        {
+          "question": "Combien y a-t-il de passes dans le débrief CE ?",
+          "reponse": "5",
+          "options": ["3", "5", "7", "10"]
+        },
+        {
+          "question": "Quel est le levier de progression numéro 1 selon CE ?",
+          "reponse": "Analyser ses appels",
+          "options": ["Faire plus de roleplays", "Lire des livres", "Analyser ses appels", "Avoir plus de leads"]
+        }
+      ]
+    },
+    "M9": {
+      "titre": "Métriques et CRM",
+      "niveau": "pratique",
+      "duree": "35 min",
+      "objectif": "Piloter sa performance avec les bons indicateurs",
+      "concepts_cles": [
+        "4 métriques clés : taux de showup / taux de closing / panier moyen / CA mensuel",
+        "Dashboard 3 minutes : revue quotidienne en moins de 3 minutes",
+        "CRM 5 colonnes : À contacter / En conversation / Lien envoyé / RDV booké / Archivé",
+        "Color coding : vert (chaud) / orange (tiède) / rouge (froid)",
+        "Si tu ne mesures pas, tu ne peux pas améliorer"
+      ],
+      "quiz": [
+        {
+          "question": "Combien y a-t-il de métriques clés dans CE ?",
+          "reponse": "4",
+          "options": ["2", "4", "6", "8"]
+        },
+        {
+          "question": "Combien de colonnes a le CRM recommandé dans CE ?",
+          "reponse": "5",
+          "options": ["3", "4", "5", "6"]
+        }
+      ]
+    },
+    "M10": {
+      "titre": "Showup, énergie et protocole pre-call",
+      "niveau": "pratique",
+      "duree": "40 min",
+      "objectif": "Arriver en état optimal à chaque appel",
+      "concepts_cles": [
+        "3 leviers du showup : énergie physique / état mental / préparation technique",
+        "Protocole pre-call 15 minutes en 5 étapes",
+        "Blitz Creck : technique d'activation mentale avant l'appel",
+        "Gestion de l'énergie sur la journée : pas plus de 4-5 appels consécutifs",
+        "Le showup commence la veille : sommeil, alimentation, sport"
+      ],
+      "protocole_precall": [
+        "1. Relire le contexte du prospect (5 min)",
+        "2. Visualiser l'appel qui se passe bien (2 min)",
+        "3. Blitz Creck activation (2 min)",
+        "4. Vérifier le setup technique (1 min)",
+        "5. Respiration et ancrage (1 min)"
+      ],
+      "quiz": [
+        {
+          "question": "Combien de leviers du showup y a-t-il dans CE ?",
+          "reponse": "3",
+          "options": ["2", "3", "4", "5"]
+        },
+        {
+          "question": "Combien de temps dure le protocole pre-call ?",
+          "reponse": "15 minutes",
+          "options": ["5 minutes", "10 minutes", "15 minutes", "30 minutes"]
+        }
+      ]
+    },
+    "MS": {
+      "titre": "Module Setting — Générer et qualifier les prospects",
+      "niveau": "pratique",
+      "duree": "50 min",
+      "objectif": "Comprendre et maîtriser le setting pour alimenter son pipeline",
+      "concepts_cles": [
+        "Le setter ne vend pas — il qualifie et booké",
+        "3 CS obligatoires avant tout booking : Situation actuelle / Situation désirée / Obstacle",
+        "Sans obstacle verbalisé = pas de booking",
+        "Sessions Pomodoro : 50 min focus / 10 min pause",
+        "4 tâches dans l'ordre : réponses actives / followup liens / nouveaux messages / followup ghosts",
+        "Objectif volume : 100+ messages par session de 2h",
+        "Archiver sans hésiter ce qui ne peut pas avancer"
+      ],
+      "trois_cs": {
+        "situation_actuelle": "Où est le prospect aujourd'hui ?",
+        "situation_desiree": "Où est-ce qu'il veut aller ?",
+        "obstacle": "Qu'est-ce qui l'empêche d'y arriver seul ? (DOIT être verbalisé)"
+      },
+      "quiz": [
+        {
+          "question": "Combien y a-t-il de CS obligatoires avant de booker ?",
+          "reponse": "3",
+          "options": ["2", "3", "4", "5"]
+        },
+        {
+          "question": "Quel est l'objectif de messages par session de 2h ?",
+          "reponse": "100+",
+          "options": ["20+", "50+", "100+", "200+"]
+        }
+      ]
+    },
+    "MAMB": {
+      "titre": "Module Ambition — Viser grand",
+      "niveau": "elite",
+      "duree": "50 min",
+      "objectif": "Fixer des objectifs qui demandent une nouvelle version de soi",
+      "concepts_cles": [
+        "PHRASE FONDATRICE : 'Fixe-toi des objectifs qui demandent une nouvelle version de toi-même'",
+        "Un objectif trop petit ne te demande pas de changer — donc rien ne change",
+        "Le closer à 5000€/mois et celui à 15000€/mois ne sont pas la même personne",
+        "Méthode de chiffrage : vision de vie → montant total → diviser par l'échéance",
+        "4 piliers hebdomadaires : entourage / apprentissage / opportunités / inconfort volontaire",
+        "Ancrer son objectif physiquement : écrit, affiché, visible tous les jours",
+        "L'inconfort volontaire est le seul chemin vers la version suivante de soi"
+      ],
+      "methode_chiffrage": [
+        "1. Définir sa vision de vie dans 24 mois sans barrière",
+        "2. Mettre un montant total sur cette vision",
+        "3. Diviser par l'échéance (12 ou 24 mois)",
+        "4. Valider la cohérence (calcul d'appels et de taux nécessaires)",
+        "5. Écrire l'objectif en 3 parties : chiffre + vision + identité",
+        "6. Afficher dans les 3 endroits clés"
+      ],
+      "quiz": [
+        {
+          "question": "Quelle est la phrase fondatrice du Module Ambition ?",
+          "reponse": "Fixe-toi des objectifs qui demandent une nouvelle version de toi-même",
+          "options": [
+            "Travaille plus dur",
+            "Fixe-toi des objectifs qui demandent une nouvelle version de toi-même",
+            "Sois régulier",
+            "Investis dans ta formation"
+          ]
+        }
+      ]
+    },
+    "M11": {
+      "titre": "Après l'appel — suivre, relancer, accélérer",
+      "niveau": "elite",
+      "duree": "25 min",
+      "objectif": "Ne laisser aucune vente sur la table après l'appel",
+      "concepts_cles": [
+        "Un appel non closé n'est pas un appel perdu — c'est un appel en cours",
+        "R2 : toujours fixer le prochain rendez-vous PENDANT l'appel, jamais après",
+        "Proposer 2 créneaux précis — jamais 'quand vous voulez'",
+        "Message post-call : 1 phrase, SA douleur avec SES mots, dans les 2h",
+        "Protocole irresolution : J+1 / J+3 / J+7 puis archiver",
+        "Protocole paiement ghost : H+2 / H+24 / H+48 puis appel direct",
+        "Le closing ne se termine pas au oui verbal — il se termine au paiement confirmé"
+      ],
+      "message_postcall": {
+        "regle": "1 phrase, ses mots, sa douleur ou sa vision, dans les 2h",
+        "exemples": [
+          "[Prénom], tu m'as dit que ça fait 2 ans que tu tournes en rond. Qu'est-ce qui change si tu attends encore 6 mois ?",
+          "[Prénom], la seule chose qui m'importe : dans un an, tu en es où si tu ne changes rien aujourd'hui ?"
+        ],
+        "interdit": [
+          "Résumé de l'offre",
+          "Liste d'arguments",
+          "Message de plus de 3 lignes",
+          "'J'espère qu'on pourra travailler ensemble'"
+        ]
+      },
+      "quiz": [
+        {
+          "question": "Quand faut-il fixer le R2 selon CE ?",
+          "reponse": "Pendant l'appel",
+          "options": ["Le lendemain", "Par message", "Pendant l'appel", "Jamais"]
+        }
+      ]
+    },
+    "M12": {
+      "titre": "Le closing comme véhicule — argent, liberté, investissement",
+      "niveau": "elite",
+      "duree": "40 min",
+      "objectif": "Investir ses commissions pour construire la liberté financière",
+      "concepts_cles": [
+        "Le closing est un véhicule — pas une destination",
+        "Concept casino : ne pas remettre tous ses jetons, retirer et investir",
+        "3 pièges : lifestyle qui grossit / pas d'épargne systématique / une seule source de revenus",
+        "Réduire ses charges d'abord — se verser en premier (20-30%)",
+        "3 véhicules d'investissement : soi-même (mentoring) / immobilier / private equity",
+        "3 stades de liberté : sécurité / indépendance / liberté",
+        "La liberté financière améliore aussi les appels — tu n'as plus peur de perdre le deal"
+      ],
+      "stades_liberte": [
+        {
+          "stade": 1,
+          "nom": "Sécurité",
+          "definition": "Revenus couvrent les charges — mais dépend encore à 100% du closing"
+        },
+        {
+          "stade": 2,
+          "nom": "Indépendance",
+          "definition": "Revenus passifs couvrent les charges de base — peut refuser une mauvaise offre"
+        },
+        {
+          "stade": 3,
+          "nom": "Liberté",
+          "definition": "Revenus passifs > train de vie complet — le closing devient optionnel"
+        }
+      ],
+      "quiz": [
+        {
+          "question": "Combien y a-t-il de stades de liberté financière dans CE ?",
+          "reponse": "3",
+          "options": ["2", "3", "4", "5"]
+        },
+        {
+          "question": "Quel est le premier investissement recommandé selon CE ?",
+          "reponse": "Soi-même (mentoring et compétences)",
+          "options": ["Immobilier", "Bourse", "Soi-même (mentoring et compétences)", "Private equity"]
+        }
+      ]
+    },
+    "M13": {
+      "titre": "Lire son prospect — adapter son approche au profil",
+      "niveau": "elite",
+      "duree": "35 min",
+      "objectif": "Identifier le profil et adapter sa discovery en temps réel",
+      "profils": {
+        "emotionnel": {
+          "signaux": ["Parle de ses feelings spontanément", "Utilise : je ressens / j'ai envie / je veux", "S'ouvre facilement si la connexion est là"],
+          "levier": "Sa douleur et sa vision",
+          "approche": "Discovery profonde avec les 7 familles d'ancrages / Future Pace fort",
+          "conclusion": "'Qu'est-ce qui t'empêche de décider maintenant ?'"
+        },
+        "analytique": {
+          "signaux": ["Parle peu, répond précisément", "Utilise : concrètement / c'est-à-dire / combien", "Méfiant face à l'émotionnel"],
+          "levier": "Les faits, les chiffres, les incohérences logiques",
+          "approche": "Confronter les incohérences / pas d'émotionnel forcé / chiffres et ROI",
+          "conclusion": "'Est-ce que tu vois une raison valable de ne pas avancer ?'"
+        },
+        "resistant": {
+          "signaux": ["Parle très peu", "Garde la frame", "Minimise ses émotions"],
+          "levier": "Technique du mijoter : lui renvoyer sa propre data",
+          "approche": "Une question + silence / double validation systématique",
+          "script_mijoter": "OK. Donc tu bosses 50h par semaine, tu génères X€/mois, et ça fait 2 ans que tu veux changer ça. Pourquoi pas rester comme ça ?"
+        }
+      },
+      "toward_away": {
+        "toward": {
+          "definition": "Motivé par ce qu'il veut atteindre",
+          "verbes": ["atteindre", "obtenir", "construire", "développer", "avoir", "gagner"],
+          "approche": "Pitcher sur la vision, le futur, ce qu'il va AVOIR"
+        },
+        "away": {
+          "definition": "Motivé par ce dont il veut s'éloigner",
+          "verbes": ["quitter", "fuir", "échapper", "partir", "arrêter", "éviter"],
+          "approche": "Pitcher sur le coût de rester, ce qu'il va FUIR"
+        }
+      },
+      "quiz": [
+        {
+          "question": "Avec un profil analytique, quel est le principal levier ?",
+          "reponse": "Les faits et les incohérences logiques",
+          "options": ["L'émotionnel profond", "Les faits et les incohérences logiques", "La vision future", "Les témoignages"]
+        },
+        {
+          "question": "Quel profil utilise des verbes comme 'atteindre', 'obtenir', 'construire' ?",
+          "reponse": "Toward",
+          "options": ["Away", "Toward", "Analytique", "Résistant"]
+        }
+      ]
+    },
+    "M14": {
+      "titre": "Devenir Head of Sales — manager, recruter, coacher",
+      "niveau": "elite",
+      "duree": "35 min",
+      "objectif": "Transitionner de closer à manager d'une équipe de vente",
+      "concepts_cles": [
+        "HOS = faire performer les autres, pas performer soi-même",
+        "4 responsabilités : recruter / former / coacher / piloter",
+        "5 critères de recrutement : posture / écoute / gestion du rejet / roleplay / autonomie",
+        "Onboarding en 4 étapes : immersion / roleplay intensif / appels doubles / autonomie encadrée",
+        "Rituel hebdomadaire : lundi métriques / mercredi coaching / vendredi 1:1",
+        "3 leviers d'animation : reconnaissance / compétition saine / objectif commun",
+        "3 erreurs du HOS débutant : gérer par la peur / garder les meilleurs leads / ne pas coacher"
+      ],
+      "quiz": [
+        {
+          "question": "Combien y a-t-il de responsabilités du Head of Sales dans CE ?",
+          "reponse": "4",
+          "options": ["2", "3", "4", "5"]
+        },
+        {
+          "question": "Combien d'étapes compte l'onboarding d'un closer dans CE ?",
+          "reponse": "4",
+          "options": ["2", "3", "4", "5"]
+        }
+      ]
+    },
+    "M15": {
+      "titre": "Construire sa carrière — choisir ses offres et se positionner",
+      "niveau": "elite",
+      "duree": "28 min",
+      "objectif": "Se positionner sur le marché et choisir sa direction après le closing",
+      "concepts_cles": [
+        "5 critères pour choisir une offre : promesse / qualité des leads / commission / écosystème / alignement valeurs",
+        "3 niveaux de positionnement : généraliste / spécialisé / expert reconnu",
+        "Expert reconnu = les offres viennent à toi, tu ne les cherches plus",
+        "4 directions après le closing : HOS / formateur-coach / consultant B2B / entrepreneur",
+        "4 leviers de visibilité : résultats documentés / contenu sur ses apprentissages / coaching de pairs / présence dans les bons cercles"
+      ],
+      "quiz": [
+        {
+          "question": "Combien y a-t-il de niveaux de positionnement dans CE ?",
+          "reponse": "3",
+          "options": ["2", "3", "4", "5"]
+        },
+        {
+          "question": "Combien y a-t-il de directions possibles après le closing selon CE ?",
+          "reponse": "4",
+          "options": ["2", "3", "4", "5"]
+        }
+      ]
+    },
+    "MELI": {
+      "titre": "Module Elite — Frameworks US avancés",
+      "niveau": "elite",
+      "duree": "80 min",
+      "objectif": "Passer de 40% à 70%+ de taux de closing avec les micro-détails",
+      "frameworks": {
+        "SPIN": {
+          "nom": "SPIN Selling",
+          "source": "Neil Rackham",
+          "types": {
+            "S": { "nom": "Situation", "usage": "Établir le contexte — minimum nécessaire" },
+            "P": { "nom": "Problème", "usage": "Faire émerger et verbaliser le problème" },
+            "I": { "nom": "Implication", "usage": "Amplifier les conséquences — niveaux 2 et 3" },
+            "N": { "nom": "Payoff", "usage": "Faire émerger la valeur par le prospect lui-même" }
+          },
+          "regle": "Navigation non-linéaire entre les 4 types selon ce que donne le prospect"
+        },
+        "JOLT": {
+          "nom": "Jolt Effect",
+          "source": "Livre Jolt Effect",
+          "contexte": "60% des ventes perdues = indécision, pas rejet",
+          "fomu_vs_fomo": {
+            "fomo": "Peur de rater une opportunité — peu efficace, le prospect s'y est immunisé",
+            "fomu": "Peur de faire une erreur — le vrai levier, beaucoup plus puissant"
+          },
+          "etapes": {
+            "J": "Judge — détecter l'indécision dès les 5 premières minutes",
+            "O": "Offer — guider vers une option précise, ne pas multiplier les choix",
+            "L": "Limit — ne pas donner plus d'information (ça renforce l'indécision)",
+            "T": "Take risk off — changer la perspective : 'dans le pire des scénarios si tu achètes... et si tu n'achètes pas ?'"
+          }
+        },
+        "formule_confiance": {
+          "nom": "Formule de Confiance",
+          "source": "David Maister",
+          "formule": "(Crédibilité + Fiabilité + Connexion émotionnelle) / Self-Driven",
+          "elements": {
+            "credibilite": "Donner 1 élément précis et inattendu qui prouve l'expertise",
+            "fiabilite": "Faire exactement ce qu'on dit — chaque promesse tenue",
+            "connexion": "Vulnérabilité authentique sur son propre parcours",
+            "self_driven": "Penser au prospect, pas à sa commission — se ressent immédiatement"
+          }
+        }
+      },
+      "techniques": {
+        "miroir": {
+          "source": "Chris Voss — Never Split the Difference",
+          "definition": "Répéter les 2-3 derniers mots du prospect",
+          "effet": "Il continue naturellement à développer sans qu'on pose de question",
+          "usage": "Partout en discovery, surtout sur les informations floues"
+        },
+        "labelling": {
+          "source": "Chris Voss — Never Split the Difference",
+          "definition": "Nommer l'émotion du prospect à voix haute avec un pronom impersonnel",
+          "regle": "Toujours 'il semblerait que...' ou 'on dirait que...' — jamais 'j'ai l'impression que'",
+          "effet": "La résistance baisse, le prospect s'ouvre"
+        },
+        "aide_moi_comprendre": {
+          "definition": "Phrase déclencheur d'information",
+          "usage": "5 à 10 fois par appel, fonctionne avec tous les profils",
+          "effets": ["Place le prospect en position d'expliquer", "Le met en sécurité", "Génère beaucoup plus d'info qu'une question fermée"]
+        },
+        "quantifieurs_universels": {
+          "formules": ["Tout le monde sait que...", "Personne ne peut nier que...", "À chaque fois que..."],
+          "usage": "Installer une croyance sans débat — alterner avec les frames identitaires"
+        },
+        "presuppositions": {
+          "definition": "Parler au futur comme si le résultat est déjà acquis",
+          "exemple": "'Quand tu auras atteint tes premiers 10k...'",
+          "effet": "Le prospect se projette dans le succès, l'indécision diminue"
+        }
+      },
+      "quiz": [
+        {
+          "question": "Quel pourcentage des ventes perdues est dû à l'indécision selon le Jolt Effect ?",
+          "reponse": "60%",
+          "options": ["30%", "40%", "60%", "80%"]
+        },
+        {
+          "question": "Quelle est la formule de confiance de David Maister ?",
+          "reponse": "(Crédibilité + Fiabilité + Connexion) / Self-Driven",
+          "options": [
+            "Expertise x Sympathie",
+            "(Crédibilité + Fiabilité + Connexion) / Self-Driven",
+            "Confiance = Résultats / Prix",
+            "Autorité + Preuve sociale"
+          ]
+        },
+        {
+          "question": "Combien de fois utiliser 'Aide-moi à comprendre' par appel ?",
+          "reponse": "5 à 10 fois",
+          "options": ["1 à 2 fois", "3 à 4 fois", "5 à 10 fois", "Une seule fois"]
+        }
+      ]
+    }
+  },
+  "profils_prospects": {
+    "emotionnel": {
+      "nom": "Le Prospect Émotionnel",
+      "description": "S'ouvre facilement, parle de ses ressentis, cherche la transformation",
+      "signaux": ["Utilise 'je ressens', 'j'ai envie'", "Parle de sa vie personnelle", "S'emballe facilement"],
+      "approche_closing": "Discovery émotionnelle profonde, ancrage sur les 7 familles, Future Pace fort",
+      "objection_typique": "Je vais en parler à mon conjoint",
+      "levier_close": "Sa vision de la vie qu'il veut"
+    },
+    "analytique": {
+      "nom": "Le Prospect Analytique",
+      "description": "Veut des faits, des chiffres, de la logique — se méfie de l'émotionnel",
+      "signaux": ["Pose des questions précises", "Demande des garanties et des données", "Répond court et factuel"],
+      "approche_closing": "Faits, ROI, incohérences logiques — pas d'émotionnel forcé",
+      "objection_typique": "Je veux comparer avec d'autres options",
+      "levier_close": "La logique de l'investissement et le coût de l'inaction"
+    },
+    "resistant": {
+      "nom": "Le Prospect Résistant",
+      "description": "Parle peu, garde la frame, donne le minimum",
+      "signaux": ["Réponses très courtes", "Questionne vos questions", "Pas d'enthousiasme apparent"],
+      "approche_closing": "Technique du mijoter — lui renvoyer sa propre data, une question + silence",
+      "objection_typique": "Je vais réfléchir",
+      "levier_close": "L'incohérence entre ce qu'il veut et ce qu'il fait"
+    },
+    "boss_final": {
+      "nom": "Le Boss Final",
+      "description": "Combine analytique + résistant + objections multiples",
+      "signaux": ["Sort plusieurs objections", "Challenge votre légitimité", "Demande des preuves puis en doute"],
+      "approche_closing": "Framework Split + Jolt Effect + Formule de confiance — toutes les techniques",
+      "objection_typique": "Multiple — argent ET conjoint ET comparaison",
+      "levier_close": "Fermer chaque porte logique une par une jusqu'à ce qu'il n'y ait plus d'issue"
+    }
+  },
+  "defi_du_jour": [
+    {
+      "id": 1,
+      "titre": "Le miroir",
+      "consigne": "Un prospect vous dit 'En fait mon vrai problème c'est que j'ai pas la discipline.' Répondez UNIQUEMENT avec la technique miroir.",
+      "attendu": "Répéter les derniers mots : 'La discipline...' et attendre"
+    },
+    {
+      "id": 2,
+      "titre": "Le Split",
+      "consigne": "Prospect : 'C'est trop cher pour moi.' Appliquez la question de Split.",
+      "attendu": "Est-ce que c'est uniquement une question de finances ou il y a autre chose ?"
+    },
+    {
+      "id": 3,
+      "titre": "Le maillon le plus faible",
+      "consigne": "Prospect : 'Je veux perdre du poids.' Remontez la chaîne en 3 questions.",
+      "attendu": "3 questions qui remontent jusqu'à l'impact personnel profond"
+    },
+    {
+      "id": 4,
+      "titre": "La posture stoïque",
+      "consigne": "Prospect : 'Je veux réfléchir.' Répondez en moins de 10 mots avec une seule question.",
+      "attendu": "Qu'est-ce qui te ferait dire oui aujourd'hui ?"
+    },
+    {
+      "id": 5,
+      "titre": "Toward ou Away ?",
+      "consigne": "Prospect : 'J'en peux plus de mon job, je veux me barrer de là.' Quel profil ? Quelle approche ?",
+      "attendu": "Away — pitcher sur le coût de rester, pas sur la vision"
+    },
+    {
+      "id": 6,
+      "titre": "La formule de confiance",
+      "consigne": "Comment réduire ton Self-Driven en appel ? Donnez 3 actions concrètes.",
+      "attendu": "Penser au prospect / ne pas parler de sa commission / se montrer vulnérable"
+    },
+    {
+      "id": 7,
+      "titre": "Jolt Effect",
+      "consigne": "Prospect : 'Je veux voir le contrat avant de décider.' Appliquez le L du Jolt.",
+      "attendu": "Ne pas donner le contrat — 'Est-ce que le contrat va vraiment t'apporter un élément pour décider ?' puis rediriger vers l'incertitude"
+    }
+  ],
+  "bangers_globaux": [
+    "La vente c'est un transfert de conviction. Si toi tu doutes — c'est game over.",
+    "La découverte c'est 70% de la vente. Le pitch c'est 30%.",
+    "Un client mal closé c'est un impayé qui arrive.",
+    "Une chaîne ne tient que par son maillon le plus faible.",
+    "Je te vends pas du rêve. Je t'apprends à le bâtir.",
+    "On ne vend pas des programmes. On change des trajectoires de vie.",
+    "Si tu as un doute sur si le prospect est prêt — il ne l'est pas.",
+    "Fixe-toi des objectifs qui demandent une nouvelle version de toi-même.",
+    "Le closing est un véhicule pour changer ta vie, pas une fin en soi.",
+    "60% des ventes perdues, c'est de l'indécision — pas du rejet."
+  ]
+}

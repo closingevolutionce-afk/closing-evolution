@@ -1,5 +1,6 @@
 import Navbar from '@/components/landing/Navbar'
 import Hero from '@/components/landing/Hero'
+import BangersMarquee from '@/components/landing/BangersMarquee'
 import SocialProof from '@/components/landing/SocialProof'
 import Features from '@/components/landing/Features'
 import Levels from '@/components/landing/Levels'
@@ -14,6 +15,7 @@ export default function HomePage() {
       <Navbar />
       <main>
         <Hero />
+        <BangersMarquee />
         <SocialProof />
         <Features />
         <Levels />

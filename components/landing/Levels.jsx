@@ -39,7 +39,9 @@ export default function Levels() {
               </div>
 
               <h3 className="mt-4 font-display text-2xl font-bold text-white">{level.tier}</h3>
-              <p className="mt-1 text-sm font-medium text-mist-muted">{level.title}</p>
+              <p className="mt-1 text-sm font-medium text-mist-muted">
+                {level.title} · {level.moduleCount} modules
+              </p>
               <p className="mt-4 text-sm leading-relaxed text-mist-muted">{level.description}</p>
 
               <div className="mt-6 flex items-center gap-2 border-t border-ink-border pt-5">

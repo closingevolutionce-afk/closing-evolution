@@ -1,5 +1,5 @@
 {
-  "name": "pamplemousse-closer",
+  "name": "closing-evolution",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,12 +9,12 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "next": "14.2.3",
-    "react": "^18",
-    "react-dom": "^18",
-    "@supabase/supabase-js": "^2.39.0",
-    "recharts": "^2.10.3",
-    "papaparse": "^5.4.1"
+    "next": "16.2.10",
+    "react": "^19",
+    "react-dom": "^19",
+    "framer-motion": "^11.2.10",
+    "lucide-react": "^0.399.0",
+    "clsx": "^2.1.1"
   },
   "devDependencies": {
     "autoprefixer": "^10",

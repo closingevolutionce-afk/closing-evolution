@@ -1,60 +1,56 @@
-# 🍊 La Méthode Pamplemousse — Outil Closers
+# Closing Evolution
 
-Formulaire interne + dashboard pour les 6 closers.
+Application web premium pour une formation francophone de closing commercial —
+roleplay IA en temps réel, simulateur d'objections, parcours de formation gamifié
+et dashboard de progression.
 
----
+## Stack
 
-## 🚀 Déploiement en 3 étapes
+- **Next.js 14** (App Router)
+- **Tailwind CSS** — design system sombre, vert émeraude (`#4ade80`)
+- **Framer Motion** — animations
+- **lucide-react** — icônes
+- API **Anthropic** (`claude-sonnet-4-6`) pour les interactions IA (roleplay,
+  objections, feedback)
 
-### Étape 1 — Créer la base Supabase (5 min)
+## Structure du projet
 
-1. Va sur [supabase.com](https://supabase.com) → **New Project**
-2. Nomme le projet `pamplemousse` → note le mot de passe DB
-3. Une fois le projet créé : **SQL Editor** → **New Query**
-4. Colle le contenu de `supabase-schema.sql` → **Run**
-5. Va dans **Project Settings** → **API** → copie :
-   - **Project URL** → `NEXT_PUBLIC_SUPABASE_URL`
-   - **anon public** key → `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+```
+app/
+  layout.js          # layout racine, fonts (Sora + Inter), metadata
+  page.js             # page d'accueil
+  globals.css         # design tokens & utilitaires globaux
+components/
+  ui/                 # primitives réutilisables (Button, Badge, GlowCard...)
+  landing/            # sections de la page d'accueil
+lib/
+  content.js          # contenu statique de la landing (features, niveaux...)
+  utils.js            # helpers (cn/clsx)
+```
 
-### Étape 2 — Déployer sur Vercel (2 min)
+## Design system
 
-1. Va sur [vercel.com](https://vercel.com) → **Add New Project**
-2. Importe ce repo GitHub
-3. Dans **Environment Variables**, ajoute :
-   - `NEXT_PUBLIC_SUPABASE_URL` = l'URL Supabase
-   - `NEXT_PUBLIC_SUPABASE_ANON_KEY` = la clé anon
-4. Clique **Deploy** → attends 1-2 min
+- **Fond** : quasi-noir (`ink`), cartes en verre dépoli (`.glass`)
+- **Couleur principale** : vert émeraude `#4ade80` (glows, CTA, accents)
+- **Typographie** : Sora (titres) + Inter (texte courant)
+- **Animations** : fade-up au scroll, float, glow au survol, compteurs animés
 
-### Étape 3 — C'est prêt ✅
-
-- **Formulaire closers** : `https://votre-app.vercel.app/`
-- **Dashboard** : `https://votre-app.vercel.app/dashboard`
-- **Mot de passe dashboard** : `pamplemousse2024`
-
----
-
-## 🛠 Dev local
+## Dev local
 
 ```bash
 cp .env.example .env.local
-# Remplis les variables Supabase
+# Ajoute ta clé ANTHROPIC_API_KEY
 
 npm install
 npm run dev
 # → http://localhost:3000
 ```
 
----
+## Roadmap (fonctionnalité par fonctionnalité)
 
-## 📊 Fonctionnalités
-
-| Fonctionnalité | Description |
-|---|---|
-| Formulaire 30 questions | 6 sections, sliders, boutons toggle |
-| Dashboard protégé | Mot de passe : `pamplemousse2024` |
-| Graphique maturité | Chaud/Tiède/Froid en donut |
-| Graphique freins | Financier, peur, temps, conjoint |
-| Graphique closers | Appels par closer |
-| Fiches individuelles | Vue détaillée par prospect |
-| Export CSV | Toutes les données en un clic |
-| Recherche & filtres | Par prospect, closer, maturité |
+1. ✅ Structure du projet, design system, page d'accueil
+2. ⏳ Arena du Roleplay — conversation IA temps réel + scoring
+3. ⏳ Simulateur d'Objections
+4. ⏳ Parcours de Formation (modules, quiz, badges)
+5. ⏳ Dashboard personnel (progression, classement, streak)
+6. ⏳ Défi du Jour

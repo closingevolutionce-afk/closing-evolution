@@ -22,7 +22,7 @@ export default function FinalCTA() {
             Ton prochain <span className="gradient-text">closing</span> commence ici
           </h2>
           <p className="relative mx-auto mt-5 max-w-lg text-base leading-relaxed text-mist-muted sm:text-lg">
-            Rejoins Closing Evolution et entre dans l’Arena dès aujourd’hui. Premier roleplay
+            Rejoins Cercle Élite Closing et entre dans l’Arena dès aujourd’hui. Premier roleplay
             offert, sans carte bancaire.
           </p>
 

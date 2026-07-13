@@ -44,7 +44,7 @@ export default function Navbar() {
               <Swords size={18} strokeWidth={2.5} />
             </span>
             <span className="font-display text-lg font-bold italic text-white">
-              Closing<span className="text-volt">Evolution</span>
+              Cercle Élite <span className="text-volt">Closing</span>
             </span>
           </Link>
 

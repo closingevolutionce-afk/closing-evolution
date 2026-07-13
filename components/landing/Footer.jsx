@@ -41,7 +41,7 @@ export default function Footer() {
                 <Swords size={18} strokeWidth={2.5} />
               </span>
               <span className="font-display text-lg font-bold italic text-white">
-                Closing<span className="text-volt">Evolution</span>
+                Cercle Élite <span className="text-volt">Closing</span>
               </span>
             </Link>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-mist-dim">
@@ -73,7 +73,7 @@ export default function Footer() {
 
         <div className="mt-14 flex flex-col items-center justify-between gap-4 border-t border-ink-border pt-8 sm:flex-row">
           <p className="text-xs text-mist-dim">
-            © {new Date().getFullYear()} Closing Evolution. Tous droits réservés.
+            © {new Date().getFullYear()} Cercle Élite Closing. Tous droits réservés.
           </p>
           <p className="text-xs text-mist-dim">Conçu pour les closers francophones.</p>
         </div>

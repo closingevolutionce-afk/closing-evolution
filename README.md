@@ -1,4 +1,4 @@
-# Closing Evolution
+# Cercle Élite Closing
 
 Application web premium pour une formation francophone de closing commercial —
 roleplay IA en temps réel, simulateur d'objections, parcours de formation gamifié
@@ -16,7 +16,8 @@ et dashboard de progression.
 ## Source de vérité pédagogique
 
 Tout le contenu métier de l'app (roleplays, quiz, objections, profils de
-prospects, défis du jour) est basé sur **la méthode Closing Evolution**,
+prospects, défis du jour) est basé sur **la méthode Cercle Élite Closing**
+(anciennement « Closing Evolution » dans les données brutes),
 pas sur du closing générique.
 
 - `lib/data/knowledge-base.json` — base de connaissances brute : les 20
@@ -76,7 +77,7 @@ npm run dev
 ## Roadmap (fonctionnalité par fonctionnalité)
 
 1. ✅ Structure du projet, design system, page d'accueil
-2. ✅ Base de connaissances Closing Evolution intégrée (`lib/knowledge.js`)
+2. ✅ Base de connaissances Cercle Élite Closing intégrée (`lib/knowledge.js`)
 3. ⏳ Arena du Roleplay — conversation IA temps réel + scoring
 4. ⏳ Simulateur d'Objections
 5. ⏳ Parcours de Formation (modules, quiz, badges)

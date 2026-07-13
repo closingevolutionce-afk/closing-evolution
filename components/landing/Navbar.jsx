@@ -40,11 +40,11 @@ export default function Navbar() {
           )}
         >
           <Link href="/" className="flex items-center gap-2.5">
-            <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-emerald/15 text-emerald ring-1 ring-emerald/30">
+            <span className="flex h-9 w-9 items-center justify-center rounded-md bg-volt-gradient text-white">
               <Swords size={18} strokeWidth={2.5} />
             </span>
-            <span className="font-display text-lg font-bold text-white">
-              Closing<span className="text-emerald">Evolution</span>
+            <span className="font-display text-lg font-bold italic text-white">
+              Closing<span className="text-volt">Evolution</span>
             </span>
           </Link>
 

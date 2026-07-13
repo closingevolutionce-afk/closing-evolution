@@ -13,7 +13,7 @@ export default function BangersMarquee() {
             key={i}
             className="flex items-center gap-3 whitespace-nowrap text-sm font-medium text-mist-muted"
           >
-            <span className="h-1 w-1 rounded-full bg-emerald" />
+            <span className="h-1 w-1 rounded-full bg-volt" />
             {banger}
           </span>
         ))}

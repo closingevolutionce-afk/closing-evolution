@@ -1,9 +1,9 @@
-import { Sora, Inter } from 'next/font/google'
+import { Syne, Inter } from 'next/font/google'
 import './globals.css'
 
-const display = Sora({
+const display = Syne({
   subsets: ['latin'],
-  weight: ['400', '600', '700', '800'],
+  weight: ['600', '700', '800'],
   variable: '--font-display',
   display: 'swap',
 })
@@ -32,7 +32,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="fr" className={`${display.variable} ${sans.variable}`}>
-      <body className="bg-ink font-sans text-mist antialiased selection:bg-emerald/30 selection:text-white">
+      <body className="bg-ink font-sans text-mist antialiased selection:bg-volt/30 selection:text-white">
         {children}
       </body>
     </html>

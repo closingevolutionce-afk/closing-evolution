@@ -9,7 +9,7 @@ import { levels } from '@/lib/content'
 export default function Levels() {
   return (
     <section id="parcours" className="relative py-28">
-      <div className="pointer-events-none absolute inset-x-0 top-1/2 h-[400px] -translate-y-1/2 bg-emerald/5 blur-[120px]" />
+      <div className="pointer-events-none absolute inset-x-0 top-1/2 h-[400px] -translate-y-1/2 bg-volt-gradient opacity-5 blur-[120px]" />
       <Container className="relative">
         <SectionHeading
           eyebrow="Parcours de formation"
@@ -28,7 +28,7 @@ export default function Levels() {
               className="relative rounded-2xl border border-ink-border bg-ink-100/60 p-7"
             >
               <div className="flex items-center justify-between">
-                <span className="font-display text-sm font-bold uppercase tracking-wider text-emerald">
+                <span className="font-display text-sm font-bold italic uppercase tracking-wider text-volt">
                   {level.range}
                 </span>
                 {i === 2 ? (
@@ -45,7 +45,7 @@ export default function Levels() {
               <p className="mt-4 text-sm leading-relaxed text-mist-muted">{level.description}</p>
 
               <div className="mt-6 flex items-center gap-2 border-t border-ink-border pt-5">
-                <span className="h-2 w-2 rounded-full bg-emerald" />
+                <span className="h-2 w-2 rounded-full bg-volt" />
                 <span className="text-xs font-semibold uppercase tracking-wider text-mist-dim">
                   Rang débloqué : <span className="text-white">{level.rank}</span>
                 </span>
@@ -57,7 +57,7 @@ export default function Levels() {
                   whileInView={{ width: `${(i + 1) * 33}%` }}
                   viewport={{ once: true }}
                   transition={{ duration: 1, delay: 0.3 + i * 0.15, ease: 'easeOut' }}
-                  className="h-full rounded-full bg-gradient-to-r from-emerald-deep to-emerald"
+                  className="h-full rounded-full bg-volt-gradient"
                 />
               </div>
             </motion.div>

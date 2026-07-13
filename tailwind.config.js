@@ -7,26 +7,31 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        emerald: {
-          DEFAULT: '#4ade80',
-          soft: '#86efac',
-          deep: '#22c55e',
-          glow: 'rgba(74, 222, 128, 0.35)',
+        volt: {
+          DEFAULT: '#8a5cf6',
+          soft: '#b7a6ff',
+          deep: '#6d3fe0',
+          glow: 'rgba(138, 92, 246, 0.35)',
+        },
+        coral: {
+          DEFAULT: '#ff6b5b',
+          soft: '#ff9686',
+          deep: '#e14732',
         },
         ink: {
-          DEFAULT: '#050708',
-          50: '#0c1013',
-          100: '#0f1419',
-          200: '#141a21',
-          300: '#1b232c',
-          400: '#242e39',
+          DEFAULT: '#0a0713',
+          50: '#0f0b1a',
+          100: '#141024',
+          200: '#1b1530',
+          300: '#241b3d',
+          400: '#2e2350',
           border: 'rgba(255, 255, 255, 0.08)',
-          borderStrong: 'rgba(255, 255, 255, 0.14)',
+          borderStrong: 'rgba(255, 255, 255, 0.15)',
         },
         mist: {
-          DEFAULT: '#e6ebf0',
-          muted: '#9aa5b1',
-          dim: '#5f6b78',
+          DEFAULT: '#f1eefb',
+          muted: '#a79cc9',
+          dim: '#6e6389',
         },
         amber: {
           DEFAULT: '#fbbf24',
@@ -37,13 +42,23 @@ module.exports = {
         sans: ['var(--font-sans)', 'system-ui', 'sans-serif'],
       },
       backgroundImage: {
-        'grid-fade': 'linear-gradient(to bottom, rgba(5,7,8,0) 0%, #050708 85%)',
+        'grid-fade': 'linear-gradient(to bottom, rgba(10,7,19,0) 0%, #0a0713 85%)',
         'radial-glow': 'radial-gradient(circle at center, var(--tw-gradient-stops))',
+        'volt-gradient': 'linear-gradient(90deg, #ff6b5b, #8a5cf6)',
       },
       boxShadow: {
-        glow: '0 0 40px rgba(74, 222, 128, 0.25)',
-        'glow-lg': '0 0 80px rgba(74, 222, 128, 0.3)',
+        glow: '0 0 40px rgba(138, 92, 246, 0.28)',
+        'glow-lg': '0 0 80px rgba(138, 92, 246, 0.34)',
         card: '0 1px 0 rgba(255,255,255,0.04) inset, 0 20px 40px -20px rgba(0,0,0,0.6)',
+      },
+      borderRadius: {
+        sm: '2px',
+        DEFAULT: '3px',
+        md: '4px',
+        lg: '6px',
+        xl: '8px',
+        '2xl': '10px',
+        '3xl': '14px',
       },
       keyframes: {
         float: {

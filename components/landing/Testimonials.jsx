@@ -16,10 +16,10 @@ export default function Testimonials() {
         <div className="mt-16 grid gap-6 lg:grid-cols-3">
           {testimonials.map((t, i) => (
             <GlowCard key={t.name} delay={i * 0.1}>
-              <Quote size={22} className="text-emerald/50" />
+              <Quote size={22} className="text-volt/50" />
               <p className="mt-5 text-sm leading-relaxed text-mist">“{t.quote}”</p>
               <div className="mt-6 flex items-center gap-3 border-t border-ink-border pt-5">
-                <span className="flex h-10 w-10 items-center justify-center rounded-full bg-emerald/15 font-display text-sm font-bold text-emerald ring-1 ring-emerald/25">
+                <span className="flex h-10 w-10 items-center justify-center rounded-md bg-volt/15 font-display text-sm font-bold text-volt ring-1 ring-volt/25">
                   {t.name.charAt(0)}
                 </span>
                 <div>

@@ -26,7 +26,7 @@ export default function HowItWorks() {
               transition={{ duration: 0.55, delay: i * 0.1 }}
               className="relative flex flex-col gap-4"
             >
-              <span className="flex h-16 w-16 items-center justify-center rounded-2xl border border-emerald/25 bg-ink-100 font-display text-xl font-bold text-emerald shadow-glow">
+              <span className="flex h-16 w-16 items-center justify-center rounded-lg border border-volt/25 bg-ink-100 font-display text-xl font-bold italic text-volt shadow-glow">
                 {step.number}
               </span>
               <h3 className="font-display text-lg font-bold text-white">{step.title}</h3>

@@ -7,7 +7,7 @@ et dashboard de progression.
 ## Stack
 
 - **Next.js 16** (App Router)
-- **Tailwind CSS** — design system sombre, vert émeraude (`#4ade80`)
+- **Tailwind CSS** — design system "Voltage" : noir indigo + dégradé violet/corail (`#8a5cf6` / `#ff6b5b`)
 - **Framer Motion** — animations
 - **lucide-react** — icônes
 - API **Anthropic** (`claude-sonnet-4-6`) pour les interactions IA (roleplay,
@@ -39,7 +39,7 @@ pour que l'IA reste fidèle à la méthode.
 
 ```
 app/
-  layout.js          # layout racine, fonts (Sora + Inter), metadata
+  layout.js          # layout racine, fonts (Syne + Inter), metadata
   page.js             # page d'accueil
   globals.css         # design tokens & utilitaires globaux
 components/
@@ -52,11 +52,14 @@ lib/
   utils.js             # helpers (cn/clsx)
 ```
 
-## Design system
+## Design system — Voltage
 
-- **Fond** : quasi-noir (`ink`), cartes en verre dépoli (`.glass`)
-- **Couleur principale** : vert émeraude `#4ade80` (glows, CTA, accents)
-- **Typographie** : Sora (titres) + Inter (texte courant)
+- **Fond** : noir à dominante indigo (`ink`), cartes en verre dépoli (`.glass`)
+- **Couleurs principales** : violet `#8a5cf6` (`volt`) et corail `#ff6b5b` (`coral`),
+  combinés en dégradé sur les CTA, logos et accents (`bg-volt-gradient`)
+- **Typographie** : Syne (titres, gras/italique) + Inter (texte courant)
+- **Formes** : angulaires (rayons de bordure resserrés dans `tailwind.config.js`),
+  boutons et badges en italique/majuscules pour l'énergie de la marque
 - **Animations** : fade-up au scroll, float, glow au survol, compteurs animés
 
 ## Dev local

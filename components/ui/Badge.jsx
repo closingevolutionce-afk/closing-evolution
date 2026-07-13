@@ -4,7 +4,7 @@ export default function Badge({ children, className, icon: Icon }) {
   return (
     <span
       className={cn(
-        'inline-flex items-center gap-1.5 rounded-full border border-emerald/25 bg-emerald/10 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider text-emerald-soft',
+        'inline-flex items-center gap-1.5 rounded-md border border-volt/30 bg-volt/10 px-3.5 py-1.5 text-xs font-semibold italic uppercase tracking-wider text-volt-soft',
         className
       )}
     >

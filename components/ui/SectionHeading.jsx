@@ -23,11 +23,11 @@ export default function SectionHeading({
       )}
     >
       {eyebrow && (
-        <span className="font-display text-xs font-bold uppercase tracking-[0.25em] text-emerald">
+        <span className="font-display text-xs font-bold italic uppercase tracking-[0.25em] text-volt">
           {eyebrow}
         </span>
       )}
-      <h2 className="max-w-2xl text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl">
+      <h2 className="max-w-2xl font-display text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl">
         {title}
       </h2>
       {description && (

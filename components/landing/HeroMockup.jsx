@@ -17,18 +17,18 @@ export default function HeroMockup() {
       transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
       className="relative mx-auto w-full max-w-md"
     >
-      <div className="absolute -inset-6 -z-10 rounded-[2rem] bg-emerald/10 blur-3xl" />
+      <div className="absolute -inset-6 -z-10 rounded-[2rem] bg-volt-gradient opacity-10 blur-3xl" />
 
-      <div className="glass relative overflow-hidden rounded-3xl border border-ink-border shadow-glow-lg">
+      <div className="glass relative overflow-hidden rounded-xl border border-ink-border shadow-glow-lg">
         <div className="flex items-center justify-between border-b border-ink-border px-5 py-4">
           <div className="flex items-center gap-2.5">
             <span className="relative flex h-2.5 w-2.5">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald opacity-60" />
-              <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald" />
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-coral opacity-60" />
+              <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-coral" />
             </span>
-            <span className="text-sm font-semibold text-white">Boss Final — en direct</span>
+            <span className="text-sm font-semibold italic text-white">Boss Final — en direct</span>
           </div>
-          <span className="rounded-full bg-ink-300 px-2.5 py-1 text-xs font-medium text-mist-muted">
+          <span className="rounded-md bg-ink-300 px-2.5 py-1 text-xs font-medium text-mist-muted">
             04:12
           </span>
         </div>
@@ -40,9 +40,9 @@ export default function HeroMockup() {
               initial={{ opacity: 0, x: b.from === 'closer' ? 20 : -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.6 + i * 0.25 }}
-              className={`max-w-[85%] rounded-2xl px-4 py-3 text-sm leading-snug ${
+              className={`max-w-[85%] rounded-lg px-4 py-3 text-sm leading-snug ${
                 b.from === 'closer'
-                  ? 'ml-auto rounded-br-sm bg-emerald text-ink font-medium'
+                  ? 'ml-auto rounded-br-sm bg-volt-gradient text-white font-medium'
                   : 'rounded-bl-sm bg-ink-300 text-mist'
               }`}
             >
@@ -60,7 +60,7 @@ export default function HeroMockup() {
             {[1, 2, 3].map((i) => (
               <span
                 key={i}
-                className="h-1.5 w-1.5 animate-pulse rounded-full bg-emerald"
+                className="h-1.5 w-1.5 animate-pulse rounded-full bg-volt"
                 style={{ animationDelay: `${i * 0.15}s` }}
               />
             ))}
@@ -72,9 +72,9 @@ export default function HeroMockup() {
         initial={{ opacity: 0, y: 10, x: 10 }}
         animate={{ opacity: 1, y: 0, x: 0 }}
         transition={{ duration: 0.6, delay: 1.2 }}
-        className="glass absolute -right-6 -top-6 flex items-center gap-3 rounded-2xl border border-ink-border px-4 py-3 shadow-card animate-float"
+        className="glass absolute -right-6 -top-6 flex items-center gap-3 rounded-lg border border-ink-border px-4 py-3 shadow-card animate-float"
       >
-        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-emerald/15 text-emerald ring-1 ring-emerald/30">
+        <div className="flex h-10 w-10 items-center justify-center rounded-md bg-volt/15 text-volt ring-1 ring-volt/30">
           <TrendingUp size={16} />
         </div>
         <div>
@@ -87,10 +87,10 @@ export default function HeroMockup() {
         initial={{ opacity: 0, y: -10, x: -10 }}
         animate={{ opacity: 1, y: 0, x: 0 }}
         transition={{ duration: 0.6, delay: 1.4 }}
-        className="glass absolute -bottom-7 -left-6 flex items-center gap-3 rounded-2xl border border-ink-border px-4 py-3 shadow-card animate-float"
+        className="glass absolute -bottom-7 -left-6 flex items-center gap-3 rounded-lg border border-ink-border px-4 py-3 shadow-card animate-float"
         style={{ animationDelay: '1s' }}
       >
-        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-amber/15 text-amber ring-1 ring-amber/30">
+        <div className="flex h-10 w-10 items-center justify-center rounded-md bg-amber/15 text-amber ring-1 ring-amber/30">
           <Zap size={16} />
         </div>
         <div>

@@ -7,7 +7,7 @@
 }
 
 * {
-  scrollbar-color: rgba(74, 222, 128, 0.35) transparent;
+  scrollbar-color: rgba(138, 92, 246, 0.35) transparent;
 }
 
 ::-webkit-scrollbar {
@@ -15,12 +15,12 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(74, 222, 128, 0.25);
+  background: rgba(138, 92, 246, 0.28);
   border-radius: 999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(74, 222, 128, 0.45);
+  background: rgba(138, 92, 246, 0.48);
 }
 
 html {
@@ -48,7 +48,7 @@ h1, h2, h3, h4, .font-display {
   }
 
   .text-glow {
-    text-shadow: 0 0 30px rgba(74, 222, 128, 0.45);
+    text-shadow: 0 0 30px rgba(138, 92, 246, 0.5);
   }
 
   .glass {
@@ -58,14 +58,14 @@ h1, h2, h3, h4, .font-display {
   }
 
   .gradient-text {
-    background: linear-gradient(120deg, #e6ebf0 20%, #4ade80 60%, #86efac 90%);
+    background: linear-gradient(100deg, #f1eefb 15%, #ff6b5b 55%, #8a5cf6 90%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
   }
 
   .shimmer-text {
-    background: linear-gradient(110deg, #5f6b78 30%, #e6ebf0 45%, #4ade80 55%, #5f6b78 70%);
+    background: linear-gradient(110deg, #6e6389 30%, #f1eefb 45%, #ff6b5b 55%, #6e6389 70%);
     background-size: 250% 100%;
     -webkit-background-clip: text;
     background-clip: text;

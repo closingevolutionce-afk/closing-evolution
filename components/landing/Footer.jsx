@@ -37,11 +37,11 @@ export default function Footer() {
         <div className="grid gap-12 lg:grid-cols-[1.3fr_2fr]">
           <div>
             <Link href="/" className="flex items-center gap-2.5">
-              <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-emerald/15 text-emerald ring-1 ring-emerald/30">
+              <span className="flex h-9 w-9 items-center justify-center rounded-md bg-volt-gradient text-white">
                 <Swords size={18} strokeWidth={2.5} />
               </span>
-              <span className="font-display text-lg font-bold text-white">
-                Closing<span className="text-emerald">Evolution</span>
+              <span className="font-display text-lg font-bold italic text-white">
+                Closing<span className="text-volt">Evolution</span>
               </span>
             </Link>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-mist-dim">
@@ -59,7 +59,7 @@ export default function Footer() {
                     <li key={link.label}>
                       <a
                         href={link.href}
-                        className="text-sm text-mist-dim transition-colors hover:text-emerald"
+                        className="text-sm text-mist-dim transition-colors hover:text-volt"
                       >
                         {link.label}
                       </a>

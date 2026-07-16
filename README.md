@@ -10,7 +10,7 @@ et dashboard de progression.
 - **Tailwind CSS** — design system "Voltage" : noir indigo + dégradé violet/corail (`#8a5cf6` / `#ff6b5b`)
 - **Framer Motion** — animations
 - **lucide-react** — icônes
-- API **Anthropic** (`claude-sonnet-4-6`) pour les interactions IA (roleplay,
+- API **Anthropic** (`claude-sonnet-5`) pour les interactions IA (roleplay,
   objections, feedback)
 
 ## Source de vérité pédagogique
@@ -50,7 +50,12 @@ lib/
   data/knowledge-base.json  # source de vérité pédagogique (voir ci-dessus)
   knowledge.js        # accesseurs sur la base de connaissances
   content.js           # contenu statique de la landing (features, niveaux...)
+  anthropic.js         # client API Anthropic (serveur uniquement)
+  arena-prompts.js     # prompts système de l'Arena (persona prospect + feedback)
   utils.js             # helpers (cn/clsx)
+app/api/arena/
+  chat/route.js        # tour de roleplay (le prospect IA répond)
+  feedback/route.js    # analyse de fin d'appel (score + feedback structuré)
 ```
 
 ## Design system — Voltage
@@ -78,8 +83,11 @@ npm run dev
 
 1. ✅ Structure du projet, design system, page d'accueil
 2. ✅ Base de connaissances Cercle Élite Closing intégrée (`lib/knowledge.js`)
-3. ⏳ Arena du Roleplay — conversation IA temps réel + scoring
+3. ✅ Arena du Roleplay — conversation IA temps réel + scoring (`/arena`)
 4. ⏳ Simulateur d'Objections
 5. ⏳ Parcours de Formation (modules, quiz, badges)
 6. ⏳ Dashboard personnel (progression, classement, streak)
 7. ⏳ Défi du Jour
+
+Pas encore construit : comptes élèves, hébergement vidéo des modules, paiement,
+emails automatiques (le plan pour remplacer Systeme.io — voir discussion).

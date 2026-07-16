@@ -6,7 +6,7 @@ const columns = [
   {
     title: 'Produit',
     links: [
-      { label: 'Arena du Roleplay', href: '#fonctionnalites' },
+      { label: 'Arena du Roleplay', href: '/arena' },
       { label: 'Simulateur d’Objections', href: '#fonctionnalites' },
       { label: 'Parcours de formation', href: '#parcours' },
       { label: 'Défi du jour', href: '#fonctionnalites' },

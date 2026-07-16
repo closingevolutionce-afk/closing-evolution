@@ -50,7 +50,7 @@ export default function Hero() {
               transition={{ duration: 0.7, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
               className="mt-9 flex flex-wrap items-center gap-4"
             >
-              <Button href="#rejoindre" size="lg">
+              <Button href="/arena" size="lg">
                 Entrer dans l’Arena
                 <ArrowRight size={18} className="transition-transform group-hover:translate-x-0.5" />
               </Button>

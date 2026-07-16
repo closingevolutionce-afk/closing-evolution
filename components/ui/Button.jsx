@@ -23,7 +23,7 @@ export default function Button({
   ...props
 }) {
   const classes = cn(
-    'group inline-flex items-center justify-center gap-2 rounded-md font-display font-bold tracking-tight transition-all duration-300 ease-out active:scale-[0.97]',
+    'group inline-flex items-center justify-center gap-2 rounded-md font-display font-bold tracking-tight transition-all duration-300 ease-out active:scale-[0.97] disabled:pointer-events-none disabled:opacity-40',
     variants[variant],
     sizes[size],
     className

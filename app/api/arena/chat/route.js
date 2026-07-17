@@ -1,7 +1,8 @@
 import { NextResponse } from 'next/server'
-import { getAnthropicClient, ARENA_MODEL } from '@/lib/anthropic'
+import { getAnthropicClient, ARENA_CHAT_MODEL } from '@/lib/anthropic'
 import { buildArenaSystemPrompt } from '@/lib/arena-prompts'
 import { prospectProfileKeys } from '@/lib/knowledge'
+import { ARENA_MAX_MESSAGES } from '@/lib/arena-constants'
 
 export async function POST(request) {
   let body
@@ -19,16 +20,20 @@ export async function POST(request) {
   if (!Array.isArray(messages) || messages.length === 0) {
     return NextResponse.json({ error: 'Aucun message fourni.' }, { status: 400 })
   }
+  if (messages.length > ARENA_MAX_MESSAGES) {
+    return NextResponse.json(
+      { error: 'Cet appel a atteint sa durée maximale. Termine-le pour voir ton feedback.', limitReached: true },
+      { status: 400 }
+    )
+  }
 
   const system = buildArenaSystemPrompt(profile)
 
   try {
     const client = getAnthropicClient()
     const response = await client.messages.create({
-      model: ARENA_MODEL,
+      model: ARENA_CHAT_MODEL,
       max_tokens: 400,
-      thinking: { type: 'disabled' },
-      output_config: { effort: 'medium' },
       system,
       messages: messages.map((m) => ({ role: m.role, content: m.content })),
     })

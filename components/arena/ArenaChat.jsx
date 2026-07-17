@@ -6,6 +6,7 @@ import { motion } from 'framer-motion'
 import { ArrowLeft, PhoneOff, RotateCcw, Send } from 'lucide-react'
 import Container from '@/components/ui/Container'
 import Button from '@/components/ui/Button'
+import { ARENA_MAX_MESSAGES } from '@/lib/arena-constants'
 
 function formatTime(totalSeconds) {
   const m = Math.floor(totalSeconds / 60)
@@ -33,6 +34,7 @@ export default function ArenaChat({ profileKey, profile }) {
   const [feedbackError, setFeedbackError] = useState(null)
 
   const scrollRef = useRef(null)
+  const limitReached = messages.length >= ARENA_MAX_MESSAGES
 
   useEffect(() => {
     if (callEnded) return
@@ -47,7 +49,7 @@ export default function ArenaChat({ profileKey, profile }) {
   async function sendMessage(e) {
     e.preventDefault()
     const text = input.trim()
-    if (!text || sending) return
+    if (!text || sending || limitReached) return
 
     const nextMessages = [...messages, { role: 'user', content: text }]
     setMessages(nextMessages)
@@ -254,6 +256,11 @@ export default function ArenaChat({ profileKey, profile }) {
         </div>
 
         {error && <p className="px-5 pb-2 text-xs text-coral">{error}</p>}
+        {limitReached && (
+          <p className="px-5 pb-2 text-xs text-amber">
+            L'appel a atteint sa durée maximale — termine-le pour voir ton feedback.
+          </p>
+        )}
 
         <form
           onSubmit={sendMessage}
@@ -262,13 +269,13 @@ export default function ArenaChat({ profileKey, profile }) {
           <input
             value={input}
             onChange={(e) => setInput(e.target.value)}
-            placeholder="Écris ta réplique..."
-            disabled={sending}
-            className="flex-1 bg-transparent text-sm text-white placeholder:text-mist-dim focus:outline-none"
+            placeholder={limitReached ? "Termine l'appel pour continuer" : 'Écris ta réplique...'}
+            disabled={sending || limitReached}
+            className="flex-1 bg-transparent text-sm text-white placeholder:text-mist-dim focus:outline-none disabled:opacity-40"
           />
           <button
             type="submit"
-            disabled={sending || !input.trim()}
+            disabled={sending || limitReached || !input.trim()}
             className="flex h-9 w-9 items-center justify-center rounded-md bg-volt-gradient text-white transition-opacity disabled:opacity-40"
           >
             <Send size={16} />

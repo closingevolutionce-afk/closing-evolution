@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server'
-import { getAnthropicClient, ARENA_MODEL } from '@/lib/anthropic'
+import { getAnthropicClient, ARENA_FEEDBACK_MODEL } from '@/lib/anthropic'
 import { ARENA_FEEDBACK_SYSTEM, ARENA_FEEDBACK_SCHEMA, getPersonaName } from '@/lib/arena-prompts'
 import { prospectProfileKeys } from '@/lib/knowledge'
 
@@ -30,7 +30,7 @@ export async function POST(request) {
   try {
     const client = getAnthropicClient()
     const response = await client.messages.create({
-      model: ARENA_MODEL,
+      model: ARENA_FEEDBACK_MODEL,
       max_tokens: 2048,
       output_config: { format: { type: 'json_schema', schema: ARENA_FEEDBACK_SCHEMA } },
       system: ARENA_FEEDBACK_SYSTEM,

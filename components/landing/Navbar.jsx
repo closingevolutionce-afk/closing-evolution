@@ -12,6 +12,7 @@ const links = [
   { href: '/objections', label: 'Objections' },
   { href: '/mindset', label: 'Mindset' },
   { href: '/parcours', label: 'Parcours' },
+  { href: '/defi', label: 'Défi du jour' },
 ]
 
 export default function Navbar() {

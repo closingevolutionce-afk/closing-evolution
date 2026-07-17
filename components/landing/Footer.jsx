@@ -10,7 +10,7 @@ const columns = [
       { label: 'Mindset', href: '/mindset' },
       { label: 'Simulateur d’Objections', href: '/objections' },
       { label: 'Parcours de formation', href: '/parcours' },
-      { label: 'Défi du jour', href: '#fonctionnalites' },
+      { label: 'Défi du jour', href: '/defi' },
     ],
   },
   {

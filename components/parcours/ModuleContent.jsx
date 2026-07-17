@@ -7,8 +7,11 @@ import Container from '@/components/ui/Container'
 import Button from '@/components/ui/Button'
 import Quiz from '@/components/parcours/Quiz'
 import ModuleExtras from '@/components/parcours/ModuleExtras'
+import Flashcards from '@/components/parcours/Flashcards'
+import SituationDrill from '@/components/parcours/SituationDrill'
 import { moduleOrder, completeModule, useProgress } from '@/lib/progress'
 import { getLevelForModule, getModule } from '@/lib/knowledge'
+import { getFlashcards, getSituationsForModule } from '@/lib/interactive-content'
 
 const NIVEAU_META = {
   fondations: { label: 'Fondations', color: 'text-volt', ring: 'ring-volt/30', bg: 'bg-volt/10' },
@@ -26,6 +29,9 @@ export default function ModuleContent({ id, module: m }) {
   const orderIndex = moduleOrder.indexOf(id)
   const nextId = moduleOrder[orderIndex + 1] ?? null
   const nextModule = nextId ? getModule(nextId) : null
+
+  const flashcards = getFlashcards(id)
+  const moduleSituations = getSituationsForModule(id)
 
   function handlePassed(score) {
     completeModule(id, score)
@@ -104,6 +110,34 @@ export default function ModuleContent({ id, module: m }) {
       )}
 
       <ModuleExtras id={id} module={m} />
+
+      {flashcards.length > 0 && (
+        <div className="mt-14">
+          <p className="font-display text-xs font-bold italic uppercase tracking-wider text-volt">
+            Flashcards de révision
+          </p>
+          <p className="mt-1.5 text-sm text-mist-muted">
+            Clique sur la carte pour retourner et vérifier ta réponse.
+          </p>
+          <div className="mt-5">
+            <Flashcards cards={flashcards} />
+          </div>
+        </div>
+      )}
+
+      {moduleSituations.length > 0 && (
+        <div className="mt-14">
+          <p className="font-display text-xs font-bold italic uppercase tracking-wider text-volt">
+            Mise en situation
+          </p>
+          <p className="mt-1.5 text-sm text-mist-muted">
+            Un vrai cas, une vraie décision à prendre — comme en appel.
+          </p>
+          <div className="mt-5">
+            <SituationDrill situations={moduleSituations} />
+          </div>
+        </div>
+      )}
 
       <div className="mt-14">
         <p className="font-display text-xs font-bold italic uppercase tracking-wider text-volt">

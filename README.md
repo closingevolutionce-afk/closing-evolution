@@ -104,7 +104,7 @@ npm run dev
 2. ✅ Base de connaissances Cercle Élite Closing intégrée (`lib/knowledge.js`)
 3. ✅ Arena du Roleplay — conversation IA temps réel + scoring (`/arena`)
 4. ✅ Mindset (`/mindset`) + Message du jour (`components/mindset/MessageOfDay.jsx`)
-5. ⏳ Simulateur d'Objections
+5. ✅ Simulateur d'Objections — 4 objections de la méthode, feedback structuré (`/objections`)
 6. ⏳ Parcours de Formation (modules, quiz, badges)
 7. ⏳ Dashboard personnel (progression, classement, streak)
 8. ⏳ Défi du Jour

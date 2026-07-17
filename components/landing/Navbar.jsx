@@ -9,9 +9,9 @@ import { cn } from '@/lib/utils'
 
 const links = [
   { href: '/arena', label: 'Arena' },
+  { href: '/objections', label: 'Objections' },
   { href: '/mindset', label: 'Mindset' },
   { href: '/#parcours', label: 'Parcours' },
-  { href: '/#avis', label: 'Avis' },
 ]
 
 export default function Navbar() {

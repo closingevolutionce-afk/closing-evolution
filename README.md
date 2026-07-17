@@ -113,6 +113,11 @@ Le "Message du jour" s'affiche dans l'app (Arena, Mindset) mais n'envoie pas
 de vraie notification push sur le téléphone — ça demande des comptes élèves
 + un service d'envoi, pas encore construits.
 
+**Dictée vocale** (`components/ui/VoiceButton.jsx`) : disponible sur l'input
+de l'Arena et le textarea du Simulateur d'Objections. 100% côté navigateur
+(Web Speech API) — aucun appel IA, donc aucun coût. Le bouton micro
+disparaît tout seul si le navigateur ne supporte pas l'API (pas d'erreur).
+
 Pas encore construit : comptes élèves, hébergement vidéo des modules, paiement,
 emails/notifications automatiques (le plan pour remplacer Systeme.io — voir
 discussion).

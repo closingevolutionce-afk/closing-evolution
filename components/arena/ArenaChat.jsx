@@ -6,6 +6,7 @@ import { motion } from 'framer-motion'
 import { ArrowLeft, PhoneOff, RotateCcw, Send } from 'lucide-react'
 import Container from '@/components/ui/Container'
 import Button from '@/components/ui/Button'
+import VoiceButton from '@/components/ui/VoiceButton'
 import { ARENA_MAX_MESSAGES } from '@/lib/arena-constants'
 
 function formatTime(totalSeconds) {
@@ -273,6 +274,11 @@ export default function ArenaChat({ profileKey, profile }) {
             disabled={sending || limitReached}
             className="flex-1 bg-transparent text-sm text-white placeholder:text-mist-dim focus:outline-none disabled:opacity-40"
           />
+          {!limitReached && (
+            <VoiceButton
+              onTranscript={(text) => setInput((prev) => (prev ? `${prev} ${text}` : text))}
+            />
+          )}
           <button
             type="submit"
             disabled={sending || limitReached || !input.trim()}

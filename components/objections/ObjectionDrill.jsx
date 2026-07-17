@@ -6,6 +6,7 @@ import { motion } from 'framer-motion'
 import { ArrowLeft, Check, RotateCcw, X } from 'lucide-react'
 import Container from '@/components/ui/Container'
 import Button from '@/components/ui/Button'
+import VoiceButton from '@/components/ui/VoiceButton'
 
 const AXIS_LABELS = {
   identification: 'Identification de la vraie objection',
@@ -86,14 +87,22 @@ export default function ObjectionDrill({ objectionKey, objection, line }) {
 
       {!result && (
         <form onSubmit={submit} className="mt-6">
-          <textarea
-            value={response}
-            onChange={(e) => setResponse(e.target.value)}
-            disabled={submitting}
-            rows={4}
-            placeholder="Écris ta réponse à cette objection..."
-            className="w-full rounded-lg border border-ink-border bg-ink-100/60 p-4 text-sm text-white placeholder:text-mist-dim focus:border-volt/50 focus:outline-none disabled:opacity-60"
-          />
+          <div className="relative">
+            <textarea
+              value={response}
+              onChange={(e) => setResponse(e.target.value)}
+              disabled={submitting}
+              rows={4}
+              placeholder="Écris ou dicte ta réponse à cette objection..."
+              className="w-full rounded-lg border border-ink-border bg-ink-100/60 p-4 pr-14 text-sm text-white placeholder:text-mist-dim focus:border-volt/50 focus:outline-none disabled:opacity-60"
+            />
+            <VoiceButton
+              className="absolute right-3 top-3"
+              onTranscript={(text) =>
+                setResponse((prev) => (prev ? `${prev} ${text}` : text))
+              }
+            />
+          </div>
           {error && <p className="mt-2 text-xs text-coral">{error}</p>}
           <div className="mt-4 flex justify-end">
             <Button type="submit" size="md" disabled={submitting || !response.trim()}>

@@ -103,10 +103,16 @@ npm run dev
 1. ✅ Structure du projet, design system, page d'accueil
 2. ✅ Base de connaissances Cercle Élite Closing intégrée (`lib/knowledge.js`)
 3. ✅ Arena du Roleplay — conversation IA temps réel + scoring (`/arena`)
-4. ⏳ Simulateur d'Objections
-5. ⏳ Parcours de Formation (modules, quiz, badges)
-6. ⏳ Dashboard personnel (progression, classement, streak)
-7. ⏳ Défi du Jour
+4. ✅ Mindset (`/mindset`) + Message du jour (`components/mindset/MessageOfDay.jsx`)
+5. ⏳ Simulateur d'Objections
+6. ⏳ Parcours de Formation (modules, quiz, badges)
+7. ⏳ Dashboard personnel (progression, classement, streak)
+8. ⏳ Défi du Jour
+
+Le "Message du jour" s'affiche dans l'app (Arena, Mindset) mais n'envoie pas
+de vraie notification push sur le téléphone — ça demande des comptes élèves
++ un service d'envoi, pas encore construits.
 
 Pas encore construit : comptes élèves, hébergement vidéo des modules, paiement,
-emails automatiques (le plan pour remplacer Systeme.io — voir discussion).
+emails/notifications automatiques (le plan pour remplacer Systeme.io — voir
+discussion).

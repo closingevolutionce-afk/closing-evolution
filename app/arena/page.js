@@ -5,6 +5,7 @@ import Container from '@/components/ui/Container'
 import Badge from '@/components/ui/Badge'
 import { prospectProfiles, prospectProfileKeys } from '@/lib/knowledge'
 import { arenaCards } from '@/lib/arena-content'
+import MessageOfDay from '@/components/mindset/MessageOfDay'
 
 export const metadata = {
   title: 'Arena du Roleplay — Cercle Élite Closing',
@@ -28,6 +29,8 @@ export default function ArenaPage() {
             L'IA joue un vrai prospect avec une personnalité cohérente du début à la fin. Elle ne
             lâche rien facilement — à toi de mener l'appel.
           </p>
+
+          <MessageOfDay className="mt-8 max-w-xl" />
 
           <div className="mt-14 grid gap-6 sm:grid-cols-2">
             {prospectProfileKeys.map((key) => {

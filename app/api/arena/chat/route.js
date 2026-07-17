@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server'
-import { getAnthropicClient, ARENA_CHAT_MODEL } from '@/lib/anthropic'
+import { getAnthropicClient, ARENA_CHAT_MODEL, describeAnthropicError } from '@/lib/anthropic'
 import { buildArenaSystemPrompt } from '@/lib/arena-prompts'
 import { prospectProfileKeys } from '@/lib/knowledge'
 import { ARENA_MAX_MESSAGES } from '@/lib/arena-constants'
@@ -43,7 +43,7 @@ export async function POST(request) {
   } catch (error) {
     console.error('Arena chat error:', error)
     return NextResponse.json(
-      { error: "L'IA n'a pas pu répondre. Réessaie dans un instant." },
+      { error: describeAnthropicError(error) || "L'IA n'a pas pu répondre. Réessaie dans un instant." },
       { status: 502 }
     )
   }

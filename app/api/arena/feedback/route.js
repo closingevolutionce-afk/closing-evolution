@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server'
-import { getAnthropicClient, ARENA_FEEDBACK_MODEL } from '@/lib/anthropic'
+import { getAnthropicClient, ARENA_FEEDBACK_MODEL, describeAnthropicError } from '@/lib/anthropic'
 import { ARENA_FEEDBACK_SYSTEM, ARENA_FEEDBACK_SCHEMA, getPersonaName } from '@/lib/arena-prompts'
 import { prospectProfileKeys } from '@/lib/knowledge'
 
@@ -48,7 +48,7 @@ export async function POST(request) {
   } catch (error) {
     console.error('Arena feedback error:', error)
     return NextResponse.json(
-      { error: "L'analyse a échoué. Réessaie dans un instant." },
+      { error: describeAnthropicError(error) || "L'analyse a échoué. Réessaie dans un instant." },
       { status: 502 }
     )
   }

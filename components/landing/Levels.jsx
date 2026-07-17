@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { Lock, Trophy } from 'lucide-react'
 import Container from '@/components/ui/Container'
 import SectionHeading from '@/components/ui/SectionHeading'
+import Button from '@/components/ui/Button'
 import { levels } from '@/lib/content'
 
 export default function Levels() {
@@ -62,6 +63,12 @@ export default function Levels() {
               </div>
             </motion.div>
           ))}
+        </div>
+
+        <div className="mt-12 flex justify-center">
+          <Button href="/parcours" size="lg">
+            Découvrir les 20 modules
+          </Button>
         </div>
       </Container>
     </section>

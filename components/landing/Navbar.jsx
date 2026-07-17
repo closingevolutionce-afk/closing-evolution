@@ -11,7 +11,7 @@ const links = [
   { href: '/arena', label: 'Arena' },
   { href: '/objections', label: 'Objections' },
   { href: '/mindset', label: 'Mindset' },
-  { href: '/#parcours', label: 'Parcours' },
+  { href: '/parcours', label: 'Parcours' },
 ]
 
 export default function Navbar() {

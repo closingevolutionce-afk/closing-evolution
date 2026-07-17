@@ -9,7 +9,7 @@ const columns = [
       { label: 'Arena du Roleplay', href: '/arena' },
       { label: 'Mindset', href: '/mindset' },
       { label: 'Simulateur d’Objections', href: '/objections' },
-      { label: 'Parcours de formation', href: '#parcours' },
+      { label: 'Parcours de formation', href: '/parcours' },
       { label: 'Défi du jour', href: '#fonctionnalites' },
     ],
   },

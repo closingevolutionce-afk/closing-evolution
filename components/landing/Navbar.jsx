@@ -1,8 +1,8 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
-import { Swords } from 'lucide-react'
+import { ChevronDown, LogOut, Swords, User } from 'lucide-react'
 import Container from '@/components/ui/Container'
 import Button from '@/components/ui/Button'
 import { useAuth } from '@/components/auth/AuthProvider'
@@ -15,9 +15,75 @@ const links = [
   { href: '/objections', label: 'Objections' },
   { href: '/mindset', label: 'Mindset' },
   { href: '/parcours', label: 'Parcours' },
-  { href: '/defi', label: 'Défi du jour' },
+  { href: '/defi', label: 'Défis' },
   { href: '/replays', label: 'Replays' },
 ]
+
+function UserMenu({ user, profile, signOut }) {
+  const [open, setOpen] = useState(false)
+  const ref = useRef(null)
+  const { level, percent } = getLevelProgress(profile?.xp ?? 0)
+
+  useEffect(() => {
+    function onClickOutside(e) {
+      if (ref.current && !ref.current.contains(e.target)) setOpen(false)
+    }
+    document.addEventListener('mousedown', onClickOutside)
+    return () => document.removeEventListener('mousedown', onClickOutside)
+  }, [])
+
+  return (
+    <div className="relative" ref={ref}>
+      <button
+        type="button"
+        onClick={() => setOpen((o) => !o)}
+        className="flex items-center gap-2 rounded-md border border-ink-border py-1.5 pl-1.5 pr-2.5 transition-colors hover:border-volt/40"
+      >
+        <span className="flex h-7 w-7 items-center justify-center rounded-md bg-volt-gradient text-xs font-bold text-white">
+          {(profile?.prenom ?? user.email)[0]?.toUpperCase()}
+        </span>
+        <span className="hidden text-sm font-medium text-white sm:inline">
+          {profile?.prenom ?? 'Profil'}
+        </span>
+        <ChevronDown size={14} className="text-mist-dim" />
+      </button>
+
+      {open && (
+        <div className="absolute right-0 top-12 z-50 w-64 rounded-lg border border-ink-border bg-ink-50 p-4 shadow-card">
+          {profile && (
+            <div className="mb-3 border-b border-ink-border pb-3">
+              <div className="flex items-center justify-between text-[11px] uppercase tracking-wide text-mist-dim">
+                <span className="font-bold italic text-volt">{level.label}</span>
+                <span>{profile.xp ?? 0} XP</span>
+              </div>
+              <div className="mt-2 h-1.5 w-full overflow-hidden rounded-full bg-ink-200">
+                <div
+                  className="h-full rounded-full bg-volt-gradient transition-all duration-700"
+                  style={{ width: `${percent}%` }}
+                />
+              </div>
+            </div>
+          )}
+          <Link
+            href="/profil"
+            onClick={() => setOpen(false)}
+            className="flex items-center gap-2.5 rounded-md px-2 py-2 text-sm text-mist transition-colors hover:bg-ink-100 hover:text-white"
+          >
+            <User size={15} />
+            Mon profil
+          </Link>
+          <button
+            onClick={signOut}
+            className="flex w-full items-center gap-2.5 rounded-md px-2 py-2 text-left text-sm text-coral transition-colors hover:bg-ink-100"
+          >
+            <LogOut size={15} />
+            Déconnexion
+          </button>
+        </div>
+      )}
+    </div>
+  )
+}
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
@@ -47,21 +113,21 @@ export default function Navbar() {
             scrolled && 'glass border border-ink-border shadow-card'
           )}
         >
-          <Link href="/" className="flex items-center gap-2.5">
+          <Link href="/" className="flex shrink-0 items-center gap-2.5">
             <span className="flex h-9 w-9 items-center justify-center rounded-md bg-volt-gradient text-white">
               <Swords size={18} strokeWidth={2.5} />
             </span>
-            <span className="font-display text-lg font-bold italic text-white">
+            <span className="hidden font-display text-lg font-bold italic text-white xl:inline">
               Cercle Élite <span className="text-volt">Closing</span>
             </span>
           </Link>
 
-          <div className="hidden items-center gap-8 lg:flex">
+          <div className="hidden items-center gap-5 lg:flex">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="text-sm font-medium text-mist-muted transition-colors hover:text-white"
+                className="whitespace-nowrap text-sm font-medium text-mist-muted transition-colors hover:text-white"
               >
                 {link.label}
               </a>
@@ -69,39 +135,12 @@ export default function Navbar() {
           </div>
 
           {user ? (
-            <div className="flex items-center gap-3">
-              {profile && (
-                <div className="hidden items-center gap-2 rounded-md border border-ink-border px-3 py-1.5 md:flex">
-                  <span className="text-[11px] font-bold italic uppercase tracking-wider text-volt">
-                    {getLevelProgress(profile.xp ?? 0).level.label}
-                  </span>
-                  <div className="h-1.5 w-16 overflow-hidden rounded-full bg-ink-200">
-                    <div
-                      className="h-full rounded-full bg-volt-gradient transition-all duration-700"
-                      style={{ width: `${getLevelProgress(profile.xp ?? 0).percent}%` }}
-                    />
-                  </div>
-                  <span className="text-[11px] font-semibold text-mist-dim">{profile.xp ?? 0} XP</span>
-                </div>
-              )}
-              <Link
-                href="/profil"
-                className="flex items-center gap-2.5 rounded-md border border-ink-border px-3 py-1.5 transition-colors hover:border-volt/40"
-              >
-                <span className="flex h-7 w-7 items-center justify-center rounded-md bg-volt-gradient text-xs font-bold text-white">
-                  {(profile?.prenom ?? user.email)[0]?.toUpperCase()}
-                </span>
-                <span className="hidden text-sm font-medium text-white sm:inline">
-                  {profile?.prenom ?? 'Profil'}
-                </span>
-              </Link>
+            <div className="flex shrink-0 items-center gap-2.5">
               <NotificationBell />
-              <Button onClick={signOut} variant="ghost" size="md" className="hidden sm:inline-flex">
-                Déconnexion
-              </Button>
+              <UserMenu user={user} profile={profile} signOut={signOut} />
             </div>
           ) : (
-            <div className="flex items-center gap-3">
+            <div className="flex shrink-0 items-center gap-3">
               <Button href="/login" variant="ghost" size="md" className="hidden sm:inline-flex">
                 Connexion
               </Button>

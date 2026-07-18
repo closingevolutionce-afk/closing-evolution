@@ -1,5 +1,7 @@
 import { Syne, Inter } from 'next/font/google'
 import './globals.css'
+import { AuthProvider } from '@/components/auth/AuthProvider'
+import LevelUpCelebration from '@/components/gamification/LevelUpCelebration'
 
 const display = Syne({
   subsets: ['latin'],
@@ -33,7 +35,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="fr" className={`${display.variable} ${sans.variable}`}>
       <body className="bg-ink font-sans text-mist antialiased selection:bg-volt/30 selection:text-white">
-        {children}
+        <AuthProvider>
+          {children}
+          <LevelUpCelebration />
+        </AuthProvider>
       </body>
     </html>
   )

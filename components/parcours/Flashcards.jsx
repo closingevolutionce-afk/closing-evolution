@@ -2,12 +2,14 @@
 
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { ChevronLeft, ChevronRight, RotateCw, Sparkles } from 'lucide-react'
+import { Check, ChevronLeft, RotateCw, Sparkles } from 'lucide-react'
+import { vibrate } from '@/lib/sounds'
 
 export default function Flashcards({ cards }) {
   const [index, setIndex] = useState(0)
   const [flipped, setFlipped] = useState(false)
   const [seen, setSeen] = useState(() => new Set())
+  const [exitDirection, setExitDirection] = useState(0)
 
   const card = cards[index]
   const isLast = index === cards.length - 1
@@ -32,6 +34,19 @@ export default function Flashcards({ cards }) {
     setIndex((i) => (i === 0 ? cards.length - 1 : i - 1))
   }
 
+  function handleDragEnd(_e, info) {
+    if (info.offset.x > 100) {
+      setExitDirection(1)
+      markSeen(index)
+      vibrate(15)
+      next()
+    } else if (info.offset.x < -100) {
+      setExitDirection(-1)
+      vibrate(15)
+      next()
+    }
+  }
+
   return (
     <div>
       <div className="flex items-center justify-between">
@@ -46,38 +61,57 @@ export default function Flashcards({ cards }) {
         )}
       </div>
 
-      <div className="mt-4" style={{ perspective: '1200px' }}>
-        <motion.button
-          type="button"
-          onClick={flip}
-          className="relative h-56 w-full text-left"
-          style={{ transformStyle: 'preserve-3d' }}
-          animate={{ rotateY: flipped ? 180 : 0 }}
-          transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-        >
-          <div
-            className="absolute inset-0 flex flex-col justify-between rounded-2xl border border-ink-border bg-ink-100/60 p-7"
-            style={{ backfaceVisibility: 'hidden' }}
+      <p className="mt-2 text-[11px] text-mist-dim">
+        Glisse à droite si tu savais, à gauche sinon — ou utilise les flèches.
+      </p>
+
+      <div className="relative mt-4 h-56" style={{ perspective: '1200px' }}>
+        <AnimatePresence>
+          <motion.div
+            key={index}
+            drag="x"
+            dragConstraints={{ left: 0, right: 0 }}
+            dragElastic={0.6}
+            onDragEnd={handleDragEnd}
+            initial={{ opacity: 0, x: exitDirection * 60 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: exitDirection * 300, rotate: exitDirection * 12 }}
+            transition={{ duration: 0.3 }}
+            className="absolute inset-0 cursor-grab active:cursor-grabbing"
           >
-            <span className="text-[11px] font-semibold uppercase tracking-wider text-mist-dim">
-              Question — clique pour retourner
-            </span>
-            <p className="font-display text-lg font-bold leading-snug text-white">
-              {card.recto}
-            </p>
-            <span />
-          </div>
-          <div
-            className="absolute inset-0 flex flex-col justify-between rounded-2xl border border-volt/30 bg-volt/10 p-7"
-            style={{ backfaceVisibility: 'hidden', transform: 'rotateY(180deg)' }}
-          >
-            <span className="text-[11px] font-semibold uppercase tracking-wider text-volt">
-              Réponse
-            </span>
-            <p className="text-base leading-relaxed text-mist">{card.verso}</p>
-            <span />
-          </div>
-        </motion.button>
+            <motion.button
+              type="button"
+              onClick={flip}
+              className="relative h-full w-full text-left"
+              style={{ transformStyle: 'preserve-3d' }}
+              animate={{ rotateY: flipped ? 180 : 0 }}
+              transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+            >
+              <div
+                className="absolute inset-0 flex flex-col justify-between rounded-2xl border border-ink-border bg-ink-100/60 p-7"
+                style={{ backfaceVisibility: 'hidden' }}
+              >
+                <span className="text-[11px] font-semibold uppercase tracking-wider text-mist-dim">
+                  Question — clique pour retourner
+                </span>
+                <p className="font-display text-lg font-bold leading-snug text-white">
+                  {card.recto}
+                </p>
+                <span />
+              </div>
+              <div
+                className="absolute inset-0 flex flex-col justify-between rounded-2xl border border-volt/30 bg-volt/10 p-7"
+                style={{ backfaceVisibility: 'hidden', transform: 'rotateY(180deg)' }}
+              >
+                <span className="text-[11px] font-semibold uppercase tracking-wider text-volt">
+                  Réponse
+                </span>
+                <p className="text-base leading-relaxed text-mist">{card.verso}</p>
+                <span />
+              </div>
+            </motion.button>
+          </motion.div>
+        </AnimatePresence>
       </div>
 
       <div className="mt-5 flex items-center justify-between">
@@ -98,10 +132,13 @@ export default function Flashcards({ cards }) {
         </button>
         <button
           type="button"
-          onClick={next}
-          className="flex h-10 w-10 items-center justify-center rounded-md border border-ink-border text-mist-muted transition-colors hover:border-volt/40 hover:text-white"
+          onClick={() => {
+            markSeen(index)
+            next()
+          }}
+          className="flex h-10 w-10 items-center justify-center rounded-md border border-volt/30 text-volt transition-colors hover:bg-volt/10"
         >
-          <ChevronRight size={18} />
+          <Check size={18} />
         </button>
       </div>
     </div>

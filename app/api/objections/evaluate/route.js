@@ -2,6 +2,8 @@ import { NextResponse } from 'next/server'
 import { getAnthropicClient, ARENA_FEEDBACK_MODEL, describeAnthropicError } from '@/lib/anthropic'
 import { buildObjectionEvalSystem, OBJECTION_EVAL_SCHEMA } from '@/lib/objection-prompts'
 import { getObjection } from '@/lib/knowledge'
+import { getSupabaseServerClient } from '@/lib/supabase/server'
+import { getSupabaseAdminClient } from '@/lib/supabase/admin'
 
 export async function POST(request) {
   let body
@@ -39,6 +41,24 @@ export async function POST(request) {
 
     const textBlock = response.content.find((b) => b.type === 'text')
     const data = JSON.parse(textBlock.text)
+
+    try {
+      const supabase = await getSupabaseServerClient()
+      const {
+        data: { user },
+      } = await supabase.auth.getUser()
+      if (user) {
+        const admin = getSupabaseAdminClient()
+        await admin.from('objection_attempts').insert({
+          user_id: user.id,
+          objection_key: objectionKey,
+          score: data.score,
+        })
+      }
+    } catch (recordError) {
+      console.error('Objection attempt recording error:', recordError)
+    }
+
     return NextResponse.json(data)
   } catch (error) {
     console.error('Objection evaluate error:', error)

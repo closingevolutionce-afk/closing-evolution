@@ -28,7 +28,7 @@ export default function DefiCard({ challenge }) {
   }
 
   function markDone() {
-    complete()
+    complete(challenge.id)
   }
 
   return (

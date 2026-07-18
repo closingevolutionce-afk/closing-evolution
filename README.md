@@ -91,12 +91,32 @@ app/api/arena/
 
 ```bash
 cp .env.example .env.local
-# Ajoute ta clé ANTHROPIC_API_KEY
+# Ajoute ANTHROPIC_API_KEY + les 3 clés Supabase (voir section suivante)
 
 npm install
 npm run dev
 # → http://localhost:3000
 ```
+
+## Comptes élèves — Supabase
+
+L'app utilise [Supabase](https://supabase.com) pour l'authentification et
+toutes les données par élève (progression, XP, badges, notifications,
+classement). Setup :
+
+1. Crée un projet sur supabase.com (gratuit largement pour une phase pilote).
+2. `Project Settings → API` → copie `Project URL`, `anon public key` et
+   `service_role key` dans `.env.local`.
+3. `SQL Editor → New query` → colle **tout** le contenu de `supabase/schema.sql`
+   et exécute. Le fichier est idempotent (relançable sans risque si le schéma
+   évolue).
+4. `ADMIN_EMAILS` dans `.env.local` : liste d'emails (séparés par des
+   virgules) promus automatiquement en rôle `admin` à l'inscription — accès
+   à l'espace coach (`/coach`).
+
+Toutes les pages sous `/parcours`, `/arena`, `/objections`, `/defi`,
+`/mindset`, `/profil`, `/coach` et `/onboarding` nécessitent un compte
+(`middleware.js`).
 
 ## Roadmap (fonctionnalité par fonctionnalité)
 
@@ -105,19 +125,25 @@ npm run dev
 3. ✅ Arena du Roleplay — conversation IA temps réel + scoring (`/arena`)
 4. ✅ Mindset (`/mindset`) + Message du jour (`components/mindset/MessageOfDay.jsx`)
 5. ✅ Simulateur d'Objections — 4 objections de la méthode, feedback structuré (`/objections`)
-6. ⏳ Parcours de Formation (modules, quiz, badges)
-7. ⏳ Dashboard personnel (progression, classement, streak)
-8. ⏳ Défi du Jour
-
-Le "Message du jour" s'affiche dans l'app (Arena, Mindset) mais n'envoie pas
-de vraie notification push sur le téléphone — ça demande des comptes élèves
-+ un service d'envoi, pas encore construits.
+6. ✅ Parcours de Formation — 20 modules, quiz avec vies, flashcards, mises en
+   situation (`/parcours`)
+7. ✅ Comptes élèves (email + mot de passe), onboarding personnalisé en 5
+   questions, dashboard de progression, streak, XP/niveaux/badges,
+   classement hebdomadaire, notifications in-app, espace coach (`/coach`)
+8. ✅ Défi du Jour — 30 défis réels, mode "Défi Express" 5 minutes (`/defi`,
+   `/defi/express`)
 
 **Dictée vocale** (`components/ui/VoiceButton.jsx`) : disponible sur l'input
-de l'Arena et le textarea du Simulateur d'Objections. 100% côté navigateur
-(Web Speech API) — aucun appel IA, donc aucun coût. Le bouton micro
-disparaît tout seul si le navigateur ne supporte pas l'API (pas d'erreur).
+de l'Arena, le textarea du Simulateur d'Objections et du Défi du Jour. 100%
+côté navigateur (Web Speech API) — aucun appel IA, donc aucun coût.
 
-Pas encore construit : comptes élèves, hébergement vidéo des modules, paiement,
-emails/notifications automatiques (le plan pour remplacer Systeme.io — voir
-discussion).
+**Sons & vibrations** (`lib/sounds.js`) : synthétisés via Web Audio API, zéro
+fichier audio, zéro coût. Toggle dans `/profil`.
+
+**Messages surprises / encouragements** : pré-écrits (Message du jour,
+citations mindset), pas générés par l'IA — décision volontaire pour ne pas
+ajouter de coût API récurrent par élève.
+
+Pas encore construit : hébergement vidéo réel des modules (la vidéo
+d'accueil est un placeholder en attendant l'enregistrement), paiement,
+emails/notifications push hors app.

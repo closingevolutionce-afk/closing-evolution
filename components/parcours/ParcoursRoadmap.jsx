@@ -5,6 +5,11 @@ import Container from '@/components/ui/Container'
 import Badge from '@/components/ui/Badge'
 import MessageOfDay from '@/components/mindset/MessageOfDay'
 import ModuleCard from '@/components/parcours/ModuleCard'
+import WeeklyLeaderboard from '@/components/parcours/WeeklyLeaderboard'
+import WelcomeVideo from '@/components/parcours/WelcomeVideo'
+import InactivityBanner from '@/components/parcours/InactivityBanner'
+import DefiExpressButton from '@/components/parcours/DefiExpressButton'
+import CommunityFeed from '@/components/parcours/CommunityFeed'
 import { levels, totalModuleCount } from '@/lib/knowledge'
 import { getLevelStats, isModuleUnlocked, useProgress } from '@/lib/progress'
 import { useStreak } from '@/lib/streak'
@@ -35,6 +40,15 @@ export default function ParcoursRoadmap() {
         </p>
 
         <MessageOfDay className="mt-8 max-w-xl" />
+        <InactivityBanner />
+
+        <div className="mt-8">
+          <WelcomeVideo />
+        </div>
+
+        <div className="mt-6">
+          <DefiExpressButton />
+        </div>
 
         <div className="mt-10 flex flex-wrap items-center gap-4">
           <div className="flex items-center gap-3 rounded-lg border border-ink-border bg-ink-100/60 px-5 py-3.5">
@@ -74,6 +88,11 @@ export default function ParcoursRoadmap() {
             </div>
           </div>
         </div>
+
+        <div className="mt-8">
+          <WeeklyLeaderboard />
+        </div>
+        <CommunityFeed />
       </Container>
 
       {levels.map((level, levelIndex) => {

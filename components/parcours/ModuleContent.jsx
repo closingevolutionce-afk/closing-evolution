@@ -20,7 +20,7 @@ const NIVEAU_META = {
 }
 
 export default function ModuleContent({ id, module: m }) {
-  const { completed } = useProgress()
+  const { completed, refresh } = useProgress()
   const niveau = NIVEAU_META[m.niveau]
   const level = getLevelForModule(id)
   const positionInLevel = level.modules.findIndex((mod) => mod.id === id) + 1
@@ -33,8 +33,9 @@ export default function ModuleContent({ id, module: m }) {
   const flashcards = getFlashcards(id)
   const moduleSituations = getSituationsForModule(id)
 
-  function handlePassed(score) {
-    completeModule(id, score)
+  async function handlePassed(perfect) {
+    await completeModule(id, m.quiz.length, m.quiz.length, perfect)
+    await refresh()
   }
 
   return (
@@ -157,7 +158,7 @@ export default function ModuleContent({ id, module: m }) {
               </h3>
             </div>
           ) : (
-            <Quiz questions={m.quiz} onPassed={() => handlePassed(m.quiz.length)} />
+            <Quiz questions={m.quiz} onPassed={handlePassed} />
           )}
         </div>
       </div>

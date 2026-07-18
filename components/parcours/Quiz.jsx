@@ -2,14 +2,17 @@
 
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Check, RotateCcw, Sparkles, X } from 'lucide-react'
+import { Check, Heart, RotateCcw, Sparkles, X } from 'lucide-react'
 import Button from '@/components/ui/Button'
+import { playCorrect, playIncorrect, vibrate } from '@/lib/sounds'
 
 export default function Quiz({ questions, onPassed }) {
   const [index, setIndex] = useState(0)
   const [selected, setSelected] = useState(null)
   const [correctFlags, setCorrectFlags] = useState([])
   const [finished, setFinished] = useState(false)
+  const [hadMistake, setHadMistake] = useState(false)
+  const [lives, setLives] = useState(3)
 
   const current = questions[index]
   const isLast = index === questions.length - 1
@@ -19,6 +22,15 @@ export default function Quiz({ questions, onPassed }) {
   function pick(option) {
     if (selected) return
     const correct = option === current.reponse
+    if (!correct) {
+      setHadMistake(true)
+      setLives((l) => Math.max(0, l - 1))
+      playIncorrect()
+      vibrate(20)
+    } else {
+      playCorrect()
+      vibrate(10)
+    }
     setSelected(option)
     setCorrectFlags((prev) => [...prev, correct])
   }
@@ -37,6 +49,8 @@ export default function Quiz({ questions, onPassed }) {
     setSelected(null)
     setCorrectFlags([])
     setFinished(false)
+    setHadMistake(false)
+    setLives(3)
   }
 
   if (finished) {
@@ -55,8 +69,13 @@ export default function Quiz({ questions, onPassed }) {
             <h3 className="mt-4 font-display text-xl font-bold italic text-white">
               Module validé — {score}/{questions.length}
             </h3>
+            {!hadMistake && (
+              <p className="mt-1.5 text-xs font-bold uppercase tracking-wider text-volt">
+                Perfect — +100 XP bonus
+              </p>
+            )}
             <p className="mt-2 text-sm text-mist-muted">Le module suivant vient de se débloquer.</p>
-            <Button onClick={onPassed} size="md" className="mt-6">
+            <Button onClick={() => onPassed(!hadMistake)} size="md" className="mt-6">
               Continuer
             </Button>
           </>
@@ -80,9 +99,20 @@ export default function Quiz({ questions, onPassed }) {
 
   return (
     <div className="rounded-2xl border border-ink-border bg-ink-100/60 p-7">
-      <span className="font-display text-xs font-bold italic uppercase tracking-wider text-volt">
-        Question {index + 1}/{questions.length}
-      </span>
+      <div className="flex items-center justify-between">
+        <span className="font-display text-xs font-bold italic uppercase tracking-wider text-volt">
+          Question {index + 1}/{questions.length}
+        </span>
+        <div className="flex items-center gap-1">
+          {[0, 1, 2].map((i) => (
+            <Heart
+              key={i}
+              size={16}
+              className={i < lives ? 'fill-coral text-coral' : 'text-ink-border'}
+            />
+          ))}
+        </div>
+      </div>
       <h3 className="mt-3 font-display text-lg font-bold text-white">{current.question}</h3>
       <div className="mt-5 flex flex-col gap-2.5">
         {current.options.map((option) => {

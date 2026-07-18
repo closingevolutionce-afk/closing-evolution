@@ -7,6 +7,7 @@ import { Swords } from 'lucide-react'
 import Container from '@/components/ui/Container'
 import Button from '@/components/ui/Button'
 import { getSupabaseBrowserClient } from '@/lib/supabase/client'
+import { diagnoseSupabaseEnv } from '@/lib/env-check'
 
 export default function SignupPage() {
   const router = useRouter()
@@ -34,11 +35,13 @@ export default function SignupPage() {
     })
 
     if (signUpError) {
-      setError(
-        signUpError.message.includes('already registered')
-          ? 'Un compte existe déjà avec cet email.'
-          : signUpError.message
-      )
+      if (signUpError.message.includes('already registered')) {
+        setError('Un compte existe déjà avec cet email.')
+      } else if (signUpError.message.includes('ISO-8859-1')) {
+        setError(`${signUpError.message} — DIAGNOSTIC : ${diagnoseSupabaseEnv()}`)
+      } else {
+        setError(signUpError.message)
+      }
       setLoading(false)
       return
     }

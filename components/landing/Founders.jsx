@@ -20,13 +20,13 @@ export default function Founders() {
         />
 
         <div className="mt-14 flex flex-col items-center gap-8">
-          <div className="relative w-full max-w-2xl overflow-hidden rounded-3xl border border-ink-border shadow-card">
+          <div className="relative aspect-square w-full max-w-sm overflow-hidden rounded-full border border-ink-border shadow-card">
             <Image
-              src="/images/founders.jpeg"
+              src="/images/founders-round.jpg"
               alt="Chirine et Emilien, fondateurs de Closing Evolution"
-              width={640}
-              height={630}
-              className="w-full object-cover"
+              width={700}
+              height={700}
+              className="h-full w-full object-cover"
               priority={false}
             />
           </div>

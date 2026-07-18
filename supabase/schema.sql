@@ -234,6 +234,20 @@ create policy "community_feed_read_all" on community_feed
   for select using (auth.role() = 'authenticated');
 
 -- ============================================================
+-- REPLAYS — bibliothèque de calls de coaching (liens externes : Fathom, etc.)
+-- ============================================================
+create table if not exists replays (
+  id uuid primary key default gen_random_uuid(),
+  title text not null,
+  description text,
+  video_url text not null,
+  created_by uuid references profiles (id) on delete set null,
+  created_at timestamptz not null default now()
+);
+
+create index if not exists replays_created_idx on replays (created_at desc);
+
+-- ============================================================
 -- ROW LEVEL SECURITY
 -- ============================================================
 alter table profiles enable row level security;
@@ -257,6 +271,18 @@ as $$
     select 1 from profiles where id = auth.uid() and role = 'admin'
   );
 $$;
+
+-- replays : lecture pour tout élève connecté, ajout/suppression admin seulement
+alter table replays enable row level security;
+drop policy if exists "replays_read_all" on replays;
+create policy "replays_read_all" on replays
+  for select using (auth.role() = 'authenticated');
+drop policy if exists "replays_insert_admin" on replays;
+create policy "replays_insert_admin" on replays
+  for insert with check (is_admin());
+drop policy if exists "replays_delete_admin" on replays;
+create policy "replays_delete_admin" on replays
+  for delete using (is_admin());
 
 -- profiles : chacun voit/modifie son propre profil, les admins voient tout
 drop policy if exists "profiles_select_own_or_admin" on profiles;

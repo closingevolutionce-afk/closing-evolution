@@ -16,6 +16,7 @@ const links = [
   { href: '/mindset', label: 'Mindset' },
   { href: '/parcours', label: 'Parcours' },
   { href: '/defi', label: 'Défi du jour' },
+  { href: '/replays', label: 'Replays' },
 ]
 
 export default function Navbar() {

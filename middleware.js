@@ -10,6 +10,7 @@ const PROTECTED_PREFIXES = [
   '/profil',
   '/coach',
   '/onboarding',
+  '/replays',
 ]
 
 export async function middleware(request) {

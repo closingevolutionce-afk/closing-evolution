@@ -12,7 +12,7 @@ export async function generateMetadata({ params }) {
   const profile = prospectProfiles[profileKey]
   if (!profile) return {}
   return {
-    title: `${profile.nom} — Arena du Roleplay — Cercle Élite Closing`,
+    title: `${profile.nom} — Arena du Roleplay — Closing Evolution`,
   }
 }
 

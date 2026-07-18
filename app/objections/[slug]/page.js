@@ -13,7 +13,7 @@ export async function generateMetadata({ params }) {
   const objectionKey = slugToObjectionKey[slug]
   if (!objectionKey) return {}
   return {
-    title: `« ${objectionLines[objectionKey]} » — Simulateur d’Objections — Cercle Élite Closing`,
+    title: `« ${objectionLines[objectionKey]} » — Simulateur d’Objections — Closing Evolution`,
   }
 }
 

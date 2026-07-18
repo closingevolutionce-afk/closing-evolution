@@ -2,7 +2,7 @@ import Navbar from '@/components/landing/Navbar'
 import DefiExpressFlow from '@/components/parcours/DefiExpressFlow'
 
 export const metadata = {
-  title: 'Défi Express — Cercle Élite Closing',
+  title: 'Défi Express — Closing Evolution',
   description: '5 minutes par jour pour garder le réflexe closing.',
 }
 

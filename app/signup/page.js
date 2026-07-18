@@ -53,7 +53,7 @@ export default function SignupPage() {
   return (
     <main className="relative flex min-h-screen items-center overflow-hidden py-24">
       <div className="pointer-events-none absolute inset-0 bg-grid [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_60%,transparent_100%)]" />
-      <div className="pointer-events-none absolute left-1/2 top-[-10%] h-[560px] w-[900px] -translate-x-1/2 rounded-full bg-volt-gradient opacity-20 blur-[140px]" />
+      <div className="pointer-events-none absolute left-1/2 top-[-10%] h-[560px] w-[900px] -translate-x-1/2 rounded-full bg-volt-gradient opacity-30 blur-[140px]" />
 
       <Container className="relative max-w-md">
         <Link href="/" className="flex items-center gap-2.5">
@@ -61,7 +61,7 @@ export default function SignupPage() {
             <Swords size={18} strokeWidth={2.5} />
           </span>
           <span className="font-display text-lg font-bold italic text-white">
-            Cercle Élite <span className="text-volt">Closing</span>
+            Closing <span className="text-volt">Evolution</span>
           </span>
         </Link>
 

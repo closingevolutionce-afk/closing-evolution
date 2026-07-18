@@ -10,7 +10,7 @@ import { levels } from '@/lib/content'
 export default function Levels() {
   return (
     <section id="parcours" className="relative py-28">
-      <div className="pointer-events-none absolute inset-x-0 top-1/2 h-[400px] -translate-y-1/2 bg-volt-gradient opacity-5 blur-[120px]" />
+      <div className="pointer-events-none absolute inset-x-0 top-1/2 h-[400px] -translate-y-1/2 bg-volt-gradient opacity-10 blur-[120px]" />
       <Container className="relative">
         <SectionHeading
           eyebrow="Parcours de formation"

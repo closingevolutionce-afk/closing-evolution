@@ -18,12 +18,12 @@ const sans = Inter({
 })
 
 export const metadata = {
-  title: 'Cercle Élite Closing — Deviens un closer d’élite',
+  title: 'Closing Evolution — Deviens un closer d’élite',
   description:
     'La formation francophone qui transforme les débutants en closers d’élite : roleplay IA en temps réel, simulateur d’objections, parcours structuré et coaching data-driven.',
-  metadataBase: new URL('https://cercle-elite-closing.app'),
+  metadataBase: new URL('https://closing-evolution.app'),
   openGraph: {
-    title: 'Cercle Élite Closing — Deviens un closer d’élite',
+    title: 'Closing Evolution — Deviens un closer d’élite',
     description:
       'Entraîne-toi contre une IA qui joue de vrais prospects. Progresse, débloque des modules, grimpe au classement.',
     type: 'website',

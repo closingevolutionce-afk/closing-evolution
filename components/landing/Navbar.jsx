@@ -117,8 +117,13 @@ export default function Navbar() {
             <span className="flex h-9 w-9 items-center justify-center rounded-md bg-volt-gradient text-white">
               <Swords size={18} strokeWidth={2.5} />
             </span>
-            <span className="hidden font-display text-lg font-bold italic text-white xl:inline">
-              Cercle Élite <span className="text-volt">Closing</span>
+            <span className="hidden flex-col leading-tight xl:flex">
+              <span className="font-display text-lg font-bold italic text-white">
+                Closing <span className="text-volt">Evolution</span>
+              </span>
+              <span className="text-[10px] font-semibold uppercase tracking-wide text-mist-dim">
+                Ferme plus. Doute moins.
+              </span>
             </span>
           </Link>
 

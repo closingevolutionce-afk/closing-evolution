@@ -41,8 +41,13 @@ export default function Footer() {
               <span className="flex h-9 w-9 items-center justify-center rounded-md bg-volt-gradient text-white">
                 <Swords size={18} strokeWidth={2.5} />
               </span>
-              <span className="font-display text-lg font-bold italic text-white">
-                Cercle Élite <span className="text-volt">Closing</span>
+              <span className="flex flex-col leading-tight">
+                <span className="font-display text-lg font-bold italic text-white">
+                  Closing <span className="text-volt">Evolution</span>
+                </span>
+                <span className="text-[10px] font-semibold uppercase tracking-wide text-mist-dim">
+                  Ferme plus. Doute moins.
+                </span>
               </span>
             </Link>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-mist-dim">
@@ -74,7 +79,7 @@ export default function Footer() {
 
         <div className="mt-14 flex flex-col items-center justify-between gap-4 border-t border-ink-border pt-8 sm:flex-row">
           <p className="text-xs text-mist-dim">
-            © {new Date().getFullYear()} Cercle Élite Closing. Tous droits réservés.
+            © {new Date().getFullYear()} Closing Evolution. Tous droits réservés.
           </p>
           <p className="text-xs text-mist-dim">Conçu pour les closers francophones.</p>
         </div>

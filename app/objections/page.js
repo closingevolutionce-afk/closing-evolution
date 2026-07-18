@@ -8,7 +8,7 @@ import { objections } from '@/lib/knowledge'
 import { objectionLines, objectionIcons, objectionSlugs } from '@/lib/objection-content'
 
 export const metadata = {
-  title: 'Simulateur d’Objections — Cercle Élite Closing',
+  title: 'Simulateur d’Objections — Closing Evolution',
   description: 'Entraîne-toi objection par objection avec un feedback immédiat de l’IA.',
 }
 
@@ -18,7 +18,7 @@ export default function ObjectionsPage() {
       <Navbar />
       <main className="relative overflow-hidden pb-24 pt-40">
         <div className="pointer-events-none absolute inset-0 bg-grid [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_60%,transparent_100%)]" />
-        <div className="pointer-events-none absolute left-1/2 top-[-10%] h-[560px] w-[900px] -translate-x-1/2 rounded-full bg-volt-gradient opacity-20 blur-[140px]" />
+        <div className="pointer-events-none absolute left-1/2 top-[-10%] h-[560px] w-[900px] -translate-x-1/2 rounded-full bg-volt-gradient opacity-30 blur-[140px]" />
 
         <Container className="relative">
           <Badge>Simulateur d’Objections</Badge>

@@ -28,7 +28,7 @@ export default function FinalCTA() {
 
           <div className="relative mt-9 flex flex-wrap items-center justify-center gap-4">
             <Button href="#" size="lg">
-              Rejoindre gratuitement
+              Candidater
               <ArrowRight size={18} />
             </Button>
             <Button href="#fonctionnalites" variant="secondary" size="lg">

@@ -150,7 +150,7 @@ export default function Navbar() {
                 Connexion
               </Button>
               <Button href="/signup" variant="primary" size="md">
-                Rejoindre
+                Candidater
               </Button>
             </div>
           )}

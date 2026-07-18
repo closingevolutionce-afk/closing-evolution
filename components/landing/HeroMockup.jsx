@@ -17,7 +17,7 @@ export default function HeroMockup() {
       transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
       className="relative mx-auto w-full max-w-md"
     >
-      <div className="absolute -inset-6 -z-10 rounded-[2rem] bg-volt-gradient opacity-20 blur-3xl" />
+      <div className="absolute -inset-6 -z-10 rounded-[2rem] bg-volt-gradient opacity-30 blur-3xl" />
 
       <div className="glass relative overflow-hidden rounded-xl border border-ink-border shadow-glow-lg">
         <div className="flex items-center justify-between border-b border-ink-border px-5 py-4">

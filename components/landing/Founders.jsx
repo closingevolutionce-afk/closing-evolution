@@ -15,15 +15,15 @@ export default function Founders() {
       <Container className="relative">
         <SectionHeading
           eyebrow="Qui est derrière Closing Evolution"
-          title="Deux closers, une méthode forgée call après call"
-          description="Pas une théorie apprise dans un livre — un système construit sur des centaines d'appels réels, débriefés, corrigés, répétés."
+          title="Deux closers devenus Head of Sales"
+          description="Un vrai parcours, une vraie expertise, et des millions closés à nous deux. Cette méthode, c'est celle qu'on a appliquée pour y arriver."
         />
 
         <div className="mt-14 flex flex-col items-center gap-8">
           <div className="relative w-full max-w-2xl overflow-hidden rounded-3xl border border-ink-border shadow-card">
             <Image
               src="/images/founders.jpeg"
-              alt="Chirine et Emilien Besnardeau, fondateurs de Closing Evolution"
+              alt="Chirine et Emilien, fondateurs de Closing Evolution"
               width={640}
               height={630}
               className="w-full object-cover"
@@ -31,16 +31,9 @@ export default function Founders() {
             />
           </div>
 
-          <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-3 text-center">
-            <div>
-              <p className="font-display text-base font-bold text-white">Chirine</p>
-              <p className="text-sm text-mist-dim">Fondatrice</p>
-            </div>
-            <span className="hidden h-8 w-px bg-ink-border sm:block" />
-            <div>
-              <p className="font-display text-base font-bold text-white">Emilien Besnardeau</p>
-              <p className="text-sm text-mist-dim">Co-fondateur</p>
-            </div>
+          <div className="text-center">
+            <p className="font-display text-base font-bold text-white">Chirine &amp; Emilien</p>
+            <p className="text-sm text-mist-dim">Fondateurs</p>
           </div>
         </div>
 
@@ -72,10 +65,14 @@ export default function Founders() {
               On se présente
             </p>
             <p className="mt-3 text-sm leading-relaxed text-mist-muted">
-              On est Chirine et Emilien. On ferme et on coache des appels depuis des années — cette
-              méthode, c'est celle qu'on utilise vraiment, pas une théorie qu'on a lue quelque part.
-              Closing Evolution, c'est ce qu'on aurait voulu avoir en démarrant : un entraînement
-              exigeant, honnête, et qui se voit dans les chiffres.
+              On est Chirine et Emilien, aujourd'hui Head of Sales, avec des millions closés à nous
+              deux. Cette méthode, c'est celle qu'on a nous-mêmes appliquée pour y arriver — pas une
+              théorie qu'on a lue quelque part.
+            </p>
+            <p className="mt-3 text-sm leading-relaxed text-mist-muted">
+              Un accompagnement sur mesure pour t'enseigner tout ce qu'on a appris et te transmettre
+              notre expertise. <span className="font-semibold text-white">Si on l'a fait, tu peux le
+              faire.</span>
             </p>
           </div>
         </div>

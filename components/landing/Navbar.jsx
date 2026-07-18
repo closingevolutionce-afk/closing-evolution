@@ -122,7 +122,7 @@ export default function Navbar() {
                 Closing <span className="text-volt">Evolution</span>
               </span>
               <span className="text-[10px] font-semibold uppercase tracking-wide text-mist-dim">
-                Ferme plus. Doute moins.
+                Doute moins. Close plus.
               </span>
             </span>
           </Link>

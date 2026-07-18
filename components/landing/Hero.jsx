@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 import { ArrowRight, Play, Sparkles } from 'lucide-react'
 import Container from '@/components/ui/Container'
 import Button from '@/components/ui/Button'
@@ -21,7 +22,30 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <Badge icon={Sparkles}>Propulsé par l’IA</Badge>
+              <div className="flex flex-wrap items-center gap-3">
+                <Badge icon={Sparkles}>Propulsé par l’IA</Badge>
+                <div className="inline-flex items-center gap-2 rounded-md border border-ink-border bg-ink-100/50 py-1 pl-1 pr-3">
+                  <div className="flex -space-x-2">
+                    <Image
+                      src="/images/chirine-avatar.jpg"
+                      alt="Chirine"
+                      width={24}
+                      height={24}
+                      className="h-6 w-6 rounded-full border-2 border-ink object-cover"
+                    />
+                    <Image
+                      src="/images/emilien-avatar.jpg"
+                      alt="Emilien"
+                      width={24}
+                      height={24}
+                      className="h-6 w-6 rounded-full border-2 border-ink object-cover"
+                    />
+                  </div>
+                  <span className="text-xs font-semibold text-mist-muted">
+                    Fondé par Chirine &amp; Emilien
+                  </span>
+                </div>
+              </div>
             </motion.div>
 
             <motion.h1

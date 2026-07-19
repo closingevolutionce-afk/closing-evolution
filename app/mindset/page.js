@@ -47,17 +47,25 @@ export default function MindsetPage() {
           />
 
           <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {coreBeliefs.map((belief, i) => (
-              <GlowCard key={belief.title} delay={i * 0.06}>
-                <span className="font-display text-2xl font-bold italic text-volt">
-                  {String(i + 1).padStart(2, '0')}
-                </span>
-                <h3 className="mt-4 font-display text-lg font-bold text-white">{belief.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-mist-muted">
-                  {belief.description}
-                </p>
-              </GlowCard>
-            ))}
+            {coreBeliefs.map((belief, i) => {
+              const Icon = belief.icon
+              return (
+                <GlowCard key={belief.title} delay={i * 0.06}>
+                  <div className="flex items-center justify-between">
+                    <span className="flex h-11 w-11 items-center justify-center rounded-md bg-volt/10 text-volt ring-1 ring-volt/25">
+                      <Icon size={20} />
+                    </span>
+                    <span className="font-display text-xl font-bold italic text-volt/40">
+                      {String(i + 1).padStart(2, '0')}
+                    </span>
+                  </div>
+                  <h3 className="mt-4 font-display text-lg font-bold text-white">{belief.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-mist-muted">
+                    {belief.description}
+                  </p>
+                </GlowCard>
+              )
+            })}
           </div>
 
           <div className="mt-10 flex flex-col gap-4 sm:flex-row">
@@ -100,14 +108,20 @@ export default function MindsetPage() {
               4 piliers hebdomadaires
             </h3>
             <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-              {weeklyPillars.map((pillar) => (
-                <div key={pillar.title} className="rounded-lg border border-ink-border bg-ink-50/60 p-5">
-                  <h4 className="font-display text-sm font-bold text-white">{pillar.title}</h4>
-                  <p className="mt-2 text-xs leading-relaxed text-mist-muted">
-                    {pillar.description}
-                  </p>
-                </div>
-              ))}
+              {weeklyPillars.map((pillar) => {
+                const Icon = pillar.icon
+                return (
+                  <div key={pillar.title} className="rounded-lg border border-ink-border bg-ink-50/60 p-5">
+                    <span className="flex h-9 w-9 items-center justify-center rounded-md bg-volt/10 text-volt ring-1 ring-volt/25">
+                      <Icon size={16} />
+                    </span>
+                    <h4 className="mt-3 font-display text-sm font-bold text-white">{pillar.title}</h4>
+                    <p className="mt-2 text-xs leading-relaxed text-mist-muted">
+                      {pillar.description}
+                    </p>
+                  </div>
+                )
+              })}
             </div>
 
             <div className="mt-10">

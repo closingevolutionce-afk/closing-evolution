@@ -7,6 +7,7 @@ import { ArrowLeft, Check, RotateCcw, X } from 'lucide-react'
 import Container from '@/components/ui/Container'
 import Button from '@/components/ui/Button'
 import VoiceButton from '@/components/ui/VoiceButton'
+import { objectionIcons } from '@/lib/objection-content'
 
 const AXIS_LABELS = {
   identification: 'Identification de la vraie objection',
@@ -38,6 +39,7 @@ function AxisResult({ label, reussi, commentaire }) {
 }
 
 export default function ObjectionDrill({ objectionKey, objection, line }) {
+  const ProspectIcon = objectionIcons[objectionKey]
   const [response, setResponse] = useState('')
   const [submitting, setSubmitting] = useState(false)
   const [error, setError] = useState(null)
@@ -81,8 +83,13 @@ export default function ObjectionDrill({ objectionKey, objection, line }) {
         Retour aux objections
       </Link>
 
-      <div className="rounded-lg rounded-bl-sm bg-ink-300 px-5 py-4 text-sm leading-snug text-mist">
-        « {line} »
+      <div className="flex items-end gap-2.5">
+        <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-ink-300 text-mist-dim ring-1 ring-ink-border">
+          {ProspectIcon && <ProspectIcon size={15} />}
+        </span>
+        <div className="rounded-lg rounded-bl-sm bg-ink-300 px-5 py-4 text-sm leading-snug text-mist">
+          « {line} »
+        </div>
       </div>
 
       {!result && (

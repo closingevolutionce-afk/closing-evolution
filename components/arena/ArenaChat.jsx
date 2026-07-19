@@ -8,6 +8,7 @@ import Container from '@/components/ui/Container'
 import Button from '@/components/ui/Button'
 import VoiceButton from '@/components/ui/VoiceButton'
 import { ARENA_MAX_MESSAGES } from '@/lib/arena-constants'
+import { arenaCards } from '@/lib/arena-content'
 
 function formatTime(totalSeconds) {
   const m = Math.floor(totalSeconds / 60)
@@ -24,6 +25,7 @@ const FEEDBACK_LABELS = {
 }
 
 export default function ArenaChat({ profileKey, profile }) {
+  const ProspectIcon = arenaCards[profileKey]?.icon
   const [messages, setMessages] = useState([])
   const [input, setInput] = useState('')
   const [sending, setSending] = useState(false)
@@ -210,10 +212,13 @@ export default function ArenaChat({ profileKey, profile }) {
 
       <div className="glass overflow-hidden rounded-xl border border-ink-border shadow-glow-lg">
         <div className="flex items-center justify-between border-b border-ink-border px-5 py-4">
-          <div className="flex items-center gap-2.5">
-            <span className="relative flex h-2.5 w-2.5">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-coral opacity-60" />
-              <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-coral" />
+          <div className="flex items-center gap-3">
+            <span className="relative flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-ink-300 text-mist ring-1 ring-ink-border">
+              {ProspectIcon && <ProspectIcon size={16} />}
+              <span className="absolute -bottom-0.5 -right-0.5 flex h-3 w-3">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-coral opacity-60" />
+                <span className="relative inline-flex h-3 w-3 rounded-full border-2 border-ink-100 bg-coral" />
+              </span>
             </span>
             <span className="text-sm font-semibold italic text-white">
               {profile.nom} — en direct
@@ -234,24 +239,38 @@ export default function ArenaChat({ profileKey, profile }) {
           {messages.map((m, i) => (
             <div
               key={i}
-              className={`max-w-[85%] rounded-lg px-4 py-3 text-sm leading-snug ${
-                m.role === 'user'
-                  ? 'ml-auto rounded-br-sm bg-volt-gradient font-medium text-white'
-                  : 'rounded-bl-sm bg-ink-300 text-mist'
-              }`}
+              className={`flex items-end gap-2 ${m.role === 'user' ? 'flex-row-reverse' : ''}`}
             >
-              {m.content}
+              {m.role === 'assistant' && (
+                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-ink-300 text-mist-dim ring-1 ring-ink-border">
+                  {ProspectIcon && <ProspectIcon size={13} />}
+                </span>
+              )}
+              <div
+                className={`max-w-[85%] rounded-lg px-4 py-3 text-sm leading-snug ${
+                  m.role === 'user'
+                    ? 'rounded-br-sm bg-volt-gradient font-medium text-white'
+                    : 'rounded-bl-sm bg-ink-300 text-mist'
+                }`}
+              >
+                {m.content}
+              </div>
             </div>
           ))}
           {sending && (
-            <div className="flex gap-1 rounded-lg rounded-bl-sm bg-ink-300 px-4 py-3">
-              {[0, 1, 2].map((i) => (
-                <span
-                  key={i}
-                  className="h-1.5 w-1.5 animate-pulse rounded-full bg-mist-dim"
-                  style={{ animationDelay: `${i * 0.15}s` }}
-                />
-              ))}
+            <div className="flex items-end gap-2">
+              <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-ink-300 text-mist-dim ring-1 ring-ink-border">
+                {ProspectIcon && <ProspectIcon size={13} />}
+              </span>
+              <div className="flex gap-1 rounded-lg rounded-bl-sm bg-ink-300 px-4 py-3">
+                {[0, 1, 2].map((i) => (
+                  <span
+                    key={i}
+                    className="h-1.5 w-1.5 animate-pulse rounded-full bg-mist-dim"
+                    style={{ animationDelay: `${i * 0.15}s` }}
+                  />
+                ))}
+              </div>
             </div>
           )}
         </div>

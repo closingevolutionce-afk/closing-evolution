@@ -176,6 +176,8 @@ export default function ReplayGrid() {
   const { user, profile } = useAuth()
   const [replays, setReplays] = useState(null)
   const [active, setActive] = useState(null)
+  const [confirmDeleteAll, setConfirmDeleteAll] = useState(false)
+  const [deletingAll, setDeletingAll] = useState(false)
   const isAdmin = profile?.role === 'admin'
 
   async function load() {
@@ -198,11 +200,53 @@ export default function ReplayGrid() {
     load()
   }
 
+  async function handleDeleteAll() {
+    setDeletingAll(true)
+    const supabase = getSupabaseBrowserClient()
+    await supabase.from('replays').delete().not('id', 'is', null)
+    setDeletingAll(false)
+    setConfirmDeleteAll(false)
+    load()
+  }
+
   if (!replays) return <p className="text-sm text-mist-muted">Chargement...</p>
 
   return (
     <div>
       {isAdmin && <AddReplayForm onAdded={load} />}
+
+      {isAdmin && replays.length > 0 && (
+        <div className="mb-8 flex flex-wrap items-center gap-3 rounded-lg border border-coral/25 bg-coral/5 px-4 py-3">
+          {confirmDeleteAll ? (
+            <>
+              <p className="text-xs text-mist-muted">
+                Supprimer les {replays.length} replays ? Action irréversible.
+              </p>
+              <button
+                onClick={handleDeleteAll}
+                disabled={deletingAll}
+                className="rounded-md bg-coral px-3 py-1.5 text-xs font-semibold text-white hover:bg-coral-soft"
+              >
+                {deletingAll ? 'Suppression...' : 'Oui, tout supprimer'}
+              </button>
+              <button
+                onClick={() => setConfirmDeleteAll(false)}
+                className="text-xs font-medium text-mist-dim hover:text-white"
+              >
+                Annuler
+              </button>
+            </>
+          ) : (
+            <button
+              onClick={() => setConfirmDeleteAll(true)}
+              className="inline-flex items-center gap-1.5 text-xs font-semibold text-coral hover:text-coral-soft"
+            >
+              <Trash2 size={13} />
+              Tout supprimer ({replays.length})
+            </button>
+          )}
+        </div>
+      )}
 
       {replays.length === 0 ? (
         <p className="text-sm text-mist-muted">Aucun replay pour le moment.</p>

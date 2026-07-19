@@ -44,7 +44,7 @@ export default function ArenaPage() {
                   className="group relative overflow-hidden rounded-2xl border border-ink-border bg-ink-100/60 p-7 shadow-card transition-colors duration-300 hover:border-volt/40"
                 >
                   <div className="flex items-start justify-between gap-4">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-md bg-volt/10 text-volt ring-1 ring-volt/25">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-md bg-coral/10 text-coral ring-1 ring-coral/25">
                       <Icon size={22} strokeWidth={2} />
                     </div>
                     <span className="rounded-md border border-ink-borderStrong px-3 py-1 text-[11px] font-semibold italic uppercase tracking-wider text-mist-dim">

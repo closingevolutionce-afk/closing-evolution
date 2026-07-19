@@ -84,7 +84,7 @@ export default function ObjectionDrill({ objectionKey, objection, line }) {
       </Link>
 
       <div className="flex items-end gap-2.5">
-        <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-ink-300 text-mist-dim ring-1 ring-ink-border">
+        <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-amber/10 text-amber ring-1 ring-amber/25">
           {ProspectIcon && <ProspectIcon size={15} />}
         </span>
         <div className="rounded-lg rounded-bl-sm bg-ink-300 px-5 py-4 text-sm leading-snug text-mist">

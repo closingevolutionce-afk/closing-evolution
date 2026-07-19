@@ -5,6 +5,13 @@ import Container from '@/components/ui/Container'
 import SectionHeading from '@/components/ui/SectionHeading'
 import { steps } from '@/lib/content'
 
+const STEP_TONES = [
+  'border-coral/30 bg-coral/10 text-coral',
+  'border-amber/30 bg-amber/10 text-amber',
+  'border-volt/30 bg-volt/10 text-volt',
+  'border-transparent bg-volt-gradient text-white',
+]
+
 export default function HowItWorks() {
   return (
     <section id="comment-ca-marche" className="relative py-28">
@@ -26,7 +33,9 @@ export default function HowItWorks() {
               transition={{ duration: 0.55, delay: i * 0.1 }}
               className="relative flex flex-col gap-4"
             >
-              <span className="flex h-16 w-16 items-center justify-center rounded-lg border border-volt/25 bg-ink-100 font-display text-xl font-bold italic text-volt shadow-glow">
+              <span
+                className={`flex h-16 w-16 items-center justify-center rounded-lg border font-display text-xl font-bold italic shadow-glow ${STEP_TONES[i] ?? STEP_TONES[0]}`}
+              >
                 {step.number}
               </span>
               <h3 className="font-display text-lg font-bold text-white">{step.title}</h3>

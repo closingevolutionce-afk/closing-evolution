@@ -12,10 +12,37 @@ import { getSupabaseBrowserClient } from '@/lib/supabase/client'
 import { getLevelProgress } from '@/lib/xp'
 import { setSoundEnabled } from '@/lib/sounds'
 
-function StatCard({ icon: Icon, label, value }) {
+const STAT_TONES = {
+  volt: 'bg-volt/10 text-volt ring-volt/25',
+  coral: 'bg-coral/10 text-coral ring-coral/25',
+  amber: 'bg-amber/10 text-amber ring-amber/25',
+}
+
+const BADGE_CARD_TONES = {
+  volt: 'border-volt/25 bg-volt/5',
+  coral: 'border-coral/25 bg-coral/5',
+  amber: 'border-amber/25 bg-amber/5',
+}
+
+// Chaque icône de badge est rattachée à la section qu'elle célèbre
+// (Arena, Défis, Parcours) pour reprendre le code couleur du reste du site.
+const BADGE_TONES = {
+  swords: 'coral',
+  target: 'coral',
+  flame: 'coral',
+  trophy: 'amber',
+  crown: 'amber',
+  flag: 'volt',
+  zap: 'volt',
+  sparkles: 'volt',
+}
+
+function StatCard({ icon: Icon, label, value, tone = 'volt' }) {
   return (
     <div className="rounded-lg border border-ink-border bg-ink-100/60 p-5">
-      <span className="flex h-9 w-9 items-center justify-center rounded-md bg-volt/10 text-volt ring-1 ring-volt/25">
+      <span
+        className={`flex h-9 w-9 items-center justify-center rounded-md ring-1 ${STAT_TONES[tone] ?? STAT_TONES.volt}`}
+      >
         <Icon size={17} />
       </span>
       <p className="mt-3 font-display text-2xl font-bold text-white">{value}</p>
@@ -151,10 +178,15 @@ export default function ProfilPage() {
           </div>
 
           <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-4">
-            <StatCard icon={Layers} label="Modules complétés" value={stats.modules} />
-            <StatCard icon={Swords} label="Roleplays joués" value={stats.roleplays} />
-            <StatCard icon={Trophy} label="Meilleur score" value={stats.bestScore} />
-            <StatCard icon={Flame} label="Streak actuel" value={profile.login_streak ?? 0} />
+            <StatCard icon={Layers} label="Modules complétés" value={stats.modules} tone="volt" />
+            <StatCard icon={Swords} label="Roleplays joués" value={stats.roleplays} tone="coral" />
+            <StatCard icon={Trophy} label="Meilleur score" value={stats.bestScore} tone="amber" />
+            <StatCard
+              icon={Flame}
+              label="Streak actuel"
+              value={profile.login_streak ?? 0}
+              tone="coral"
+            />
           </div>
 
           <div className="mt-10">
@@ -167,12 +199,14 @@ export default function ProfilPage() {
               </p>
             ) : (
               <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                {badges.map(({ badge_slug, badges: b }) => (
+                {badges.map(({ badge_slug, badges: b }) => {
+                  const tone = BADGE_TONES[b?.icon] ?? 'volt'
+                  return (
                   <div
                     key={badge_slug}
-                    className="flex items-center gap-3 rounded-lg border border-volt/25 bg-volt/5 p-4"
+                    className={`flex items-center gap-3 rounded-lg border p-4 ${BADGE_CARD_TONES[tone]}`}
                   >
-                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-volt/15 text-volt ring-1 ring-volt/30">
+                    <span className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-md ring-1 ${STAT_TONES[tone]}`}>
                       <BadgeIcon icon={b?.icon} />
                     </span>
                     <div>
@@ -180,7 +214,8 @@ export default function ProfilPage() {
                       <p className="text-xs text-mist-muted">{b?.description}</p>
                     </div>
                   </div>
-                ))}
+                  )
+                })}
               </div>
             )}
           </div>

@@ -213,7 +213,7 @@ export default function ArenaChat({ profileKey, profile }) {
       <div className="glass overflow-hidden rounded-xl border border-ink-border shadow-glow-lg">
         <div className="flex items-center justify-between border-b border-ink-border px-5 py-4">
           <div className="flex items-center gap-3">
-            <span className="relative flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-ink-300 text-mist ring-1 ring-ink-border">
+            <span className="relative flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-coral/10 text-coral ring-1 ring-coral/25">
               {ProspectIcon && <ProspectIcon size={16} />}
               <span className="absolute -bottom-0.5 -right-0.5 flex h-3 w-3">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-coral opacity-60" />
@@ -242,7 +242,7 @@ export default function ArenaChat({ profileKey, profile }) {
               className={`flex items-end gap-2 ${m.role === 'user' ? 'flex-row-reverse' : ''}`}
             >
               {m.role === 'assistant' && (
-                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-ink-300 text-mist-dim ring-1 ring-ink-border">
+                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-coral/10 text-coral ring-1 ring-coral/25">
                   {ProspectIcon && <ProspectIcon size={13} />}
                 </span>
               )}
@@ -259,7 +259,7 @@ export default function ArenaChat({ profileKey, profile }) {
           ))}
           {sending && (
             <div className="flex items-end gap-2">
-              <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-ink-300 text-mist-dim ring-1 ring-ink-border">
+              <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-coral/10 text-coral ring-1 ring-coral/25">
                 {ProspectIcon && <ProspectIcon size={13} />}
               </span>
               <div className="flex gap-1 rounded-lg rounded-bl-sm bg-ink-300 px-4 py-3">

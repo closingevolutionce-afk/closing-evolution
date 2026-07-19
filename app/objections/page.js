@@ -41,7 +41,7 @@ export default function ObjectionsPage() {
                   href={`/objections/${objectionSlugs[objection.key]}`}
                   className="group relative overflow-hidden rounded-2xl border border-ink-border bg-ink-100/60 p-7 shadow-card transition-colors duration-300 hover:border-volt/40"
                 >
-                  <div className="flex h-12 w-12 items-center justify-center rounded-md bg-volt/10 text-volt ring-1 ring-volt/25">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-md bg-amber/10 text-amber ring-1 ring-amber/25">
                     <Icon size={22} strokeWidth={2} />
                   </div>
 

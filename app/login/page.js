@@ -33,6 +33,8 @@ function LoginForm() {
       return
     }
 
+    await fetch('/api/auth/promote', { method: 'POST' })
+
     const { data: profile } = await supabase
       .from('profiles')
       .select('onboarding_completed')

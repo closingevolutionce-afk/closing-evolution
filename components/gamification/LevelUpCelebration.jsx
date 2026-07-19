@@ -6,7 +6,7 @@ import { Sparkles } from 'lucide-react'
 import { useAuth } from '@/components/auth/AuthProvider'
 import { playLevelUp, vibrate } from '@/lib/sounds'
 
-const CONFETTI_COLORS = ['#8a5cf6', '#ff6b5b', '#fbbf24', '#b7a6ff', '#ff9686']
+const CONFETTI_COLORS = ['#8a5cf6', '#ec4899', '#d946ef', '#b7a6ff', '#f472b6']
 
 export default function LevelUpCelebration() {
   const { levelUp, clearLevelUp, profile } = useAuth()

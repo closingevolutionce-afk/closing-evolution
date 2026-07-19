@@ -92,7 +92,7 @@ export default function Hero() {
               className="mt-12 flex items-center gap-5"
             >
               <div className="flex -space-x-3">
-                {['#a480ff', '#ff8a72', '#c8b8ff', '#fbbf24'].map((color, i) => (
+                {['#a480ff', '#ec4899', '#c8b8ff', '#d946ef'].map((color, i) => (
                   <span
                     key={i}
                     className="h-9 w-9 rounded-full border-2 border-ink ring-1 ring-white/10"

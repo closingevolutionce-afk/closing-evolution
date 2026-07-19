@@ -21,7 +21,7 @@ export default function ObjectionsPage() {
         <div className="pointer-events-none absolute left-1/2 top-[-10%] h-[560px] w-[900px] -translate-x-1/2 rounded-full bg-volt-gradient opacity-40 blur-[140px]" />
 
         <Container className="relative">
-          <Badge>Simulateur d’Objections</Badge>
+          <Badge tone="amber">Simulateur d’Objections</Badge>
           <h1 className="mt-6 max-w-2xl font-display text-4xl font-bold italic leading-[1.08] text-white sm:text-5xl">
             Choisis l'objection à <span className="gradient-text">travailler</span>.
           </h1>

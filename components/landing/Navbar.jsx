@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { ChevronDown, LogOut, Swords, User } from 'lucide-react'
 import Container from '@/components/ui/Container'
 import Button from '@/components/ui/Button'
@@ -11,13 +12,25 @@ import { getLevelProgress } from '@/lib/xp'
 import { cn } from '@/lib/utils'
 
 const links = [
-  { href: '/arena', label: 'Arena' },
-  { href: '/objections', label: 'Objections' },
-  { href: '/mindset', label: 'Mindset' },
-  { href: '/parcours', label: 'Parcours' },
-  { href: '/defi', label: 'Défis' },
-  { href: '/replays', label: 'Replays' },
+  { href: '/arena', label: 'Arena', tone: 'coral' },
+  { href: '/objections', label: 'Objections', tone: 'amber' },
+  { href: '/mindset', label: 'Mindset', tone: 'volt' },
+  { href: '/parcours', label: 'Parcours', tone: 'volt' },
+  { href: '/defi', label: 'Défis', tone: 'amber' },
+  { href: '/replays', label: 'Replays', tone: 'volt' },
 ]
+
+const TONE_TEXT = {
+  volt: 'text-volt',
+  coral: 'text-coral',
+  amber: 'text-amber',
+}
+
+const TONE_DOT = {
+  volt: 'bg-volt',
+  coral: 'bg-coral',
+  amber: 'bg-amber',
+}
 
 function UserMenu({ user, profile, signOut }) {
   const [open, setOpen] = useState(false)
@@ -88,6 +101,7 @@ function UserMenu({ user, profile, signOut }) {
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const { user, profile, signOut } = useAuth()
+  const pathname = usePathname()
 
   useEffect(() => {
     function onScroll() {
@@ -97,7 +111,8 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  const navLinks = profile?.role === 'admin' ? [...links, { href: '/coach', label: 'Coach' }] : links
+  const navLinks =
+    profile?.role === 'admin' ? [...links, { href: '/coach', label: 'Coach', tone: 'volt' }] : links
 
   return (
     <header
@@ -127,16 +142,27 @@ export default function Navbar() {
             </span>
           </Link>
 
-          <div className="hidden items-center gap-5 lg:flex">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="whitespace-nowrap text-sm font-medium text-mist-muted transition-colors hover:text-white"
-              >
-                {link.label}
-              </a>
-            ))}
+          <div className="hidden items-center gap-1.5 lg:flex">
+            {navLinks.map((link) => {
+              const isActive = pathname === link.href || pathname?.startsWith(`${link.href}/`)
+              return (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  className={cn(
+                    'flex items-center gap-2 whitespace-nowrap rounded-md px-3 py-1.5 text-sm font-medium transition-colors',
+                    isActive
+                      ? `${TONE_TEXT[link.tone]} bg-white/[0.06]`
+                      : 'text-mist-muted hover:text-white'
+                  )}
+                >
+                  {isActive && (
+                    <span className={cn('h-1.5 w-1.5 rounded-full', TONE_DOT[link.tone])} />
+                  )}
+                  {link.label}
+                </a>
+              )
+            })}
           </div>
 
           {user ? (

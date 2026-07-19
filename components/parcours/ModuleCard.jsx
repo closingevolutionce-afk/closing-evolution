@@ -42,7 +42,7 @@ export default function ModuleCard({ moduleData, unlocked, done, delay = 0 }) {
     </>
   )
 
-  const className = `group relative overflow-hidden rounded-2xl border p-6 transition-all duration-300 ${
+  const className = `group relative block overflow-hidden rounded-2xl border p-6 transition-all duration-300 ${
     done
       ? 'border-volt/30 bg-volt/5 hover:border-volt/50'
       : unlocked

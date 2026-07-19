@@ -66,14 +66,14 @@ h1, h2, h3, h4, .font-display {
   }
 
   .gradient-text {
-    background: linear-gradient(100deg, #f7f4ff 15%, #ec4899 55%, #a480ff 90%);
+    background: linear-gradient(100deg, #f7f4ff 15%, #ff8a72 55%, #a480ff 90%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
   }
 
   .shimmer-text {
-    background: linear-gradient(110deg, #8a7fb0 30%, #f7f4ff 45%, #ec4899 55%, #8a7fb0 70%);
+    background: linear-gradient(110deg, #8a7fb0 30%, #f7f4ff 45%, #ff8a72 55%, #8a7fb0 70%);
     background-size: 250% 100%;
     -webkit-background-clip: text;
     background-clip: text;

@@ -13,12 +13,10 @@ module.exports = {
           deep: '#6d3fe0',
           glow: 'rgba(138, 92, 246, 0.35)',
         },
-        // Nommé "coral" historiquement, ce token est maintenant un rose/magenta
-        // (la marque est restée dans la famille violet-rose, plus de rouge/orange).
         coral: {
-          DEFAULT: '#ec4899',
-          soft: '#f472b6',
-          deep: '#be185d',
+          DEFAULT: '#ff6b5b',
+          soft: '#ff9686',
+          deep: '#e14732',
         },
         ink: {
           DEFAULT: '#241d4a',
@@ -35,7 +33,6 @@ module.exports = {
           muted: '#a79cc9',
           dim: '#6e6389',
         },
-        // Idem pour "amber" : maintenant un fuchsia, plus de jaune/doré.
         amber: {
           DEFAULT: '#d946ef',
         },
@@ -47,7 +44,7 @@ module.exports = {
       backgroundImage: {
         'grid-fade': 'linear-gradient(to bottom, rgba(36,29,74,0) 0%, #241d4a 85%)',
         'radial-glow': 'radial-gradient(circle at center, var(--tw-gradient-stops))',
-        'volt-gradient': 'linear-gradient(90deg, #ec4899, #a480ff)',
+        'volt-gradient': 'linear-gradient(90deg, #ff8a72, #a480ff)',
       },
       boxShadow: {
         glow: '0 0 40px rgba(164, 128, 255, 0.4)',

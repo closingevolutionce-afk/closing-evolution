@@ -12,7 +12,7 @@ export default function Hero() {
   return (
     <section className="relative overflow-hidden pb-24 pt-40 lg:pb-32 lg:pt-48">
       <div className="pointer-events-none absolute inset-0 bg-grid [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_60%,transparent_100%)]" />
-      <div className="pointer-events-none absolute left-1/2 top-[-10%] h-[560px] w-[900px] -translate-x-1/2 rounded-full bg-volt-gradient opacity-40 blur-[140px]" />
+      <div className="animate-pulse-glow pointer-events-none absolute left-1/2 top-[-10%] h-[560px] w-[900px] -translate-x-1/2 rounded-full bg-volt-gradient opacity-40 blur-[140px]" />
 
       <Container className="relative">
         <div className="grid items-center gap-16 lg:grid-cols-[1.05fr_0.95fr]">
@@ -54,7 +54,8 @@ export default function Hero() {
               transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
               className="mt-6 max-w-xl font-display text-4xl font-bold italic leading-[1.08] text-white sm:text-5xl lg:text-6xl"
             >
-              Deviens un closer <span className="gradient-text">d’élite</span>, un appel à la fois.
+              Deviens un closer{' '}
+              <span className="shimmer-text animate-shimmer">d’élite</span>, un appel à la fois.
             </motion.h1>
 
             <motion.p
@@ -74,7 +75,7 @@ export default function Hero() {
               transition={{ duration: 0.7, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
               className="mt-9 flex flex-wrap items-center gap-4"
             >
-              <Button href="/arena" size="lg">
+              <Button href="/arena" size="lg" className="animate-pulse-glow">
                 Entrer dans l’Arena
                 <ArrowRight size={18} className="transition-transform group-hover:translate-x-0.5" />
               </Button>

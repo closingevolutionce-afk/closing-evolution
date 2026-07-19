@@ -19,6 +19,14 @@
   border-radius: 999px;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .animate-pulse-glow,
+  .animate-shimmer,
+  .animate-float {
+    animation: none !important;
+  }
+}
+
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(138, 92, 246, 0.48);
 }

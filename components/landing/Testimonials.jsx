@@ -4,6 +4,12 @@ import SectionHeading from '@/components/ui/SectionHeading'
 import GlowCard from '@/components/ui/GlowCard'
 import { testimonials } from '@/lib/content'
 
+const TONES = [
+  { avatar: 'bg-coral/15 text-coral ring-coral/25', quote: 'text-coral/60' },
+  { avatar: 'bg-amber/15 text-amber ring-amber/25', quote: 'text-amber/60' },
+  { avatar: 'bg-volt/15 text-volt ring-volt/25', quote: 'text-volt/60' },
+]
+
 export default function Testimonials() {
   return (
     <section id="avis" className="relative py-28">
@@ -14,21 +20,26 @@ export default function Testimonials() {
         />
 
         <div className="mt-16 grid gap-6 lg:grid-cols-3">
-          {testimonials.map((t, i) => (
-            <GlowCard key={t.name} delay={i * 0.1}>
-              <Quote size={22} className="text-volt/50" />
-              <p className="mt-5 text-sm leading-relaxed text-mist">“{t.quote}”</p>
-              <div className="mt-6 flex items-center gap-3 border-t border-ink-border pt-5">
-                <span className="flex h-10 w-10 items-center justify-center rounded-md bg-volt/15 font-display text-sm font-bold text-volt ring-1 ring-volt/25">
-                  {t.name.charAt(0)}
-                </span>
-                <div>
-                  <p className="text-sm font-semibold text-white">{t.name}</p>
-                  <p className="text-xs text-mist-dim">{t.role}</p>
+          {testimonials.map((t, i) => {
+            const tone = TONES[i % TONES.length]
+            return (
+              <GlowCard key={t.name} delay={i * 0.1}>
+                <Quote size={22} className={tone.quote} />
+                <p className="mt-5 text-sm leading-relaxed text-mist">“{t.quote}”</p>
+                <div className="mt-6 flex items-center gap-3 border-t border-ink-border pt-5">
+                  <span
+                    className={`flex h-10 w-10 items-center justify-center rounded-md font-display text-sm font-bold ring-1 ${tone.avatar}`}
+                  >
+                    {t.name.charAt(0)}
+                  </span>
+                  <div>
+                    <p className="text-sm font-semibold text-white">{t.name}</p>
+                    <p className="text-xs text-mist-dim">{t.role}</p>
+                  </div>
                 </div>
-              </div>
-            </GlowCard>
-          ))}
+              </GlowCard>
+            )
+          })}
         </div>
       </Container>
     </section>

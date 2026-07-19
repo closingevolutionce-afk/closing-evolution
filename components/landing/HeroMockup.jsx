@@ -15,7 +15,7 @@ export default function HeroMockup() {
       initial={{ opacity: 0, scale: 0.95, y: 20 }}
       animate={{ opacity: 1, scale: 1, y: 0 }}
       transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-      className="relative mx-auto w-full max-w-md"
+      className="relative mx-auto mt-14 w-full max-w-md lg:mt-0"
     >
       <div className="absolute -inset-6 -z-10 rounded-[2rem] bg-volt-gradient opacity-30 blur-3xl" />
 
@@ -72,14 +72,14 @@ export default function HeroMockup() {
         initial={{ opacity: 0, y: 10, x: 10 }}
         animate={{ opacity: 1, y: 0, x: 0 }}
         transition={{ duration: 0.6, delay: 1.2 }}
-        className="glass absolute -right-6 -top-6 flex items-center gap-3 rounded-lg border border-ink-border px-4 py-3 shadow-card animate-float"
+        className="glass absolute -right-4 bottom-full mb-4 flex items-center gap-3 rounded-lg border border-ink-border px-4 py-3 shadow-card animate-float"
       >
-        <div className="flex h-10 w-10 items-center justify-center rounded-md bg-volt/15 text-volt ring-1 ring-volt/30">
+        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-volt/15 text-volt ring-1 ring-volt/30">
           <TrendingUp size={16} />
         </div>
         <div>
           <p className="font-display text-lg font-bold leading-none text-white">87/100</p>
-          <p className="text-[11px] text-mist-dim">Score du call</p>
+          <p className="whitespace-nowrap text-[11px] text-mist-dim">Score de closing IA</p>
         </div>
       </motion.div>
 
@@ -87,15 +87,15 @@ export default function HeroMockup() {
         initial={{ opacity: 0, y: -10, x: -10 }}
         animate={{ opacity: 1, y: 0, x: 0 }}
         transition={{ duration: 0.6, delay: 1.4 }}
-        className="glass absolute -bottom-7 -left-6 flex items-center gap-3 rounded-lg border border-ink-border px-4 py-3 shadow-card animate-float"
+        className="glass absolute -left-4 top-full mt-4 flex items-center gap-3 rounded-lg border border-ink-border px-4 py-3 shadow-card animate-float"
         style={{ animationDelay: '1s' }}
       >
-        <div className="flex h-10 w-10 items-center justify-center rounded-md bg-amber/15 text-amber ring-1 ring-amber/30">
+        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-amber/15 text-amber ring-1 ring-amber/30">
           <Zap size={16} />
         </div>
         <div>
           <p className="font-display text-lg font-bold leading-none text-white">12 jours</p>
-          <p className="text-[11px] text-mist-dim">Streak active</p>
+          <p className="whitespace-nowrap text-[11px] text-mist-dim">Streak active</p>
         </div>
       </motion.div>
     </motion.div>

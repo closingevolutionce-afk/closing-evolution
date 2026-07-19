@@ -263,15 +263,19 @@ export default function ReplayGrid() {
             </div>
 
             <div className="flex flex-wrap items-center justify-between gap-3 p-5">
-              <a
-                href={active.video_url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-sm font-semibold text-volt hover:text-volt-soft"
-              >
-                Ouvrir sur {getPlatformLabel(active.video_url)}
-                <ExternalLink size={14} />
-              </a>
+              {isAdmin ? (
+                <a
+                  href={active.video_url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-sm font-semibold text-volt hover:text-volt-soft"
+                >
+                  Ouvrir sur {getPlatformLabel(active.video_url)}
+                  <ExternalLink size={14} />
+                </a>
+              ) : (
+                <span className="text-xs text-mist-dim">Réservé aux membres Closing Evolution</span>
+              )}
               {isAdmin && (
                 <button
                   onClick={() => handleDelete(active.id)}

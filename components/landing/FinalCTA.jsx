@@ -22,8 +22,8 @@ export default function FinalCTA() {
             Ton prochain <span className="gradient-text">closing</span> commence ici
           </h2>
           <p className="relative mx-auto mt-5 max-w-lg text-base leading-relaxed text-mist-muted sm:text-lg">
-            Réserve un appel de 15-20 minutes avec Chirine &amp; Emilien pour voir si Closing
-            Evolution est fait pour toi.
+            Réserve un appel de 30 minutes avec Chirine &amp; Emilien pour voir si notre
+            accompagnement répond à tes besoins et si on peut travailler ensemble.
           </p>
 
           <div className="relative mt-9 flex flex-wrap items-center justify-center gap-4">

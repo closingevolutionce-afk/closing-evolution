@@ -11,8 +11,8 @@ const CALENDLY_URL = 'https://calendly.com/closingevolution-ce'
 const POINTS = [
   {
     icon: Clock,
-    title: '15-20 minutes',
-    description: 'Un appel court pour faire connaissance et comprendre où tu en es.',
+    title: '30 minutes',
+    description: 'Pour voir si notre accompagnement répond à tes besoins et si on peut travailler ensemble.',
   },
   {
     icon: MessageCircleQuestion,
@@ -34,8 +34,8 @@ export default function CandidaterContent() {
         Réserve un appel avec <span className="gradient-text">Chirine &amp; Emilien</span>.
       </h1>
       <p className="mt-5 max-w-xl text-lg leading-relaxed text-mist-muted">
-        Choisis un créneau ci-dessous. On échange 15-20 minutes pour comprendre ton profil et te
-        dire honnêtement si Closing Evolution peut t'aider.
+        Choisis un créneau ci-dessous. On échange 30 minutes pour voir si notre accompagnement
+        répond à tes besoins et si on peut travailler ensemble.
       </p>
 
       <div className="mt-14 grid gap-8 lg:grid-cols-[0.85fr_1.15fr]">

@@ -42,17 +42,19 @@ export default function ParcoursRoadmap() {
           100% et débloque la suite. Tout ce qu'il faut pour fermer comme un pro en 3 mois.
         </p>
 
-        {accessLevel === 'apercu' && (
+        {accessLevel !== 'complet' && (
           <div className="mt-8 flex items-start gap-3 rounded-lg border border-amber/25 bg-amber/5 p-5">
             <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md bg-amber/15 text-amber ring-1 ring-amber/30">
               <Lock size={16} />
             </span>
             <div>
-              <p className="font-display text-sm font-bold text-white">Accès aperçu</p>
+              <p className="font-display text-sm font-bold text-white">
+                {accessLevel === 'aucun' ? 'Accès en attente' : 'Accès aperçu'}
+              </p>
               <p className="mt-1 text-sm text-mist-muted">
-                Tu as accès au niveau Fondations pour découvrir le programme. Le reste du parcours
-                (Pratique Avancée, Élite, Arena, Objections, Défis) se débloque une fois
-                l'inscription finalisée — contacte Chirine pour en discuter.
+                {accessLevel === 'aucun'
+                  ? "Ton inscription est en cours de finalisation — le programme s'ouvrira dès que ce sera bon. Contacte Chirine si tu as des questions."
+                  : "Tu as accès au niveau Fondations pour découvrir le programme. Le reste du parcours (Pratique Avancée, Élite, Arena, Objections, Défis) se débloque une fois l'inscription finalisée — contacte Chirine pour en discuter."}
               </p>
             </div>
           </div>

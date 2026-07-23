@@ -67,7 +67,7 @@ export async function middleware(request) {
       .eq('id', user.id)
       .single()
 
-    if (profile?.access_level === 'apercu') {
+    if (profile?.access_level && profile.access_level !== 'complet') {
       const url = request.nextUrl.clone()
       url.pathname = '/parcours'
       url.searchParams.set('limited', '1')

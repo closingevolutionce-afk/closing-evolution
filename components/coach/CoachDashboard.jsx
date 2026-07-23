@@ -2,11 +2,17 @@
 
 import { useEffect, useMemo, useState } from 'react'
 import { motion } from 'framer-motion'
-import { Lock, Send, Swords, Target, Unlock, X } from 'lucide-react'
+import { Lock, Send, ShieldOff, Swords, Target, Trash2, Unlock, X } from 'lucide-react'
 import Button from '@/components/ui/Button'
 import { useAuth } from '@/components/auth/AuthProvider'
 import { getSupabaseBrowserClient } from '@/lib/supabase/client'
 import { moduleOrder, getModule, getObjection } from '@/lib/knowledge'
+
+const ACCESS_BADGE = {
+  aucun: { label: 'Aucun accès', classes: 'bg-coral/10 text-coral', icon: Lock },
+  apercu: { label: 'Aperçu', classes: 'bg-amber/10 text-amber', icon: Lock },
+  complet: { label: 'Complet', classes: 'bg-volt/10 text-volt', icon: Unlock },
+}
 
 function timeAgo(dateStr) {
   if (!dateStr) return 'Jamais'
@@ -25,6 +31,20 @@ export default function CoachDashboard() {
   const [message, setMessage] = useState('')
   const [sending, setSending] = useState(false)
   const [updatingAccess, setUpdatingAccess] = useState(false)
+  const [pending, setPending] = useState([])
+  const [newEmail, setNewEmail] = useState('')
+  const [newLevel, setNewLevel] = useState('aucun')
+  const [addingPending, setAddingPending] = useState(false)
+  const [pendingError, setPendingError] = useState(null)
+
+  async function loadPending() {
+    const supabase = getSupabaseBrowserClient()
+    const { data } = await supabase
+      .from('restricted_signups')
+      .select('email, access_level, created_at')
+      .order('created_at', { ascending: false })
+    setPending(data ?? [])
+  }
 
   useEffect(() => {
     async function load() {
@@ -48,7 +68,34 @@ export default function CoachDashboard() {
       setLoading(false)
     }
     load()
+    loadPending()
   }, [])
+
+  async function addPendingRestriction(e) {
+    e.preventDefault()
+    if (!newEmail.trim()) return
+    setAddingPending(true)
+    setPendingError(null)
+    const res = await fetch('/api/coach/restrict-signup', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: newEmail.trim(), accessLevel: newLevel }),
+    })
+    setAddingPending(false)
+    if (!res.ok) {
+      const data = await res.json().catch(() => ({}))
+      setPendingError(data.error ?? 'Erreur inconnue.')
+      return
+    }
+    setNewEmail('')
+    await loadPending()
+  }
+
+  async function removePendingRestriction(email) {
+    const supabase = getSupabaseBrowserClient()
+    await supabase.from('restricted_signups').delete().eq('email', email)
+    await loadPending()
+  }
 
   async function openStudent(student) {
     setSelected(student)
@@ -87,8 +134,8 @@ export default function CoachDashboard() {
     setDetail({ modules: modules ?? [], roleplays: roleplays ?? [], weakestObjections })
   }
 
-  async function toggleAccess(student) {
-    const nextLevel = student.access_level === 'apercu' ? 'complet' : 'apercu'
+  async function setAccess(student, nextLevel) {
+    if (nextLevel === student.access_level) return
     setUpdatingAccess(true)
     const res = await fetch('/api/coach/set-access', {
       method: 'POST',
@@ -136,6 +183,64 @@ export default function CoachDashboard() {
 
   return (
     <div>
+      <div className="mb-8 rounded-2xl border border-ink-border bg-ink-100/40 p-6">
+        <p className="flex items-center gap-2 font-display text-sm font-bold text-white">
+          <ShieldOff size={15} className="text-amber" />
+          Restreindre un email avant inscription
+        </p>
+        <p className="mt-1.5 text-xs text-mist-muted">
+          Utile quand quelqu'un va s'inscrire mais que son accès ne doit pas s'ouvrir tout de
+          suite (ex. acompte versé, solde en attente). Dès qu'il crée son compte avec cet email,
+          il démarre directement au niveau choisi au lieu de l'accès complet par défaut.
+        </p>
+        <form onSubmit={addPendingRestriction} className="mt-4 flex flex-wrap items-center gap-2.5">
+          <input
+            type="email"
+            value={newEmail}
+            onChange={(e) => setNewEmail(e.target.value)}
+            placeholder="email@exemple.com"
+            className="min-w-[220px] flex-1 rounded-lg border border-ink-border bg-ink-100/60 px-4 py-2.5 text-sm text-white placeholder:text-mist-dim focus:border-volt/50 focus:outline-none"
+          />
+          <select
+            value={newLevel}
+            onChange={(e) => setNewLevel(e.target.value)}
+            className="rounded-lg border border-ink-border bg-ink-100/60 px-3 py-2.5 text-sm text-white focus:border-volt/50 focus:outline-none"
+          >
+            <option value="aucun">Aucun accès</option>
+            <option value="apercu">Aperçu (Fondations)</option>
+          </select>
+          <Button type="submit" size="md" disabled={addingPending || !newEmail.trim()}>
+            {addingPending ? 'Ajout...' : 'Ajouter'}
+          </Button>
+        </form>
+        {pendingError && <p className="mt-2 text-xs text-coral">{pendingError}</p>}
+
+        {pending.length > 0 && (
+          <div className="mt-5 flex flex-col gap-2">
+            {pending.map((p) => (
+              <div
+                key={p.email}
+                className="flex items-center justify-between rounded-lg border border-ink-border bg-ink-100/60 px-4 py-2.5 text-sm"
+              >
+                <span className="text-mist">
+                  {p.email}{' '}
+                  <span className="text-xs text-mist-dim">
+                    ({p.access_level === 'aucun' ? 'aucun accès' : 'aperçu'} à l'inscription)
+                  </span>
+                </span>
+                <button
+                  onClick={() => removePendingRestriction(p.email)}
+                  className="text-mist-dim hover:text-coral"
+                  title="Retirer la restriction"
+                >
+                  <Trash2 size={14} />
+                </button>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+
       <div className="overflow-x-auto rounded-2xl border border-ink-border">
         <table className="w-full text-left text-sm">
           <thead>
@@ -160,17 +265,18 @@ export default function CoachDashboard() {
                   <p className="text-xs text-mist-dim">{s.email}</p>
                 </td>
                 <td className="px-5 py-3.5">
-                  {s.access_level === 'apercu' ? (
-                    <span className="inline-flex items-center gap-1.5 rounded-md bg-amber/10 px-2.5 py-1 text-xs font-semibold text-amber">
-                      <Lock size={11} />
-                      Aperçu
-                    </span>
-                  ) : (
-                    <span className="inline-flex items-center gap-1.5 rounded-md bg-volt/10 px-2.5 py-1 text-xs font-semibold text-volt">
-                      <Unlock size={11} />
-                      Complet
-                    </span>
-                  )}
+                  {(() => {
+                    const badge = ACCESS_BADGE[s.access_level] ?? ACCESS_BADGE.complet
+                    const BadgeIcon = badge.icon
+                    return (
+                      <span
+                        className={`inline-flex items-center gap-1.5 rounded-md px-2.5 py-1 text-xs font-semibold ${badge.classes}`}
+                      >
+                        <BadgeIcon size={11} />
+                        {badge.label}
+                      </span>
+                    )
+                  })()}
                 </td>
                 <td className="px-5 py-3.5 text-mist">{currentModuleLabel(s)}</td>
                 <td className="px-5 py-3.5">
@@ -229,35 +335,30 @@ export default function CoachDashboard() {
               </button>
             </div>
 
-            <div className="mt-5 flex items-center justify-between rounded-lg border border-ink-border bg-ink-100/60 p-4">
+            <div className="mt-5 flex items-center justify-between gap-4 rounded-lg border border-ink-border bg-ink-100/60 p-4">
               <div>
                 <p className="text-sm font-semibold text-white">
-                  Accès {selected.access_level === 'apercu' ? 'aperçu' : 'complet'}
+                  Accès {ACCESS_BADGE[selected.access_level]?.label.toLowerCase() ?? 'complet'}
                 </p>
                 <p className="text-xs text-mist-dim">
-                  {selected.access_level === 'apercu'
-                    ? 'Seul le niveau Fondations est débloqué — Arena/Objections/Défi fermés.'
-                    : 'Accès normal à tout le programme.'}
+                  {selected.access_level === 'aucun' &&
+                    "Rien n'est débloqué, même pas Fondations."}
+                  {selected.access_level === 'apercu' &&
+                    'Seul le niveau Fondations est débloqué — Arena/Objections/Défi fermés.'}
+                  {(!selected.access_level || selected.access_level === 'complet') &&
+                    'Accès normal à tout le programme.'}
                 </p>
               </div>
-              <Button
-                onClick={() => toggleAccess(selected)}
-                variant="secondary"
-                size="md"
+              <select
+                value={selected.access_level ?? 'complet'}
+                onChange={(e) => setAccess(selected, e.target.value)}
                 disabled={updatingAccess}
+                className="rounded-lg border border-ink-border bg-ink-100/60 px-3 py-2.5 text-sm text-white focus:border-volt/50 focus:outline-none disabled:opacity-50"
               >
-                {selected.access_level === 'apercu' ? (
-                  <>
-                    <Unlock size={15} />
-                    Passer en complet
-                  </>
-                ) : (
-                  <>
-                    <Lock size={15} />
-                    Repasser en aperçu
-                  </>
-                )}
-              </Button>
+                <option value="aucun">Aucun accès</option>
+                <option value="apercu">Aperçu (Fondations)</option>
+                <option value="complet">Complet</option>
+              </select>
             </div>
 
             {!detail ? (

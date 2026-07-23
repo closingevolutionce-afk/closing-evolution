@@ -62,7 +62,7 @@ export default function ModuleContent({ id, module: m }) {
           </span>
           <h1 className="font-display text-xl font-bold text-white">Module verrouillé</h1>
           <p className="max-w-sm text-sm text-mist-muted">
-            {accessLevel === 'apercu'
+            {accessLevel !== 'complet'
               ? "Ce module fait partie du programme complet — il se débloque une fois l'inscription finalisée. Contacte Chirine pour en discuter."
               : 'Termine le module précédent pour débloquer celui-ci.'}
           </p>

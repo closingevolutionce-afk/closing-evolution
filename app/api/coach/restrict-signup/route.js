@@ -2,8 +2,10 @@ import { NextResponse } from 'next/server'
 import { getSupabaseServerClient } from '@/lib/supabase/server'
 import { getSupabaseAdminClient } from '@/lib/supabase/admin'
 
-// Permet à un coach (admin) de basculer un élève entre 'aucun', 'apercu'
-// (acompte versé, solde en attente) et 'complet'.
+// Enregistre un email à restreindre AVANT que la personne ne s'inscrive —
+// utile pour un élève dont l'inscription n'est pas finalisée (ex. acompte
+// versé). handle_new_user() applique ce niveau d'accès au lieu du défaut
+// 'complet' dès la création du compte.
 export async function POST(request) {
   const supabase = await getSupabaseServerClient()
   const {
@@ -19,16 +21,17 @@ export async function POST(request) {
     return NextResponse.json({ error: 'Réservé aux coachs.' }, { status: 403 })
   }
 
-  const { studentId, accessLevel } = await request.json()
-  if (!studentId || !['aucun', 'apercu', 'complet'].includes(accessLevel)) {
+  const { email, accessLevel } = await request.json()
+  const cleanEmail = typeof email === 'string' ? email.trim().toLowerCase() : ''
+
+  if (!cleanEmail || !cleanEmail.includes('@') || !['aucun', 'apercu'].includes(accessLevel)) {
     return NextResponse.json({ error: 'Requête invalide.' }, { status: 400 })
   }
 
   const admin = getSupabaseAdminClient()
   const { error } = await admin
-    .from('profiles')
-    .update({ access_level: accessLevel })
-    .eq('id', studentId)
+    .from('restricted_signups')
+    .upsert({ email: cleanEmail, access_level: accessLevel, created_by: user.id })
 
   if (error) {
     return NextResponse.json({ error: error.message }, { status: 500 })

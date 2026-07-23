@@ -11,10 +11,11 @@ create table if not exists profiles (
   prenom text,
   role text not null default 'student' check (role in ('student', 'admin')),
 
+  -- 'aucun' : aucun accès, même pas Fondations (ex. inscrit mais rien encore payé/validé).
   -- 'apercu' : accès limité (ex. acompte versé, solde en attente) — seul le
   -- niveau Fondations est débloqué et l'Arena/Objections/Défi restent fermés.
   -- 'complet' : accès normal, débloqué au fur et à mesure des quiz.
-  access_level text not null default 'complet' check (access_level in ('apercu', 'complet')),
+  access_level text not null default 'complet' check (access_level in ('aucun', 'apercu', 'complet')),
 
   -- onboarding (5 questions)
   onboarding_completed boolean not null default false,
@@ -41,7 +42,18 @@ create table if not exists profiles (
 -- Migration pour les bases déjà créées avant l'ajout de cette colonne.
 alter table profiles add column if not exists access_level text not null default 'complet';
 alter table profiles drop constraint if exists profiles_access_level_check;
-alter table profiles add constraint profiles_access_level_check check (access_level in ('apercu', 'complet'));
+alter table profiles add constraint profiles_access_level_check check (access_level in ('aucun', 'apercu', 'complet'));
+
+-- Emails à restreindre dès leur inscription (ex. acompte versé, rien à
+-- ouvrir tant que le solde n'est pas réglé) — le coach ajoute l'email ici
+-- AVANT que la personne ne crée son compte, et handle_new_user() applique
+-- le niveau d'accès demandé automatiquement au lieu du défaut 'complet'.
+create table if not exists restricted_signups (
+  email text primary key,
+  access_level text not null default 'aucun' check (access_level in ('aucun', 'apercu')),
+  created_by uuid references profiles (id) on delete set null,
+  created_at timestamptz not null default now()
+);
 
 create index if not exists profiles_role_idx on profiles (role);
 
@@ -216,10 +228,21 @@ returns trigger
 language plpgsql
 security definer set search_path = public
 as $$
+declare
+  restricted_level text;
 begin
-  insert into public.profiles (id, email, prenom)
-  values (new.id, new.email, new.raw_user_meta_data ->> 'prenom')
+  select access_level into restricted_level
+  from public.restricted_signups
+  where lower(email) = lower(new.email);
+
+  insert into public.profiles (id, email, prenom, access_level)
+  values (new.id, new.email, new.raw_user_meta_data ->> 'prenom', coalesce(restricted_level, 'complet'))
   on conflict (id) do nothing;
+
+  if restricted_level is not null then
+    delete from public.restricted_signups where lower(email) = lower(new.email);
+  end if;
+
   return new;
 end;
 $$;
@@ -293,6 +316,12 @@ create policy "replays_insert_admin" on replays
 drop policy if exists "replays_delete_admin" on replays;
 create policy "replays_delete_admin" on replays
   for delete using (is_admin());
+
+-- restricted_signups : réservé aux admins (coach uniquement)
+alter table restricted_signups enable row level security;
+drop policy if exists "restricted_signups_admin_all" on restricted_signups;
+create policy "restricted_signups_admin_all" on restricted_signups
+  for all using (is_admin()) with check (is_admin());
 
 -- profiles : chacun voit/modifie son propre profil, les admins voient tout
 drop policy if exists "profiles_select_own_or_admin" on profiles;

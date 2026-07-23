@@ -4,8 +4,14 @@ import { buildObjectionEvalSystem, OBJECTION_EVAL_SCHEMA } from '@/lib/objection
 import { getObjection } from '@/lib/knowledge'
 import { getSupabaseServerClient } from '@/lib/supabase/server'
 import { getSupabaseAdminClient } from '@/lib/supabase/admin'
+import { requireFullAccess } from '@/lib/require-full-access'
 
 export async function POST(request) {
+  const access = await requireFullAccess()
+  if (!access.ok) {
+    return NextResponse.json({ error: access.error }, { status: access.status })
+  }
+
   let body
   try {
     body = await request.json()

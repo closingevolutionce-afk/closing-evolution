@@ -1,6 +1,6 @@
 'use client'
 
-import { Flame, GraduationCap, Trophy } from 'lucide-react'
+import { Flame, GraduationCap, Lock, Trophy } from 'lucide-react'
 import Container from '@/components/ui/Container'
 import Badge from '@/components/ui/Badge'
 import MessageOfDay from '@/components/mindset/MessageOfDay'
@@ -10,6 +10,7 @@ import WelcomeVideo from '@/components/parcours/WelcomeVideo'
 import InactivityBanner from '@/components/parcours/InactivityBanner'
 import DefiExpressButton from '@/components/parcours/DefiExpressButton'
 import CommunityFeed from '@/components/parcours/CommunityFeed'
+import { useAuth } from '@/components/auth/AuthProvider'
 import { levels, totalModuleCount } from '@/lib/knowledge'
 import { getLevelStats, isModuleUnlocked, useProgress } from '@/lib/progress'
 import { useStreak } from '@/lib/streak'
@@ -21,8 +22,10 @@ const LEVEL_ACCENT = {
 }
 
 export default function ParcoursRoadmap() {
+  const { profile } = useAuth()
   const { completed, rank } = useProgress()
   const streak = useStreak()
+  const accessLevel = profile?.access_level ?? 'complet'
 
   const totalDone = Object.keys(completed).length
   const totalPercent = totalModuleCount ? Math.round((totalDone / totalModuleCount) * 100) : 0
@@ -38,6 +41,22 @@ export default function ParcoursRoadmap() {
           Fondations, pratique avancée, élite : progresse module par module, valide chaque quiz à
           100% et débloque la suite. Tout ce qu'il faut pour fermer comme un pro en 3 mois.
         </p>
+
+        {accessLevel === 'apercu' && (
+          <div className="mt-8 flex items-start gap-3 rounded-lg border border-amber/25 bg-amber/5 p-5">
+            <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md bg-amber/15 text-amber ring-1 ring-amber/30">
+              <Lock size={16} />
+            </span>
+            <div>
+              <p className="font-display text-sm font-bold text-white">Accès aperçu</p>
+              <p className="mt-1 text-sm text-mist-muted">
+                Tu as accès au niveau Fondations pour découvrir le programme. Le reste du parcours
+                (Pratique Avancée, Élite, Arena, Objections, Défis) se débloque une fois
+                l'inscription finalisée — contacte Chirine pour en discuter.
+              </p>
+            </div>
+          </div>
+        )}
 
         <MessageOfDay className="mt-8 max-w-xl" />
         <InactivityBanner />
@@ -130,7 +149,7 @@ export default function ParcoursRoadmap() {
                 <ModuleCard
                   key={moduleData.id}
                   moduleData={moduleData}
-                  unlocked={isModuleUnlocked(moduleData.id, completed)}
+                  unlocked={isModuleUnlocked(moduleData.id, completed, accessLevel)}
                   done={Boolean(completed[moduleData.id])}
                   delay={i * 0.05}
                 />

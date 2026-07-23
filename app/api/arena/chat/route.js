@@ -3,8 +3,14 @@ import { getAnthropicClient, ARENA_CHAT_MODEL, describeAnthropicError } from '@/
 import { buildArenaSystemPrompt } from '@/lib/arena-prompts'
 import { prospectProfileKeys } from '@/lib/knowledge'
 import { ARENA_MAX_MESSAGES } from '@/lib/arena-constants'
+import { requireFullAccess } from '@/lib/require-full-access'
 
 export async function POST(request) {
+  const access = await requireFullAccess()
+  if (!access.ok) {
+    return NextResponse.json({ error: access.error }, { status: access.status })
+  }
+
   let body
   try {
     body = await request.json()

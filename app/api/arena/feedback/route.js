@@ -6,8 +6,14 @@ import { getSupabaseServerClient } from '@/lib/supabase/server'
 import { getSupabaseAdminClient } from '@/lib/supabase/admin'
 import { awardXP, awardBadge, createNotification } from '@/lib/supabase/award-xp'
 import { XP_REWARDS } from '@/lib/xp'
+import { requireFullAccess } from '@/lib/require-full-access'
 
 export async function POST(request) {
+  const access = await requireFullAccess()
+  if (!access.ok) {
+    return NextResponse.json({ error: access.error }, { status: access.status })
+  }
+
   let body
   try {
     body = await request.json()

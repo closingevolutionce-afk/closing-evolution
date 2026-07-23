@@ -13,6 +13,10 @@ const PROTECTED_PREFIXES = [
   '/replays',
 ]
 
+// Fermé aux comptes en accès "apercu" (acompte versé, solde en attente) —
+// ce sont les fonctionnalités qui coûtent en appels IA.
+const FULL_ACCESS_ONLY_PREFIXES = ['/arena', '/objections', '/defi']
+
 export async function middleware(request) {
   let response = NextResponse.next({ request })
 
@@ -53,6 +57,22 @@ export async function middleware(request) {
     url.pathname = '/login'
     url.searchParams.set('next', pathname)
     return NextResponse.redirect(url)
+  }
+
+  const needsFullAccess = FULL_ACCESS_ONLY_PREFIXES.some((prefix) => pathname.startsWith(prefix))
+  if (user && needsFullAccess) {
+    const { data: profile } = await supabase
+      .from('profiles')
+      .select('access_level')
+      .eq('id', user.id)
+      .single()
+
+    if (profile?.access_level === 'apercu') {
+      const url = request.nextUrl.clone()
+      url.pathname = '/parcours'
+      url.searchParams.set('limited', '1')
+      return NextResponse.redirect(url)
+    }
   }
 
   if (user && (pathname === '/login' || pathname === '/signup')) {

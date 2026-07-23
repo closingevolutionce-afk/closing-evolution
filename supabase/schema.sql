@@ -11,6 +11,11 @@ create table if not exists profiles (
   prenom text,
   role text not null default 'student' check (role in ('student', 'admin')),
 
+  -- 'apercu' : accès limité (ex. acompte versé, solde en attente) — seul le
+  -- niveau Fondations est débloqué et l'Arena/Objections/Défi restent fermés.
+  -- 'complet' : accès normal, débloqué au fur et à mesure des quiz.
+  access_level text not null default 'complet' check (access_level in ('apercu', 'complet')),
+
   -- onboarding (5 questions)
   onboarding_completed boolean not null default false,
   niveau_actuel text,
@@ -32,6 +37,11 @@ create table if not exists profiles (
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now()
 );
+
+-- Migration pour les bases déjà créées avant l'ajout de cette colonne.
+alter table profiles add column if not exists access_level text not null default 'complet';
+alter table profiles drop constraint if exists profiles_access_level_check;
+alter table profiles add constraint profiles_access_level_check check (access_level in ('apercu', 'complet'));
 
 create index if not exists profiles_role_idx on profiles (role);
 

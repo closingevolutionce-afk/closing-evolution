@@ -1,22 +1,19 @@
 import { NextResponse } from 'next/server'
-import { getSupabaseServerClient } from '@/lib/supabase/server'
 import { getSupabaseAdminClient } from '@/lib/supabase/admin'
 import { awardXP, awardBadge } from '@/lib/supabase/award-xp'
 import { XP_REWARDS } from '@/lib/xp'
+import { requireFullAccess } from '@/lib/require-full-access'
 
 function toDateStr(date) {
   return date.toISOString().slice(0, 10)
 }
 
 export async function POST(request) {
-  const supabase = await getSupabaseServerClient()
-  const {
-    data: { user },
-  } = await supabase.auth.getUser()
-
-  if (!user) {
-    return NextResponse.json({ error: 'Non connecté' }, { status: 401 })
+  const access = await requireFullAccess()
+  if (!access.ok) {
+    return NextResponse.json({ error: access.error }, { status: access.status })
   }
+  const { user } = access
 
   const { defiId } = await request.json()
   const admin = getSupabaseAdminClient()

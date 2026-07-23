@@ -2,14 +2,15 @@
 
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-import { ArrowLeft, ArrowRight, Check, Clock, Quote, Trophy } from 'lucide-react'
+import { ArrowLeft, ArrowRight, Check, Clock, Lock, Quote, Trophy } from 'lucide-react'
 import Container from '@/components/ui/Container'
 import Button from '@/components/ui/Button'
 import Quiz from '@/components/parcours/Quiz'
 import ModuleExtras from '@/components/parcours/ModuleExtras'
 import Flashcards from '@/components/parcours/Flashcards'
 import SituationDrill from '@/components/parcours/SituationDrill'
-import { moduleOrder, completeModule, useProgress } from '@/lib/progress'
+import { useAuth } from '@/components/auth/AuthProvider'
+import { moduleOrder, completeModule, isModuleUnlocked, useProgress } from '@/lib/progress'
 import { getLevelForModule, getModule } from '@/lib/knowledge'
 import { getFlashcards, getSituationsForModule } from '@/lib/interactive-content'
 
@@ -20,11 +21,14 @@ const NIVEAU_META = {
 }
 
 export default function ModuleContent({ id, module: m }) {
-  const { completed, refresh } = useProgress()
+  const { profile } = useAuth()
+  const { completed, ready, refresh } = useProgress()
   const niveau = NIVEAU_META[m.niveau]
   const level = getLevelForModule(id)
   const positionInLevel = level.modules.findIndex((mod) => mod.id === id) + 1
   const isDone = Boolean(completed[id])
+  const accessLevel = profile?.access_level ?? 'complet'
+  const unlocked = isModuleUnlocked(id, completed, accessLevel)
 
   const orderIndex = moduleOrder.indexOf(id)
   const nextId = moduleOrder[orderIndex + 1] ?? null
@@ -36,6 +40,38 @@ export default function ModuleContent({ id, module: m }) {
   async function handlePassed(perfect) {
     await completeModule(id, m.quiz.length, m.quiz.length, perfect)
     await refresh()
+  }
+
+  if (!ready) {
+    return <Container className="max-w-3xl text-center text-mist-muted">Chargement...</Container>
+  }
+
+  if (!unlocked) {
+    return (
+      <Container className="max-w-3xl">
+        <Link
+          href="/parcours"
+          className="mb-8 inline-flex items-center gap-2 text-sm font-medium text-mist-muted transition-colors hover:text-white"
+        >
+          <ArrowLeft size={16} />
+          Retour au parcours
+        </Link>
+        <div className="flex flex-col items-center gap-4 rounded-2xl border border-ink-border bg-ink-100/60 p-12 text-center">
+          <span className="flex h-14 w-14 items-center justify-center rounded-md bg-amber/15 text-amber ring-1 ring-amber/30">
+            <Lock size={24} />
+          </span>
+          <h1 className="font-display text-xl font-bold text-white">Module verrouillé</h1>
+          <p className="max-w-sm text-sm text-mist-muted">
+            {accessLevel === 'apercu'
+              ? "Ce module fait partie du programme complet — il se débloque une fois l'inscription finalisée. Contacte Chirine pour en discuter."
+              : 'Termine le module précédent pour débloquer celui-ci.'}
+          </p>
+          <Button href="/parcours" size="md">
+            Retour au parcours
+          </Button>
+        </div>
+      </Container>
+    )
   }
 
   return (

@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useState } from 'react'
 import { motion } from 'framer-motion'
-import { Send, Swords, Target, X } from 'lucide-react'
+import { Lock, Send, Swords, Target, Unlock, X } from 'lucide-react'
 import Button from '@/components/ui/Button'
 import { useAuth } from '@/components/auth/AuthProvider'
 import { getSupabaseBrowserClient } from '@/lib/supabase/client'
@@ -24,6 +24,7 @@ export default function CoachDashboard() {
   const [detail, setDetail] = useState(null)
   const [message, setMessage] = useState('')
   const [sending, setSending] = useState(false)
+  const [updatingAccess, setUpdatingAccess] = useState(false)
 
   useEffect(() => {
     async function load() {
@@ -86,6 +87,23 @@ export default function CoachDashboard() {
     setDetail({ modules: modules ?? [], roleplays: roleplays ?? [], weakestObjections })
   }
 
+  async function toggleAccess(student) {
+    const nextLevel = student.access_level === 'apercu' ? 'complet' : 'apercu'
+    setUpdatingAccess(true)
+    const res = await fetch('/api/coach/set-access', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ studentId: student.id, accessLevel: nextLevel }),
+    })
+    setUpdatingAccess(false)
+    if (!res.ok) return
+
+    setStudents((prev) =>
+      prev.map((s) => (s.id === student.id ? { ...s, access_level: nextLevel } : s))
+    )
+    setSelected((prev) => (prev && prev.id === student.id ? { ...prev, access_level: nextLevel } : prev))
+  }
+
   async function sendMessage() {
     if (!message.trim() || !selected || !user) return
     setSending(true)
@@ -123,6 +141,7 @@ export default function CoachDashboard() {
           <thead>
             <tr className="border-b border-ink-border bg-ink-100/60 text-xs uppercase tracking-wide text-mist-dim">
               <th className="px-5 py-3.5">Élève</th>
+              <th className="px-5 py-3.5">Accès</th>
               <th className="px-5 py-3.5">Module en cours</th>
               <th className="px-5 py-3.5">Progression</th>
               <th className="px-5 py-3.5">Dernière connexion</th>
@@ -139,6 +158,19 @@ export default function CoachDashboard() {
                 <td className="px-5 py-3.5">
                   <p className="font-semibold text-white">{s.prenom ?? '—'}</p>
                   <p className="text-xs text-mist-dim">{s.email}</p>
+                </td>
+                <td className="px-5 py-3.5">
+                  {s.access_level === 'apercu' ? (
+                    <span className="inline-flex items-center gap-1.5 rounded-md bg-amber/10 px-2.5 py-1 text-xs font-semibold text-amber">
+                      <Lock size={11} />
+                      Aperçu
+                    </span>
+                  ) : (
+                    <span className="inline-flex items-center gap-1.5 rounded-md bg-volt/10 px-2.5 py-1 text-xs font-semibold text-volt">
+                      <Unlock size={11} />
+                      Complet
+                    </span>
+                  )}
                 </td>
                 <td className="px-5 py-3.5 text-mist">{currentModuleLabel(s)}</td>
                 <td className="px-5 py-3.5">
@@ -160,7 +192,7 @@ export default function CoachDashboard() {
             ))}
             {students.length === 0 && (
               <tr>
-                <td colSpan={5} className="px-5 py-8 text-center text-mist-dim">
+                <td colSpan={6} className="px-5 py-8 text-center text-mist-dim">
                   Aucun élève inscrit pour le moment.
                 </td>
               </tr>
@@ -195,6 +227,37 @@ export default function CoachDashboard() {
               >
                 <X size={20} />
               </button>
+            </div>
+
+            <div className="mt-5 flex items-center justify-between rounded-lg border border-ink-border bg-ink-100/60 p-4">
+              <div>
+                <p className="text-sm font-semibold text-white">
+                  Accès {selected.access_level === 'apercu' ? 'aperçu' : 'complet'}
+                </p>
+                <p className="text-xs text-mist-dim">
+                  {selected.access_level === 'apercu'
+                    ? 'Seul le niveau Fondations est débloqué — Arena/Objections/Défi fermés.'
+                    : 'Accès normal à tout le programme.'}
+                </p>
+              </div>
+              <Button
+                onClick={() => toggleAccess(selected)}
+                variant="secondary"
+                size="md"
+                disabled={updatingAccess}
+              >
+                {selected.access_level === 'apercu' ? (
+                  <>
+                    <Unlock size={15} />
+                    Passer en complet
+                  </>
+                ) : (
+                  <>
+                    <Lock size={15} />
+                    Repasser en aperçu
+                  </>
+                )}
+              </Button>
             </div>
 
             {!detail ? (

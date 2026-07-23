@@ -22,12 +22,12 @@ export default function FinalCTA() {
             Ton prochain <span className="gradient-text">closing</span> commence ici
           </h2>
           <p className="relative mx-auto mt-5 max-w-lg text-base leading-relaxed text-mist-muted sm:text-lg">
-            Rejoins Closing Evolution et entre dans l’Arena dès aujourd’hui. Premier roleplay
-            offert, sans carte bancaire.
+            Réserve un appel de 15-20 minutes avec Chirine &amp; Emilien pour voir si Closing
+            Evolution est fait pour toi.
           </p>
 
           <div className="relative mt-9 flex flex-wrap items-center justify-center gap-4">
-            <Button href="#" size="lg">
+            <Button href="/candidater" size="lg">
               Candidater
               <ArrowRight size={18} />
             </Button>

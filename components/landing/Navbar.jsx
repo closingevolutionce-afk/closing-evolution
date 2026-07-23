@@ -175,7 +175,7 @@ export default function Navbar() {
               <Button href="/login" variant="ghost" size="md" className="hidden sm:inline-flex">
                 Connexion
               </Button>
-              <Button href="/signup" variant="primary" size="md">
+              <Button href="/candidater" variant="primary" size="md">
                 Candidater
               </Button>
             </div>

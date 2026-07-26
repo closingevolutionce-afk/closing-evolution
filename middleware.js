@@ -11,6 +11,7 @@ const PROTECTED_PREFIXES = [
   '/coach',
   '/onboarding',
   '/replays',
+  '/hooks',
 ]
 
 // Fermé aux comptes en accès "apercu" (acompte versé, solde en attente) —

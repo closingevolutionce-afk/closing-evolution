@@ -17,6 +17,7 @@ const links = [
   { href: '/mindset', label: 'Mindset', tone: 'volt' },
   { href: '/parcours', label: 'Parcours', tone: 'volt' },
   { href: '/defi', label: 'Défis', tone: 'amber' },
+  { href: '/hooks', label: 'Hooks', tone: 'volt' },
   { href: '/replays', label: 'Replays', tone: 'volt' },
 ]
 

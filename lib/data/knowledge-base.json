@@ -13,17 +13,40 @@
       {
         "id": "fondations",
         "nom": "Niveau 1 — Fondations",
-        "modules": ["M0", "M1", "M2", "M3"]
+        "modules": [
+          "M0",
+          "M1",
+          "M2",
+          "M3"
+        ]
       },
       {
         "id": "pratique",
         "nom": "Niveau 2 — Pratique Avancée",
-        "modules": ["M4", "M5", "M6", "M6BIS", "M7", "M8", "M9", "M10", "MS"]
+        "modules": [
+          "M4",
+          "M5",
+          "M6",
+          "M6BIS",
+          "M7",
+          "M8",
+          "M9",
+          "M10",
+          "MS"
+        ]
       },
       {
         "id": "elite",
         "nom": "Niveau 3 — Élite",
-        "modules": ["MAMB", "M11", "M12", "M13", "M14", "M15", "MELI"]
+        "modules": [
+          "MAMB",
+          "M11",
+          "M12",
+          "M13",
+          "M14",
+          "M15",
+          "MELI"
+        ]
       }
     ]
   },
@@ -49,17 +72,32 @@
         {
           "question": "Combien y a-t-il de croyances omnipotentes dans CE ?",
           "reponse": "6",
-          "options": ["3", "6", "8", "10"]
+          "options": [
+            "3",
+            "6",
+            "8",
+            "10"
+          ]
         },
         {
           "question": "La vente est un transfert de...",
           "reponse": "conviction",
-          "options": ["produit", "conviction", "technique", "script"]
+          "options": [
+            "produit",
+            "conviction",
+            "technique",
+            "script"
+          ]
         },
         {
           "question": "Quel est le premier pilier du mindset closer ?",
           "reponse": "Je suis légitime",
-          "options": ["Je connais mon script", "Je suis légitime", "Je veux vendre", "J'ai de l'expérience"]
+          "options": [
+            "Je connais mon script",
+            "Je suis légitime",
+            "Je veux vendre",
+            "J'ai de l'expérience"
+          ]
         }
       ]
     },
@@ -78,22 +116,41 @@
       "disc": {
         "D": {
           "nom": "Dominant",
-          "traits": ["direct", "décideur", "impatient", "résultats"],
+          "traits": [
+            "direct",
+            "décideur",
+            "impatient",
+            "résultats"
+          ],
           "approche": "Aller direct, pas de blabla, parler ROI et résultats"
         },
         "I": {
           "nom": "Influent",
-          "traits": ["émotionnel", "sociable", "enthousiaste", "relationnel"],
+          "traits": [
+            "émotionnel",
+            "sociable",
+            "enthousiaste",
+            "relationnel"
+          ],
           "approche": "Créer la connexion, parler vision et transformation"
         },
         "S": {
           "nom": "Stable",
-          "traits": ["lent à décider", "loyal", "besoin de sécurité"],
+          "traits": [
+            "lent à décider",
+            "loyal",
+            "besoin de sécurité"
+          ],
           "approche": "Rassurer, prendre le temps, ne pas forcer"
         },
         "C": {
           "nom": "Consciencieux",
-          "traits": ["analytique", "logique", "besoin de données", "skeptique"],
+          "traits": [
+            "analytique",
+            "logique",
+            "besoin de données",
+            "skeptique"
+          ],
           "approche": "Faits, chiffres, logique — pas d'émotionnel forcé"
         }
       },
@@ -101,12 +158,22 @@
         {
           "question": "Quel profil DISC est le plus analytique et a besoin de données ?",
           "reponse": "C",
-          "options": ["D", "I", "S", "C"]
+          "options": [
+            "D",
+            "I",
+            "S",
+            "C"
+          ]
         },
         {
           "question": "Avec un profil D, quelle est la meilleure approche ?",
           "reponse": "Aller direct, parler ROI",
-          "options": ["Créer la connexion", "Aller direct, parler ROI", "Prendre le temps", "Donner des garanties"]
+          "options": [
+            "Créer la connexion",
+            "Aller direct, parler ROI",
+            "Prendre le temps",
+            "Donner des garanties"
+          ]
         }
       ]
     },
@@ -126,12 +193,22 @@
         {
           "question": "Combien y a-t-il de biais cognitifs principaux enseignés dans CE ?",
           "reponse": "6",
-          "options": ["3", "6", "9", "12"]
+          "options": [
+            "3",
+            "6",
+            "9",
+            "12"
+          ]
         },
         {
           "question": "Le prospect achète avec...",
           "reponse": "les émotions et justifie avec la logique",
-          "options": ["la logique uniquement", "les émotions et justifie avec la logique", "le prix", "les recommandations"]
+          "options": [
+            "la logique uniquement",
+            "les émotions et justifie avec la logique",
+            "le prix",
+            "les recommandations"
+          ]
         }
       ]
     },
@@ -151,12 +228,22 @@
         {
           "question": "Combien y a-t-il de critères pour évaluer une bonne offre dans CE ?",
           "reponse": "5",
-          "options": ["3", "5", "7", "10"]
+          "options": [
+            "3",
+            "5",
+            "7",
+            "10"
+          ]
         },
         {
           "question": "Quel est le ticket minimum recommandé pour le closing high ticket ?",
           "reponse": "1500€+",
-          "options": ["500€+", "1000€+", "1500€+", "3000€+"]
+          "options": [
+            "500€+",
+            "1000€+",
+            "1500€+",
+            "3000€+"
+          ]
         }
       ]
     },
@@ -181,7 +268,12 @@
         {
           "question": "Combien de temps compte le cadrage d'ouverture dans CE ?",
           "reponse": "3",
-          "options": ["2", "3", "4", "5"]
+          "options": [
+            "2",
+            "3",
+            "4",
+            "5"
+          ]
         },
         {
           "question": "Quelle est la question d'ouverture recommandée dans CE ?",
@@ -269,17 +361,32 @@
         {
           "question": "Quel pourcentage de la vente représente la discovery selon CE ?",
           "reponse": "70%",
-          "options": ["30%", "50%", "70%", "90%"]
+          "options": [
+            "30%",
+            "50%",
+            "70%",
+            "90%"
+          ]
         },
         {
           "question": "Combien y a-t-il de familles d'ancrage émotionnel dans CE ?",
           "reponse": "7",
-          "options": ["3", "5", "7", "9"]
+          "options": [
+            "3",
+            "5",
+            "7",
+            "9"
+          ]
         },
         {
           "question": "Dans la chaîne des maillons, qu'est-ce qu'on cherche ?",
           "reponse": "Le maillon le plus faible",
-          "options": ["Le premier problème", "Le problème financier", "Le maillon le plus faible", "La solution idéale"]
+          "options": [
+            "Le premier problème",
+            "Le problème financier",
+            "Le maillon le plus faible",
+            "La solution idéale"
+          ]
         }
       ]
     },
@@ -295,7 +402,8 @@
         "Coup de boule bienveillant : confronter avec bienveillance quand le prospect bullshitte",
         "Posture stoïque : phrases courtes, une question à la fois, silence",
         "Prospect non qualifié : savoir dire non et archiver",
-        "Règles d'or des objections"
+        "Règles d'or des objections",
+        "Après l'annonce du prix : ne jamais rester silencieux — enchaîner directement sur les prochaines étapes pour garder le contrôle"
       ],
       "objections_principales": {
         "je vais reflechir": {
@@ -328,12 +436,22 @@
         {
           "question": "Combien y a-t-il de vraies objections selon CE ?",
           "reponse": "2",
-          "options": ["1", "2", "3", "5"]
+          "options": [
+            "1",
+            "2",
+            "3",
+            "5"
+          ]
         },
         {
           "question": "Quelles sont les 2 vraies objections ?",
           "reponse": "Argent et Peur",
-          "options": ["Prix et Timing", "Argent et Peur", "Conjoint et Réflexion", "Confiance et Budget"]
+          "options": [
+            "Prix et Timing",
+            "Argent et Peur",
+            "Conjoint et Réflexion",
+            "Confiance et Budget"
+          ]
         },
         {
           "question": "Qu'est-ce que la posture stoïque implique ?",
@@ -425,12 +543,22 @@
         {
           "question": "Quelle intonation utilise-t-on en phase de discovery ?",
           "reponse": "Curieuse",
-          "options": ["Sceptique", "Curieuse", "Autorité", "Neutre"]
+          "options": [
+            "Sceptique",
+            "Curieuse",
+            "Autorité",
+            "Neutre"
+          ]
         },
         {
           "question": "Combien y a-t-il de types de silences dans CE ?",
           "reponse": "3",
-          "options": ["1", "2", "3", "4"]
+          "options": [
+            "1",
+            "2",
+            "3",
+            "4"
+          ]
         }
       ]
     },
@@ -458,12 +586,22 @@
         {
           "question": "Combien y a-t-il de passes dans le débrief CE ?",
           "reponse": "5",
-          "options": ["3", "5", "7", "10"]
+          "options": [
+            "3",
+            "5",
+            "7",
+            "10"
+          ]
         },
         {
           "question": "Quel est le levier de progression numéro 1 selon CE ?",
           "reponse": "Analyser ses appels",
-          "options": ["Faire plus de roleplays", "Lire des livres", "Analyser ses appels", "Avoir plus de leads"]
+          "options": [
+            "Faire plus de roleplays",
+            "Lire des livres",
+            "Analyser ses appels",
+            "Avoir plus de leads"
+          ]
         }
       ]
     },
@@ -483,12 +621,22 @@
         {
           "question": "Combien y a-t-il de métriques clés dans CE ?",
           "reponse": "4",
-          "options": ["2", "4", "6", "8"]
+          "options": [
+            "2",
+            "4",
+            "6",
+            "8"
+          ]
         },
         {
           "question": "Combien de colonnes a le CRM recommandé dans CE ?",
           "reponse": "5",
-          "options": ["3", "4", "5", "6"]
+          "options": [
+            "3",
+            "4",
+            "5",
+            "6"
+          ]
         }
       ]
     },
@@ -515,12 +663,22 @@
         {
           "question": "Combien de leviers du showup y a-t-il dans CE ?",
           "reponse": "3",
-          "options": ["2", "3", "4", "5"]
+          "options": [
+            "2",
+            "3",
+            "4",
+            "5"
+          ]
         },
         {
           "question": "Combien de temps dure le protocole pre-call ?",
           "reponse": "15 minutes",
-          "options": ["5 minutes", "10 minutes", "15 minutes", "30 minutes"]
+          "options": [
+            "5 minutes",
+            "10 minutes",
+            "15 minutes",
+            "30 minutes"
+          ]
         }
       ]
     },
@@ -547,12 +705,22 @@
         {
           "question": "Combien y a-t-il de CS obligatoires avant de booker ?",
           "reponse": "3",
-          "options": ["2", "3", "4", "5"]
+          "options": [
+            "2",
+            "3",
+            "4",
+            "5"
+          ]
         },
         {
           "question": "Quel est l'objectif de messages par session de 2h ?",
           "reponse": "100+",
-          "options": ["20+", "50+", "100+", "200+"]
+          "options": [
+            "20+",
+            "50+",
+            "100+",
+            "200+"
+          ]
         }
       ]
     },
@@ -622,7 +790,12 @@
         {
           "question": "Quand faut-il fixer le R2 selon CE ?",
           "reponse": "Pendant l'appel",
-          "options": ["Le lendemain", "Par message", "Pendant l'appel", "Jamais"]
+          "options": [
+            "Le lendemain",
+            "Par message",
+            "Pendant l'appel",
+            "Jamais"
+          ]
         }
       ]
     },
@@ -661,12 +834,22 @@
         {
           "question": "Combien y a-t-il de stades de liberté financière dans CE ?",
           "reponse": "3",
-          "options": ["2", "3", "4", "5"]
+          "options": [
+            "2",
+            "3",
+            "4",
+            "5"
+          ]
         },
         {
           "question": "Quel est le premier investissement recommandé selon CE ?",
           "reponse": "Soi-même (mentoring et compétences)",
-          "options": ["Immobilier", "Bourse", "Soi-même (mentoring et compétences)", "Private equity"]
+          "options": [
+            "Immobilier",
+            "Bourse",
+            "Soi-même (mentoring et compétences)",
+            "Private equity"
+          ]
         }
       ]
     },
@@ -677,19 +860,31 @@
       "objectif": "Identifier le profil et adapter sa discovery en temps réel",
       "profils": {
         "emotionnel": {
-          "signaux": ["Parle de ses feelings spontanément", "Utilise : je ressens / j'ai envie / je veux", "S'ouvre facilement si la connexion est là"],
+          "signaux": [
+            "Parle de ses feelings spontanément",
+            "Utilise : je ressens / j'ai envie / je veux",
+            "S'ouvre facilement si la connexion est là"
+          ],
           "levier": "Sa douleur et sa vision",
           "approche": "Discovery profonde avec les 7 familles d'ancrages / Future Pace fort",
           "conclusion": "'Qu'est-ce qui t'empêche de décider maintenant ?'"
         },
         "analytique": {
-          "signaux": ["Parle peu, répond précisément", "Utilise : concrètement / c'est-à-dire / combien", "Méfiant face à l'émotionnel"],
+          "signaux": [
+            "Parle peu, répond précisément",
+            "Utilise : concrètement / c'est-à-dire / combien",
+            "Méfiant face à l'émotionnel"
+          ],
           "levier": "Les faits, les chiffres, les incohérences logiques",
           "approche": "Confronter les incohérences / pas d'émotionnel forcé / chiffres et ROI",
           "conclusion": "'Est-ce que tu vois une raison valable de ne pas avancer ?'"
         },
         "resistant": {
-          "signaux": ["Parle très peu", "Garde la frame", "Minimise ses émotions"],
+          "signaux": [
+            "Parle très peu",
+            "Garde la frame",
+            "Minimise ses émotions"
+          ],
           "levier": "Technique du mijoter : lui renvoyer sa propre data",
           "approche": "Une question + silence / double validation systématique",
           "script_mijoter": "OK. Donc tu bosses 50h par semaine, tu génères X€/mois, et ça fait 2 ans que tu veux changer ça. Pourquoi pas rester comme ça ?"
@@ -698,12 +893,26 @@
       "toward_away": {
         "toward": {
           "definition": "Motivé par ce qu'il veut atteindre",
-          "verbes": ["atteindre", "obtenir", "construire", "développer", "avoir", "gagner"],
+          "verbes": [
+            "atteindre",
+            "obtenir",
+            "construire",
+            "développer",
+            "avoir",
+            "gagner"
+          ],
           "approche": "Pitcher sur la vision, le futur, ce qu'il va AVOIR"
         },
         "away": {
           "definition": "Motivé par ce dont il veut s'éloigner",
-          "verbes": ["quitter", "fuir", "échapper", "partir", "arrêter", "éviter"],
+          "verbes": [
+            "quitter",
+            "fuir",
+            "échapper",
+            "partir",
+            "arrêter",
+            "éviter"
+          ],
           "approche": "Pitcher sur le coût de rester, ce qu'il va FUIR"
         }
       },
@@ -711,12 +920,22 @@
         {
           "question": "Avec un profil analytique, quel est le principal levier ?",
           "reponse": "Les faits et les incohérences logiques",
-          "options": ["L'émotionnel profond", "Les faits et les incohérences logiques", "La vision future", "Les témoignages"]
+          "options": [
+            "L'émotionnel profond",
+            "Les faits et les incohérences logiques",
+            "La vision future",
+            "Les témoignages"
+          ]
         },
         {
           "question": "Quel profil utilise des verbes comme 'atteindre', 'obtenir', 'construire' ?",
           "reponse": "Toward",
-          "options": ["Away", "Toward", "Analytique", "Résistant"]
+          "options": [
+            "Away",
+            "Toward",
+            "Analytique",
+            "Résistant"
+          ]
         }
       ]
     },
@@ -738,12 +957,22 @@
         {
           "question": "Combien y a-t-il de responsabilités du Head of Sales dans CE ?",
           "reponse": "4",
-          "options": ["2", "3", "4", "5"]
+          "options": [
+            "2",
+            "3",
+            "4",
+            "5"
+          ]
         },
         {
           "question": "Combien d'étapes compte l'onboarding d'un closer dans CE ?",
           "reponse": "4",
-          "options": ["2", "3", "4", "5"]
+          "options": [
+            "2",
+            "3",
+            "4",
+            "5"
+          ]
         }
       ]
     },
@@ -763,12 +992,22 @@
         {
           "question": "Combien y a-t-il de niveaux de positionnement dans CE ?",
           "reponse": "3",
-          "options": ["2", "3", "4", "5"]
+          "options": [
+            "2",
+            "3",
+            "4",
+            "5"
+          ]
         },
         {
           "question": "Combien y a-t-il de directions possibles après le closing selon CE ?",
           "reponse": "4",
-          "options": ["2", "3", "4", "5"]
+          "options": [
+            "2",
+            "3",
+            "4",
+            "5"
+          ]
         }
       ]
     },
@@ -782,10 +1021,22 @@
           "nom": "SPIN Selling",
           "source": "Neil Rackham",
           "types": {
-            "S": { "nom": "Situation", "usage": "Établir le contexte — minimum nécessaire" },
-            "P": { "nom": "Problème", "usage": "Faire émerger et verbaliser le problème" },
-            "I": { "nom": "Implication", "usage": "Amplifier les conséquences — niveaux 2 et 3" },
-            "N": { "nom": "Payoff", "usage": "Faire émerger la valeur par le prospect lui-même" }
+            "S": {
+              "nom": "Situation",
+              "usage": "Établir le contexte — minimum nécessaire"
+            },
+            "P": {
+              "nom": "Problème",
+              "usage": "Faire émerger et verbaliser le problème"
+            },
+            "I": {
+              "nom": "Implication",
+              "usage": "Amplifier les conséquences — niveaux 2 et 3"
+            },
+            "N": {
+              "nom": "Payoff",
+              "usage": "Faire émerger la valeur par le prospect lui-même"
+            }
           },
           "regle": "Navigation non-linéaire entre les 4 types selon ce que donne le prospect"
         },
@@ -832,10 +1083,18 @@
         "aide_moi_comprendre": {
           "definition": "Phrase déclencheur d'information",
           "usage": "5 à 10 fois par appel, fonctionne avec tous les profils",
-          "effets": ["Place le prospect en position d'expliquer", "Le met en sécurité", "Génère beaucoup plus d'info qu'une question fermée"]
+          "effets": [
+            "Place le prospect en position d'expliquer",
+            "Le met en sécurité",
+            "Génère beaucoup plus d'info qu'une question fermée"
+          ]
         },
         "quantifieurs_universels": {
-          "formules": ["Tout le monde sait que...", "Personne ne peut nier que...", "À chaque fois que..."],
+          "formules": [
+            "Tout le monde sait que...",
+            "Personne ne peut nier que...",
+            "À chaque fois que..."
+          ],
           "usage": "Installer une croyance sans débat — alterner avec les frames identitaires"
         },
         "presuppositions": {
@@ -848,7 +1107,12 @@
         {
           "question": "Quel pourcentage des ventes perdues est dû à l'indécision selon le Jolt Effect ?",
           "reponse": "60%",
-          "options": ["30%", "40%", "60%", "80%"]
+          "options": [
+            "30%",
+            "40%",
+            "60%",
+            "80%"
+          ]
         },
         {
           "question": "Quelle est la formule de confiance de David Maister ?",
@@ -863,7 +1127,12 @@
         {
           "question": "Combien de fois utiliser 'Aide-moi à comprendre' par appel ?",
           "reponse": "5 à 10 fois",
-          "options": ["1 à 2 fois", "3 à 4 fois", "5 à 10 fois", "Une seule fois"]
+          "options": [
+            "1 à 2 fois",
+            "3 à 4 fois",
+            "5 à 10 fois",
+            "Une seule fois"
+          ]
         }
       ]
     }
@@ -872,7 +1141,11 @@
     "emotionnel": {
       "nom": "Le Prospect Émotionnel",
       "description": "S'ouvre facilement, parle de ses ressentis, cherche la transformation",
-      "signaux": ["Utilise 'je ressens', 'j'ai envie'", "Parle de sa vie personnelle", "S'emballe facilement"],
+      "signaux": [
+        "Utilise 'je ressens', 'j'ai envie'",
+        "Parle de sa vie personnelle",
+        "S'emballe facilement"
+      ],
       "approche_closing": "Discovery émotionnelle profonde, ancrage sur les 7 familles, Future Pace fort",
       "objection_typique": "Je vais en parler à mon conjoint",
       "levier_close": "Sa vision de la vie qu'il veut"
@@ -880,7 +1153,11 @@
     "analytique": {
       "nom": "Le Prospect Analytique",
       "description": "Veut des faits, des chiffres, de la logique — se méfie de l'émotionnel",
-      "signaux": ["Pose des questions précises", "Demande des garanties et des données", "Répond court et factuel"],
+      "signaux": [
+        "Pose des questions précises",
+        "Demande des garanties et des données",
+        "Répond court et factuel"
+      ],
       "approche_closing": "Faits, ROI, incohérences logiques — pas d'émotionnel forcé",
       "objection_typique": "Je veux comparer avec d'autres options",
       "levier_close": "La logique de l'investissement et le coût de l'inaction"
@@ -888,7 +1165,11 @@
     "resistant": {
       "nom": "Le Prospect Résistant",
       "description": "Parle peu, garde la frame, donne le minimum",
-      "signaux": ["Réponses très courtes", "Questionne vos questions", "Pas d'enthousiasme apparent"],
+      "signaux": [
+        "Réponses très courtes",
+        "Questionne vos questions",
+        "Pas d'enthousiasme apparent"
+      ],
       "approche_closing": "Technique du mijoter — lui renvoyer sa propre data, une question + silence",
       "objection_typique": "Je vais réfléchir",
       "levier_close": "L'incohérence entre ce qu'il veut et ce qu'il fait"
@@ -896,7 +1177,11 @@
     "boss_final": {
       "nom": "Le Boss Final",
       "description": "Combine analytique + résistant + objections multiples",
-      "signaux": ["Sort plusieurs objections", "Challenge votre légitimité", "Demande des preuves puis en doute"],
+      "signaux": [
+        "Sort plusieurs objections",
+        "Challenge votre légitimité",
+        "Demande des preuves puis en doute"
+      ],
       "approche_closing": "Framework Split + Jolt Effect + Formule de confiance — toutes les techniques",
       "objection_typique": "Multiple — argent ET conjoint ET comparaison",
       "levier_close": "Fermer chaque porte logique une par une jusqu'à ce qu'il n'y ait plus d'issue"

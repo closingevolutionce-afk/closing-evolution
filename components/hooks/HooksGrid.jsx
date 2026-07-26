@@ -8,7 +8,12 @@ import { hooks } from '@/lib/hooks-content'
 const COVER_GRADIENTS = [
   'bg-gradient-to-br from-volt via-volt-deep to-ink',
   'bg-gradient-to-br from-coral via-coral-deep to-ink',
+  'bg-gradient-to-tr from-amber via-coral-deep to-ink',
+  'bg-gradient-to-br from-volt via-amber to-ink',
+  'bg-gradient-to-tr from-coral via-amber to-ink',
   'bg-gradient-to-br from-amber via-volt-deep to-ink',
+  'bg-gradient-to-tr from-volt-deep via-coral to-ink',
+  'bg-gradient-to-br from-coral-deep via-volt to-ink',
 ]
 
 function HookCover({ hook, index, onOpen }) {

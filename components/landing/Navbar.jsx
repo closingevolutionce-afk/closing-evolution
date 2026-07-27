@@ -18,6 +18,7 @@ const links = [
   { href: '/parcours', label: 'Parcours', tone: 'volt' },
   { href: '/defi', label: 'Défis', tone: 'amber' },
   { href: '/hooks', label: 'Hooks', tone: 'volt' },
+  { href: '/demarrage', label: 'Démarrage', tone: 'coral' },
   { href: '/replays', label: 'Replays', tone: 'volt' },
 ]
 

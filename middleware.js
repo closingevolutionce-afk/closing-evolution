@@ -12,6 +12,7 @@ const PROTECTED_PREFIXES = [
   '/onboarding',
   '/replays',
   '/hooks',
+  '/demarrage',
 ]
 
 // Fermé aux comptes en accès "apercu" (acompte versé, solde en attente) —

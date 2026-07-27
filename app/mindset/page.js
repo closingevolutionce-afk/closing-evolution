@@ -6,6 +6,7 @@ import SectionHeading from '@/components/ui/SectionHeading'
 import GlowCard from '@/components/ui/GlowCard'
 import Button from '@/components/ui/Button'
 import MessageOfDay from '@/components/mindset/MessageOfDay'
+import MindsetTexts from '@/components/mindset/MindsetTexts'
 import { getModule } from '@/lib/knowledge'
 import { coreBeliefs, weeklyPillars } from '@/lib/mindset-content'
 
@@ -78,6 +79,18 @@ export default function MindsetPage() {
                 <p className="mt-3 text-sm italic leading-relaxed text-mist">« {banger} »</p>
               </div>
             ))}
+          </div>
+        </Container>
+
+        <Container className="relative mt-24 max-w-2xl">
+          <SectionHeading
+            eyebrow="Textes"
+            title="À lire avant ton prochain call"
+            description="Des réflexions pour ancrer le mindset, à relire dès qu'un doute s'installe."
+          />
+
+          <div className="mt-14">
+            <MindsetTexts />
           </div>
         </Container>
 
